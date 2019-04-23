@@ -1,4 +1,4 @@
-package com.javamentor.Task1;
+package com.javamentor.Task01;
 
 public class Main {
 

@@ -12,7 +12,7 @@
  * У объекта класса human должен быть вызван метод sayHello()
  */
 
-package com.javamentor.Task12;
+package com.javamentor.Task012;
 
 public class Main {
     public static void main (String[] args) {

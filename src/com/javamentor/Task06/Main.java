@@ -1,4 +1,4 @@
-package com.javamentor.Task6;
+package com.javamentor.Task06;
 
 public class Main {
     public static void main(String[] args) {

@@ -10,7 +10,7 @@
  * Метод должен возвращать число типа long
  * Метод не должен ничего выводить в консоль
  */
-package com.javamentor.Task7;
+package com.javamentor.Task07;
 
 public class Main {
 

@@ -12,7 +12,7 @@
  * Методы не должны ничего выводить в консоль
  */
 
-package com.javamentor.Task9;
+package com.javamentor.Task09;
 
 public class Main {
     public static void main (String[] args) {

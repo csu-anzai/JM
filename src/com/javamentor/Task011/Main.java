@@ -9,7 +9,7 @@
  * Метод должен выводить каждое число с новой строки
  */
 
-package com.javamentor.Task11;
+package com.javamentor.Task011;
 
 public class Main {
     public static void main (String[] args) {
