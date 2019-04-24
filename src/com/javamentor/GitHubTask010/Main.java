@@ -10,7 +10,7 @@
  * Метод должен возвращать массив целых чисел
  */
 
-package com.javamentor.Task010;
+package com.javamentor.GitHubTask010;
 
 public class Main {
     public static void main(String[] args) {

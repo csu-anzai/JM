@@ -1,4 +1,4 @@
-package com.javamentor.Task02;
+package com.javamentor.GitHubTask02;
 
 public class Main {
     public static void main(String[] args) {

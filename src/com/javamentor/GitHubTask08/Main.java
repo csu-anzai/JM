@@ -6,7 +6,7 @@
  * (Где вместо {username} имя пользователя) и завершаться.
  * Для принятия ответа от пользователя воспользуйтесь классом Scanner из стандартной библиотеки.
  */
-package com.javamentor.Task08;
+package com.javamentor.GitHubTask08;
 
 import java.util.Scanner;
 
