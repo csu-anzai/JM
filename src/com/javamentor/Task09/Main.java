@@ -15,32 +15,38 @@
 package com.javamentor.Task09;
 
 public class Main {
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         getMinFromFour(1, 2, 3, 4);
-        getMinFromSix(1, 2, 3, 4, 5, 6);
+        //getMinFromSix(1, 2, 3, 4, 5, 6);
 
     }
 
     static int getMinFromTwo(int x, int y) {
-        return Math.min(x, y);
+        if (x < y) {
+            return x;
+        } else {
+            return y;
+        }
+
+
     }
 
     static int getMinFromFour(int x, int y, int m, int n) {
-        int a = getMinFromTwo(x,y);
+        int a = getMinFromTwo(x, y);
         int b = getMinFromTwo(a, m);
         int c = getMinFromTwo(b, n);
-            return c;
-    }
-
-    static int getMinFromThree(int x, int y, int m) {
-        int a = getMinFromTwo(x, y);
-        return Math.min(a,m);
-    }
-
-    static int getMinFromSix(int x, int y, int m, int n, int u, int p) {
-        int a = getMinFromThree(x, y, m);
-        int b = getMinFromThree(a, m, n);
-        int c = getMinFromThree(b, u, p);
         return c;
     }
+
+//    static int getMinFromThree(int x, int y, int m) {
+//        int a = getMinFromTwo(x, y);
+//        return Math.min(a,m);
+//    }
+
+//    static int getMinFromSix(int x, int y, int m, int n, int u, int p) {
+//        int a = getMinFromThree(x, y, m);
+//        int b = getMinFromThree(a, m, n);
+//        int c = getMinFromThree(b, u, p);
+//        return c;
+//    }
 }

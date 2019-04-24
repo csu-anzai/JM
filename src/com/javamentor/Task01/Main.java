@@ -6,7 +6,7 @@ public class Main {
 
         boolean var1 = true;
         byte var2 = 11;
-        char var3 = 'd';
+        char var3 = 'd'; // 0
         double var4 = 4.5;
         float var5 = 4.4f;
         int var6 = 4;

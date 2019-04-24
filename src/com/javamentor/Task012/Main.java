@@ -21,13 +21,4 @@ public class Main {
         human.age = 30;
         human.sayHello();
     }
-
-    public static class Human {     //не до конца понял почему класс IDEA посоветовала сделать static
-        private String name;        //знаю что private не требовалось
-        private int age;            //аналогично
-
-        void sayHello() {
-            System.out.println("Привет, меня зовут" + " " + name + "," + " " + "мне" + " " + age + " " + "лет.");
-        }
-    }
 }

@@ -5,7 +5,7 @@ public class Main {
     }
     static void printJavaWord(int count) {
         int j = 0;
-        while (j <= count) {
+        while (j < count) {
             System.out.println("Java");
             j++;
         }

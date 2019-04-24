@@ -19,7 +19,7 @@ public class Main {
     static long determineRainfall(double area, double rainfallAmount) {
         area = area*1000000;                        //из км2 в м2
         double litres = 2*(area*rainfallAmount);    //умножаем на 2 т.к. литры за сутки а не за 12ч
-        return (long)litres;
+        return (long)litres; //явное преобразование
     }
 
 }
