@@ -1,4 +1,4 @@
-package com.javamentor.Stepik_02_1_5;
+package com.javamentor.Stepik_02_01_05;
 
 import java.util.ArrayList;
 

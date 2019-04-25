@@ -4,9 +4,7 @@
  * Можно использовать класс Math и его методы. Класс Math доступен всегда, импортировать его не надо.
  * В качестве примера написано заведомо неправильное выражение. Исправьте его.
  */
-package com.javamentor.Stepik_02_1_11;
-
-import java.math.BigDecimal;
+package com.javamentor.Stepik_02_01_11;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.javamentor.Stepik_01_3_3;
+package com.javamentor.Stepik_01_03_03;
 
 import java.security.MessageDigest;
 
