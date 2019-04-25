@@ -1,4 +1,4 @@
-package com.javamentor.GitHubTask_012;
+package com.javamentor.GitHubTask_12;
 
 public class Human {
      String name;        //знаю что private не требовалось
