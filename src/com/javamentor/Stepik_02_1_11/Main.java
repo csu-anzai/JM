@@ -28,7 +28,7 @@ public class Main {
         if (D == C) {
             return true;
         } else {
-            return false; 
+            return false;
         }
     }
 }
