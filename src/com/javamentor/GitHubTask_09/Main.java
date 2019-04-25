@@ -12,7 +12,7 @@
  * Методы не должны ничего выводить в консоль
  */
 
-package com.javamentor.GitHubTask09;
+package com.javamentor.GitHubTask_09;
 
 public class Main {
     public static void main(String[] args) {

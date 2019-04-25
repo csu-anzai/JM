@@ -1,4 +1,4 @@
-package com.javamentor.GitHubTask01;
+package com.javamentor.GitHubTask_01;
 
 public class Main {
 
