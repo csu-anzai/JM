@@ -12,7 +12,7 @@
  * Их можно выписать на бумажку, посчитать для них правильные ответы и сравнить с тем, что выдает ваше решение.
  * Попробуйте самостоятельно проделать это, найти ошибку и исправить решение.
  */
-package com.javamentor.Stepik0211;
+package com.javamentor.Stepik_02_1_5;
 
 public class Main {
     public static void main(String[] args) {
