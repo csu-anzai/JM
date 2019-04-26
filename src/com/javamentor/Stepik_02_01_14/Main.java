@@ -12,33 +12,43 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(flipBit(200, 3));
+        System.out.println(flipBit(0, 1));
     }
 
     public static int flipBit(int value, int bitIndex) {
-        String s = Integer.toBinaryString(value);   //получили строку (1 и 0) из int
-        System.out.println("1) " + s);
+
+        //String j = Integer.toBinaryString(value);   //получили строку (1 и 0) из int
+        String s = String.format("%32s", Integer.toBinaryString(value)).replace(' ', '0');
+        System.out.println("1)строка из числа: " + s);
+
         char[] arr = s.toCharArray();
-        System.out.println("2) " + arr);
+        System.out.println("2)массив символов: " + arr);
+
         char g = arr[bitIndex];   //в символ кладем символ под индексом bitIndex
-        System.out.println("3) " + g);
+        System.out.println("3)символ под индексом bitIndex: " + g);
+
         int m = Character.getNumericValue(g);    //переводим этот символ в int и инвертируем
-        System.out.println("4) " + m);
+        System.out.println("4)int: " + m);
 
         if (m == 0) {
             m = 1;
         } else {
             m = 0;
         }
-        System.out.println("5) " + m);
+        System.out.println("5)после инвертирования: " + m);
+
         char i = (char)('0' + m);   //переводим int в символ
-        System.out.println("6) " + i);
+        System.out.println("6)символ: " + i);
+
         arr[bitIndex] = i;  //этот символ кладем в массив символов под индексом bitIndex
-        System.out.println("7) " + arr[bitIndex]);
-        String tt = new String(arr);    //переводим в строку
-        System.out.println("8) " + tt);
+        System.out.println("7)индекс bitIndex в массиве: " + arr[bitIndex]);
+
+        String tt = new String(arr);    //переводим массив char в строку
+        System.out.println("8)строка из массива: " + tt);
+
         int t = Integer.parseInt(tt);   //переводим в Int
-        System.out.println("9) " + t);
+        System.out.println("9)число: " + t);
+
         return t;   //возвращием Int
     }
 }
