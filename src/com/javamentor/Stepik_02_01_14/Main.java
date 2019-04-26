@@ -13,8 +13,7 @@ public class Main {
     }
 
     public static int flipBit(int value, int bitIndex) {
-
-
-        return bitIndex >> value; // put your implementation here
+        value = ~bitIndex;
+        return value;
     }
 }
