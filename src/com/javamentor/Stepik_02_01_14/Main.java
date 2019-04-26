@@ -18,7 +18,7 @@ public class Main {
     public static int flipBit(int value, int bitIndex) {
 
         //String j = Integer.toBinaryString(value);   //получили строку (1 и 0) из int
-        String s = String.format("%32s", Integer.toBinaryString(value)).replace(' ', '0');
+        String s = String.format("%32s", Integer.toBinaryString(value)).replace(' ', '0'); //чтобы не отбрасывать нули
         System.out.println("1)строка из числа: " + s);
 
         char[] arr = s.toCharArray();
