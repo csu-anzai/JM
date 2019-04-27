@@ -40,6 +40,6 @@ public class Main {
 
         int t = Integer.parseInt(tt, 2);   //переводим из двоичного в десятичное
 
-        return t;   //возвращием Int
+        return t;   //возвращием Int 
     }
 }
