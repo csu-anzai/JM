@@ -12,19 +12,18 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(flipBit(13,2));
+        System.out.println(flipBit(1,0));
     }
 
     public static int flipBit(int value, int bitIndex) {
 
-        String s = Integer.toBinaryString(value);   //получили строку (1 и 0) из int
+        String s = String.format("%32s", Integer.toBinaryString(value)).replace(' ', '0'); //чтобы не отбрасывать нули
         System.out.println(s);
 
-//        String s = String.format("%32s", Integer.toBinaryString(value)).replace(' ', '0'); //чтобы не отбрасывать нули
+        char[] arr = s.toCharArray();   //создаем массив и инициализируем символами
 
-        char[] arr = s.toCharArray();
-
-        int m = Character.getNumericValue(arr[bitIndex]);    //переводим этот символ в int и инвертируем
+        int m = Character.getNumericValue(arr[32-bitIndex]);    //переводим этот символ в int и инвертируем
+        System.out.println(m);
 
         if (m == 0) {
             m = 1;
@@ -32,14 +31,16 @@ public class Main {
             m = 0;
         }
 
-        char i = (char)('0' + m);   //переводим int в символ
+        char i = (char)('0' + m);   //КОСТЫЛЬ. переводим int в char
+        System.out.println(i);
 
-        arr[bitIndex] = i;  //этот символ кладем в массив символов под индексом bitIndex
+        arr[32-bitIndex] = i;  //этот символ кладем в массив символов под индексом bitIndex
 
         String tt = new String(arr);    //переводим массив char в строку
+        System.out.println(tt);
 
         int t = Integer.parseInt(tt, 2);   //переводим из двоичного в десятичное
 
-        return t;   //возвращием Int 
+        return t;   //возвращием Int
     }
 }
