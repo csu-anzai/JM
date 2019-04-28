@@ -3,7 +3,7 @@
  * стоящую в таблице UNICODE после символа "\" (обратный слэш) на расстоянии a.
  * В качестве примера написано заведомо неправильное выражение. Исправьте его.
  */
-package com.javamentor.Stepil_02_02_02;
+package com.javamentor.Stepik_02_02_02;
 
 public class Main {
     public static void main (String[] args) {
