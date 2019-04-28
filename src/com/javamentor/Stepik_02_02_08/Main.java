@@ -45,7 +45,7 @@ public class Main {
  * Решение списал.
  * https://www.exploringbinary.com/ten-ways-to-check-if-an-integer-is-a-power-of-two-in-c/
  * Сначала проверяем что результат не равен 0
- * Потом работаем с битами числа ((value & (~value + 1)) - проверка на принадлежность степени двойки. 
+ * Потом работаем с битами числа ((value & (~value + 1)) - проверка на принадлежность степени двойки.
  */
         return ((value != 0) && (value & (~value + 1)) == value); //Списал. https://www.exploringbinary.com/ten-ways-to-check-if-an-integer-is-a-power-of-two-in-c/
     }
