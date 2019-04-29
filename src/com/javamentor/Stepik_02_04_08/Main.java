@@ -22,7 +22,7 @@ public class Main {
     }
 
     public static int[] mergeArrays(int[] a1, int[] a2) {
-        if (a1 == null) {       //если а1 нал - возвращаем а2
+        if (a1 == null) {       //если а1 нал - возвращаем а2 
             return a2;
         } if (a2 == null) {     //если а2 нал - возвращаем а1
             return a1;
