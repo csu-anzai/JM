@@ -1,5 +1,5 @@
 /**
- *Реализуйте метод, проверяющий, является ли заданная строка палиндромом. Палиндромом называется строка,
+ * Реализуйте метод, проверяющий, является ли заданная строка палиндромом. Палиндромом называется строка,
  * которая читается одинаково слева направо и справа налево (в том числе пустая).
  * При определении "палиндромности" строки должны учитываться только буквы и цифры.
  * А пробелы, знаки препинания, а также регистр символов должны игнорироваться.
@@ -19,16 +19,23 @@ package com.javamentor.Stepik_02_03_09;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println(isPalindrome("ee"));
     }
 
     public static boolean isPalindrome(String text) {
+        boolean palindrom = false;
+
         text = text.replaceAll("[^a-zA-Z0-9]", "");     //удаляем символы путем их замены на ""
-        
+        System.out.println(text);
 
+        StringBuffer text2 = new StringBuffer(text);
+        text2 = text2.reverse();
+        System.out.println(text2);
 
+        palindrom = text.equalsIgnoreCase(text2.toString());
 
+        return palindrom;
 
     }
-
-
 }
+
