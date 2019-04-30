@@ -12,26 +12,57 @@
  */
 package com.javamentor.Stepik_02_04_08;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
-        int[] x1 = {8,2,3};     //создаем массив1
-        int[] x2 = {5,6};       //создаем массив2
-        System.out.println(mergeArrays(x1, x2));        //передаем их в метод в качестве параметров
+        int[] x1 = {0, 7, 2};                                       //создаем массив1
+        int[] x2 = {1, 3};                                          //создаем массив2
+        mergeArrays(x1, x2);                                        //передаем их в метод в качестве параметров
     }
 
     public static int[] mergeArrays(int[] a1, int[] a2) {
-        if (a1 == null) {       //если а1 нал - возвращаем а2 
-            return a2;
-        } if (a2 == null) {     //если а2 нал - возвращаем а1
-            return a1;
+        int[] a3 = new int[a1.length + a2.length];                  //создаем массив3 куда все кладем
+//        System.arraycopy(a1, 0, a3, 0, a1.length);                //копируем массив1
+//        System.arraycopy(a2, 0, a3, a1.length, a2.length);        //копируем массив2
+//        Arrays.sort(a3);        //сортируем массив3
+//        System.out.println(Arrays.toString(a3));                  //выводим в консоль массив3
+//        int temp;
+//        for (int i = 0; i < a3.length; i++) {
+//            System.out.print(a3[i]);
+//            for (int k = i + 1; k < a3.length; k++) {
+//                if (a3[i] < a3[k]) {
+//                    temp = a3[i];
+//                    a3[i] = a3[k];
+//                    a3[k] = temp;
+//                }
+//            }
+//        }   return a3;
+
+/**
+ * Подглядел. https://habr.com/ru/post/281675/
+ */
+
+        int i = 0;                                  //индекс массива1
+        int j = 0;                                  //индекс массива2
+        for (int k = 0; k < a3.length; k++) {       //проходимся по массиву3
+
+            if (i > a1.length - 1) {                //проверяем на выход за пределы индекса массива1
+                int a = a2[j];
+                a3[k] = a;
+                j++;
+            } else if (j > a2.length - 1) {         //проверяем на выход за пределы индекса массива2
+                int a = a1[i];
+                a3[k] = a;
+                i++;
+            } else if (a1[i] < a2[j]) {             //перемещаем наименьший элемент в массив3
+                int a = a1[i];
+                a3[k] = a;
+                i++;
+            } else {                                //иначе перемещаем наименьший элемент в массив3
+                int b = a2[j];
+                a3[k] = b;
+                j++;
+            }
         }
-        int[] a3 = new int[a1.length + a2.length];      //создаем массив3 куда все кладем
-        System.arraycopy(a1, 0, a3, 0, a1.length);      //копируем массив1
-        System.arraycopy(a2, 0, a3, a1.length, a2.length);      //копируем массив2
-        Arrays.sort(a3);        //сортируем массив3
-//        System.out.println(Arrays.toString(a3));      //выводим в консоль массив3
         return a3;
     }
 }
