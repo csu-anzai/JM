@@ -26,7 +26,7 @@ package com.javamentor.Stepik_02_04_09;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println();
+
     }
 
     private String printTextPerRole(String[] roles, String[] textLines) {
