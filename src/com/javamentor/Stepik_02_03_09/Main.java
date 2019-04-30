@@ -34,7 +34,7 @@ public class Main {
 
         palindrom = text.equalsIgnoreCase(text2.toString());        //проверяем на истинность условия
 
-        return palindrom;       //возвращаем
+        return palindrom;       //возвращаем 
 
     }
 }
