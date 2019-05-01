@@ -14,7 +14,7 @@ package com.javamentor.Stepik_02_04_08;
 
 public class Main {
     public static void main(String[] args) {
-        int[] x1 = {0, 7, 2};                                       //создаем массив1
+        int[] x1 = {0, 2, 2};                                       //создаем массив1
         int[] x2 = {1, 3};                                          //создаем массив2
         mergeArrays(x1, x2);                                        //передаем их в метод в качестве параметров
     }
@@ -39,6 +39,7 @@ public class Main {
 
 /**
  * Подглядел. https://habr.com/ru/post/281675/
+ * Подходит только для слияния двух массивов в один отсортированный.
  */
 
         int i = 0;                                  //индекс массива1
