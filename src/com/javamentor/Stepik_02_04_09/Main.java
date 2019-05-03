@@ -24,12 +24,48 @@
  */
 package com.javamentor.Stepik_02_04_09;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
+        String[] roles = {"Городничий",
+                "Аммос Федорович",
+                "Артемий Филиппович",
+                "Лука Лукич"};
+        String[] textLines = {"Городничий: Я пригласил вас, господа, с тем, чтобы сообщить вам пренеприятное известие: к нам едет ревизор.",
+                "Аммос Федорович: Как ревизор?",
+                "Артемий Филиппович: Как ревизор?",
+                "Городничий: Ревизор из Петербурга, инкогнито. И еще с секретным предписаньем.",
+                "Аммос Федорович: Вот те на!",
+                "Артемий Филиппович: Вот не было заботы, так подай!",
+                "Лука Лукич: Господи боже! еще и с секретным предписаньем!"};
+
+        printTextPerRole(roles, textLines);
 
     }
 
-    private String printTextPerRole(String[] roles, String[] textLines) {
+    private static String printTextPerRole(String[] roles, String[] textLines) {
+        StringBuilder roles2 = new StringBuilder();
+        StringBuilder textLines2 = new StringBuilder();
+
+        for (int i = 0; i <roles.length; i++) {
+            roles2.append(roles[i] + "\n");
+        }
+        for (int j = 0; j <textLines.length; j++) {
+            textLines2.append(textLines[j] + "\n");
+        }
+//        for (int k = 0; k < textLines2.length(); k++) {
+//            textLines2.replace(0, roles[k].length(), "1)");
+//            System.out.println(textLines2.toString());
+//        }
+
+        System.out.println(roles2.length());
+        System.out.println(textLines2.length());
+
+        System.out.println(roles2.toString());
+        System.out.println(textLines2.toString());
         return "";
+
+
     }
 }
