@@ -7,22 +7,21 @@ package com.javamentor.Stepik_02_02_01;
 
 public class Main {
     public static void main (String[] args) {
-        System.out.println(charExpression(29));
+        System.out.println(charExpression(1));
     }
 
     public static char charExpression(int a) {
-        char b = '\\';      //берем символ юникода
-        System.out.println(b);
+//        char b = '\\';      //берем символ юникода
+//        System.out.println(b);
+//
+//        int code = (int) b;     //приводим номер символа к инт
+//        System.out.println(code);
+//
+//        int c = (code + a);     //плюсуем расстояние
+//        System.out.println(c);
+//
+//        char d = (char)c;       //получаем символ по номеру С
 
-        int code = (int) b;     //приводим номер символа к инт
-        System.out.println(code);
-
-        int c = (code + a);     //плюсуем расстояние
-        System.out.println(c);
-
-        char d = (char)c;       //получаем символ по номеру С
-
-        return d;
-
+        return (char)(((int)'\\') + a);     //записал в одну строку
     }
 }

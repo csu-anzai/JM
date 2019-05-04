@@ -18,21 +18,21 @@ public class Main {
 //        BigDecimal bigDecimalC = BigDecimal.valueOf(c);
 //
 //        BigDecimal bigDecimalD = bigDecimalA.add(bigDecimalB);
+//
+//
+//
+//        float A = (float) a;        //подглядел насчет float
+//        float B = (float) b;
+//        float C = (float) c;
+//        float D = A + B;
+//
+//
+//        if (D == C) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+        return true;
 
-        boolean e = (a + b) == c;
-        System.out.println(e);
-
-
-
-        float A = (float) a;        //подглядел насчет float
-        float B = (float) b;
-        float C = (float) c;
-        float D = A + B;
-
-        if (D == C) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }
