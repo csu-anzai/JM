@@ -6,7 +6,7 @@
  * Воспользуйтесь предоставленным шаблоном. Декларацию класса, метод main и обработку
  * ввода-вывода добавит проверяющая система.
  */
-package com.javamentor.Stepik_02_04_07;
+package com.javamentor.Stepik_02_04_01;
 
 import java.math.BigInteger;
 

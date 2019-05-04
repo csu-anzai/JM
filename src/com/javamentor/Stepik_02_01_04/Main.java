@@ -5,10 +5,7 @@
  * Воспользуйтесь предоставленным шаблоном. Декларацию класса, метод main и обработку ввода-вывода добавит
  * проверяющая система.
  */
-package com.javamentor.Stepik_02_01_14;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+package com.javamentor.Stepik_02_01_04;
 
 public class Main {
     public static void main(String[] args) {

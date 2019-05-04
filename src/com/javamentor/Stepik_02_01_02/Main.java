@@ -9,7 +9,7 @@
  * Вам надо придумать и записать несложную формулу, использующую только арифметические операторы.
  * В качестве примера написано заведомо неправильное выражение. Исправьте его.
  */
-package com.javamentor.Stepik_02_01_07;
+package com.javamentor.Stepik_02_01_02;
 
 public class Main {
     public static void main(String[] args) {

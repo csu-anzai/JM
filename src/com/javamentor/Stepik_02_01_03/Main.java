@@ -4,10 +4,11 @@
  * Можно использовать класс Math и его методы. Класс Math доступен всегда, импортировать его не надо.
  * В качестве примера написано заведомо неправильное выражение. Исправьте его.
  */
-package com.javamentor.Stepik_02_01_11;
+package com.javamentor.Stepik_02_01_03;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println(doubleExpression(1.01, 2.02, 3.03));
 
     }
 
@@ -17,6 +18,11 @@ public class Main {
 //        BigDecimal bigDecimalC = BigDecimal.valueOf(c);
 //
 //        BigDecimal bigDecimalD = bigDecimalA.add(bigDecimalB);
+
+        boolean e = (a + b) == c;
+        System.out.println(e);
+
+
 
         float A = (float) a;        //подглядел насчет float
         float B = (float) b;

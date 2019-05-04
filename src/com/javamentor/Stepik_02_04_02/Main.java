@@ -10,7 +10,7 @@
  * Пример
  * Если на вход подаются массивы {0, 2, 2} и {1, 3}, то на выходе должен получиться массив {0, 1, 2, 2, 3}
  */
-package com.javamentor.Stepik_02_04_08;
+package com.javamentor.Stepik_02_04_02;
 
 public class Main {
     public static void main(String[] args) {

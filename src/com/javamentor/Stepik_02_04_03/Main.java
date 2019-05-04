@@ -22,9 +22,7 @@
  * в качестве перевода строки надо использовать символ '\n' (перевод строки в стиле UNIX);
  * будьте внимательны, не добавляйте лишних пробелов в конце строк.
  */
-package com.javamentor.Stepik_02_04_09;
-
-import java.util.Arrays;
+package com.javamentor.Stepik_02_04_03;
 
 public class Main {
     public static void main(String[] args) {

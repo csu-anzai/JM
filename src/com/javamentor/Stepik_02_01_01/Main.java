@@ -12,11 +12,50 @@
  * Их можно выписать на бумажку, посчитать для них правильные ответы и сравнить с тем, что выдает ваше решение.
  * Попробуйте самостоятельно проделать это, найти ошибку и исправить решение.
  */
-package com.javamentor.Stepik_02_01_05;
+package com.javamentor.Stepik_02_01_01;
+
 
 public class Main {
     public static void main(String[] args) {
-        Sample sample = new Sample();
-        System.out.println(sample.booleanExpression(false, false, true, true));
+        System.out.println(booleanExpression(true, false, false, true));
     }
+
+    public static boolean booleanExpression(boolean a, boolean b, boolean c, boolean d) {
+        /**
+         * Создал таблицу истинности.
+         * На ее основе пишем комбинации.
+         */
+        if ( (a & b & (!c) & (!d)) || (a & c & (!b) & (!d)) || (a & d & (!b) & (!c)) || (b & c & (!a) & (!d)) || (b & d & (!a) & (!c)) || (c & d & (!a) & (!b)) ) {
+            return true;
+            } else {
+                return false;
+            }
+        }
+//        if ((a & b) == true | (a & c) == true | (a & d) == true | (b & c) == true | (b & d) == true | (c & d) == true) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//      выше ошибка: return true если 3 параметра true
+
+//        ArrayList list = new ArrayList();   //лист для true
+//        Boolean[] array = new Boolean[4];   //массив для параметров
+//        array[0] = a;
+//        array[1] = b;
+//        array[2] = c;
+//        array[3] = d;
+//
+//        for (int i = 0; i < array.length; i++) {    //проходим по всем элементам массива
+//            if (array[i] == true) {                 //для всех true
+//                list.add(i);                        //кладем в list
+//            }
+//        }
+//        int x = list.size();                //получаем размер листа с true
+//        if (x == 2) {                       //если размер листа с true = 2
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
+//    | (((a & c) == true) != (b | d)) | (((a & d) == true) != (b | c)) | (((b & c) == true) != (a | d)) | (((b & d) == true) != (a | c)) | (((a & b) == true) != (c | d)) | (((c & d) == true) != (a | b))){
 }
