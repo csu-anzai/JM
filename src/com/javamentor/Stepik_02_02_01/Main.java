@@ -1,9 +1,10 @@
+package com.javamentor.Stepik_02_02_01;
+
 /**
  * Реализуйте метод, который возвращает букву,
  * стоящую в таблице UNICODE после символа "\" (обратный слэш) на расстоянии a.
  * В качестве примера написано заведомо неправильное выражение. Исправьте его.
  */
-package com.javamentor.Stepik_02_02_01;
 
 public class Main {
     public static void main (String[] args) {
@@ -11,6 +12,10 @@ public class Main {
     }
 
     public static char charExpression(int a) {
+        return (char)(((int)'\\') + a);     //записал в одну строку
+    }
+}
+
 //        char b = '\\';      //берем символ юникода
 //        System.out.println(b);
 //
@@ -21,7 +26,3 @@ public class Main {
 //        System.out.println(c);
 //
 //        char d = (char)c;       //получаем символ по номеру С
-
-        return (char)(((int)'\\') + a);     //записал в одну строку
-    }
-}

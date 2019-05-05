@@ -1,3 +1,5 @@
+package com.javamentor.Stepik_02_01_04;
+
 /**
  * Реализуйте метод flipBit, изменяющий значение одного бита заданного целого числа на противоположное.
  * Данная задача актуальна, например, при работе с битовыми полями.
@@ -5,16 +7,20 @@
  * Воспользуйтесь предоставленным шаблоном. Декларацию класса, метод main и обработку ввода-вывода добавит
  * проверяющая система.
  */
-package com.javamentor.Stepik_02_01_04;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(flipBit(22,10));
+        System.out.println(flipBit(0, 1));
     }
 
     public static int flipBit(int value, int bitIndex) {
+        int x = 1<<(bitIndex - 1);      //двигаем 1 на bitIndex - получаем число
+        int result = value ^ x;         //выполняем XOR
+        return result;
+    }
+}
 
-        System.out.println(1<<5);
+//        System.out.println(2<<5);
 
 //        String s = String.format("%32s", Integer.toBinaryString(value)).replace(' ', '0'); //чтобы не отбрасывать нули
 //        System.out.println(s);
@@ -52,7 +58,7 @@ public class Main {
  * Вопрос1: почему именно 1<<. Потому что так можно получить одну 1 в битовой маске для изменения value в этом бите.
  * Вопрос2: почему именно XOR. Потому что XOR меняет бит в value именно в bitIndex на противоположный.
  */
-        return value^(1<<(bitIndex-1)); //списал, stackoverflow
-    }
-}
+//        return value^(1<<(bitIndex-1)); //списал, stackoverflow
+//    }
+//}
 
