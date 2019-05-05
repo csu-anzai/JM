@@ -24,6 +24,8 @@
  */
 package com.javamentor.Stepik_02_04_03;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         String[] roles = {"Городничий",
@@ -43,27 +45,44 @@ public class Main {
     }
 
     private static String printTextPerRole(String[] roles, String[] textLines) {
-        StringBuilder roles2 = new StringBuilder();
-        StringBuilder textLines2 = new StringBuilder();
-
-        for (int i = 0; i <roles.length; i++) {
-            roles2.append(roles[i] + "\n");
+        for (int i = 0; i < roles.length; i++) {
+            roles[i] = roles[i] + ":";
+            System.out.println(roles[i]);
         }
-        for (int j = 0; j <textLines.length; j++) {
-            textLines2.append(textLines[j] + "\n");
+
+        for (int j = 0; j < textLines.length; j++) {
+            textLines[j].replace("Городничий:", "x)");
+            System.out.println(textLines[j]);
+
+
         }
-//        for (int k = 0; k < textLines2.length(); k++) {
-//            textLines2.replace(0, roles[k].length(), "1)");
-//            System.out.println(textLines2.toString());
-//        }
-
-        System.out.println(roles2.length());
-        System.out.println(textLines2.length());
-
-        System.out.println(roles2.toString());
-        System.out.println(textLines2.toString());
+        System.out.println(Arrays.toString(roles));
+        System.out.println(Arrays.toString(textLines));
         return "";
-
 
     }
 }
+//        StringBuilder roles2 = new StringBuilder();
+//        StringBuilder textLines2 = new StringBuilder();
+//
+//        for (int i = 0; i <roles.length; i++) {
+//            roles2.append(roles[i] + "\n");
+//        }
+//        for (int j = 0; j <textLines.length; j++) {
+//            textLines2.append(textLines[j] + "\n");
+//        }
+////        for (int k = 0; k < textLines2.length(); k++) {
+////            textLines2.replace(0, roles[k].length(), "1)");
+////            System.out.println(textLines2.toString());
+////        }
+//
+//        System.out.println(roles2.length());
+//        System.out.println(textLines2.length());
+//
+//        System.out.println(roles2.toString());
+//        System.out.println(textLines2.toString());
+//        return "";
+//
+//
+//    }
+//}
