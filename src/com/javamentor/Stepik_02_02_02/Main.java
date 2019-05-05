@@ -22,7 +22,7 @@ public class Main {
 
     public static boolean isPowerOfTwo(int value) {
 
-        value = Math.abs(value);
+        value = Math.abs(value);            //получаем абсолютное значение
 
         boolean b = false;
         for (int i = 0; i < 31; i++) {      //проходим по 32 разрядам числа
