@@ -24,7 +24,6 @@
  */
 package com.javamentor.Stepik_02_04_03;
 
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -40,28 +39,48 @@ public class Main {
                 "Артемий Филиппович: Вот не было заботы, так подай!",
                 "Лука Лукич: Господи боже! еще и с секретным предписаньем!"};
 
-        printTextPerRole(roles, textLines);
+        System.out.println(printTextPerRole(roles, textLines));
 
     }
 
     private static String printTextPerRole(String[] roles, String[] textLines) {
-        for (int i = 0; i < roles.length; i++) {
-            roles[i] = roles[i] + ":";
-            System.out.println(roles[i]);
+        for (int k = 0; k < roles.length; k++) {                            //добавляем к ролям ":"
+            roles[k] = roles[k] + ":";
         }
-
-        for (int j = 0; j < textLines.length; j++) {
-            textLines[j].replace("Городничий:", "x)");
-            System.out.println(textLines[j]);
-
-
+        StringBuilder preResult = new StringBuilder();                      //большая строка
+        for (int i = 0; i < roles.length; i++) {                            //проходим по ролям
+            preResult.append(roles[i]);                                     //добавляем роли в большую строку
+            preResult.append('\n');                                         //на новую строку
+            for (int j = 0; j < textLines.length; j++) {                    //проходим по репликам
+                if (textLines[j].startsWith(roles[i])) {                    //если реплика начинается с имени роли
+                    String numRow = (j+1) + ")";                            //номер строки из textLines
+                    textLines[j] = textLines[j].replace(roles[i], numRow);  //перезаписываем имя в реплике на номер
+                    preResult.append(textLines[j]);                         //добавляем к роли реплику
+                    preResult.append('\n');                                 //на новую строку
+                }
+            } preResult.append('\n');                                       //на новую строку после всех реплик роли
         }
-        System.out.println(Arrays.toString(roles));
-        System.out.println(Arrays.toString(textLines));
-        return "";
-
+        String result = preResult.toString();                               //большую строку переводим в стринг
+        return result;                                                      //возвращаем стринг
     }
 }
+//        for (int i = 0; i < roles.length; i++) {
+//            roles[i] = roles[i] + ":";
+//            System.out.println(roles[i]);
+//        }
+//
+//        for (int j = 0; j < textLines.length; j++) {
+//            textLines[j].replace("Городничий:", "x)");
+//            System.out.println(textLines[j]);
+//
+//
+//        }
+//        System.out.println(Arrays.toString(roles));
+//        System.out.println(Arrays.toString(textLines));
+//        return "";
+//
+//    }
+//}
 //        StringBuilder roles2 = new StringBuilder();
 //        StringBuilder textLines2 = new StringBuilder();
 //

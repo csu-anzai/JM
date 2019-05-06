@@ -14,7 +14,6 @@
  */
 package com.javamentor.Stepik_02_01_01;
 
-
 public class Main {
     public static void main(String[] args) {
         System.out.println(booleanExpression(true, false, false, true));
@@ -25,12 +24,13 @@ public class Main {
          * Создал таблицу истинности.
          * На ее основе пишем комбинации.
          */
-        if ( (a & b & (!c) & (!d)) || (a & c & (!b) & (!d)) || (a & d & (!b) & (!c)) || (b & c & (!a) & (!d)) || (b & d & (!a) & (!c)) || (c & d & (!a) & (!b)) ) {
+        if ((a & b & (!c) & (!d)) || (a & c & (!b) & (!d)) || (a & d & (!b) & (!c)) || (b & c & (!a) & (!d)) || (b & d & (!a) & (!c)) || (c & d & (!a) & (!b))) {
             return true;
-            } else {
-                return false;
-            }
+        } else {
+            return false;
         }
+    }
+}
 //        if ((a & b) == true | (a & c) == true | (a & d) == true | (b & c) == true | (b & d) == true | (c & d) == true) {
 //            return true;
 //        } else {
@@ -58,4 +58,4 @@ public class Main {
 //        }
 //    }
 //    | (((a & c) == true) != (b | d)) | (((a & d) == true) != (b | c)) | (((b & c) == true) != (a | d)) | (((b & d) == true) != (a | c)) | (((a & b) == true) != (c | d)) | (((c & d) == true) != (a | b))){
-}
+//}

@@ -16,10 +16,17 @@ public class Main {
     }
 
     public static BigInteger factorial(int value) {
-        BigInteger ret = BigInteger.ONE;    //создаем единицу BigInteger
-        for (int i = 1; i <= value; ++i) {      //условие
-            ret = ret.multiply(BigInteger.valueOf(i));      //в результат пишем умножение результат * i
-        } return ret;       //возврат BigInteger
+
+        for (int i = 1; i <= value; i++) {
+            value *= i;
+        }
+        return BigInteger.ONE;
     }
 }
+//        BigInteger ret = BigInteger.ONE;    //создаем единицу BigInteger
+//        for (int i = 1; i <= value; ++i) {      //условие
+//            ret = ret.multiply(BigInteger.valueOf(i));      //в результат пишем умножение результат * i
+//        } return ret;       //возврат BigInteger
+//    }
+//}
 
