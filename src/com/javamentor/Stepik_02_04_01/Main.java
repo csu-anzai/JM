@@ -15,12 +15,13 @@ public class Main {
         System.out.println(factorial(3));
     }
 
-    public static BigInteger factorial(int value) {
-
-        for (int i = 1; i <= value; i++) {
-            value *= i;
+    public static BigInteger factorial(int value) {     //параметр лишь говорит до какого числа умножаем
+        BigInteger value1 = BigInteger.ONE;             //начальная точка факториала
+        for (int i = 1; i <= value; i++) {              //проходимся по всему value
+            BigInteger j = BigInteger.valueOf(i);       //перевод int в BigInteger для перемножения
+            value1 = value1.multiply(j);                //перемножаем начиная с 1 и до value
         }
-        return BigInteger.ONE;
+        return value1;
     }
 }
 //        BigInteger ret = BigInteger.ONE;    //создаем единицу BigInteger

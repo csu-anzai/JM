@@ -16,20 +16,32 @@ public class Main {
     }
 
     public static boolean doubleExpression(double a, double b, double c) {
-        BigDecimal aa = new BigDecimal(a).setScale(4, RoundingMode.HALF_UP);
-        BigDecimal bb = new BigDecimal(b).setScale(4, RoundingMode.HALF_UP);
-        BigDecimal cc = new BigDecimal(c).setScale(4, RoundingMode.HALF_UP);
-
-        BigDecimal sum = aa.add(bb);
-
-        boolean boo = false;
-        int comp = sum.compareTo(cc);
-        if (comp == 0) {
-            boo = true;
-        }
-        return boo;
+        return Math.abs(a + b - c) < 0.0001;
     }
 }
+//        double sum = a + b;
+//        double e = 0.0001;
+//        boolean d = false;
+//        if (a + b - c) {
+//            d = true;
+//        }
+//       return d;
+//    }
+//}
+//        BigDecimal aa = new BigDecimal(a).setScale(4, RoundingMode.HALF_UP);
+//        BigDecimal bb = new BigDecimal(b).setScale(4, RoundingMode.HALF_UP);
+//        BigDecimal cc = new BigDecimal(c).setScale(4, RoundingMode.HALF_UP);
+//
+//        BigDecimal sum = aa.add(bb);
+//
+//        boolean boo = false;
+//        int comp = sum.compareTo(cc);
+//        if (comp == 0) {
+//            boo = true;
+//        }
+//        return boo;
+//    }
+//}
 
 //        BigDecimal bigDecimalA = BigDecimal.valueOf(a);
 //        BigDecimal bigDecimalB = BigDecimal.valueOf(b);
