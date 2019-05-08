@@ -24,9 +24,15 @@ public class Main {
  * Вопрос1: почему именно 1<<. Потому что так можно получить одну 1 в битовой маске для изменения value в этом бите.
  * Вопрос2: почему именно XOR. Потому что XOR меняет бит в value именно в bitIndex на противоположный.
  */
-        int x = 1<<(bitIndex - 1);      //двигаем 1 на bitIndex - получаем число
-        int result = value ^ x;         //выполняем XOR
-        return result;
+//        int x = 1<<(bitIndex - 1);      //двигаем 1 на bitIndex - получаем число
+//        int result = value ^ x;         //выполняем XOR
+
+        int a = 5;
+        long b = 747435345;
+        float c = Long.MAX_VALUE;
+        System.out.println(c);
+        System.out.println(Long.MAX_VALUE);
+        return value ^ (1 << (bitIndex -1));
     }
 }
 

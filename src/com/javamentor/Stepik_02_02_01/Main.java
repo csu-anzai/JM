@@ -12,6 +12,11 @@ public class Main {
     }
 
     public static char charExpression(int a) {
+//        byte t = 4;
+//        byte b = 8;
+//        byte e = t + b;
+
+
         return (char)(((int)'\\') + a);     //записал в одну строку
     }
 }

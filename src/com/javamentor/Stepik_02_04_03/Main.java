@@ -45,7 +45,7 @@ public class Main {
 
     private static String printTextPerRole(String[] roles, String[] textLines) {
         for (int k = 0; k < roles.length; k++) {                            //добавляем к ролям ":"
-            roles[k] = roles[k] + ":";
+            roles[k] = roles[k] + ": ";
         }
         StringBuilder preResult = new StringBuilder();                      //большая строка
         for (int i = 0; i < roles.length; i++) {                            //проходим по ролям
