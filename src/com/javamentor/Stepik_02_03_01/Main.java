@@ -15,7 +15,7 @@
  * который находится в классе StringBuilder;
  * в классе String есть методы для преобразования всей строки в верхний и нижний регистр.
  */
-package com.javamentor.Stepik_02_03_09;
+package com.javamentor.Stepik_02_03_01;
 
 public class Main {
     public static void main(String[] args) {
@@ -38,4 +38,3 @@ public class Main {
 
     }
 }
-

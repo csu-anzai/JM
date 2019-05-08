@@ -12,11 +12,14 @@
  * Их можно выписать на бумажку, посчитать для них правильные ответы и сравнить с тем, что выдает ваше решение.
  * Попробуйте самостоятельно проделать это, найти ошибку и исправить решение.
  */
-package com.javamentor.Stepik_02_01_05;
+package com.javamentor.Stepik_02_01_01;
 
 public class Main {
     public static void main(String[] args) {
-        Sample sample = new Sample();
-        System.out.println(sample.booleanExpression(false, false, true, true));
+        System.out.println(booleanExpression(false, false, true, true));
+    }
+
+    public static boolean booleanExpression(boolean a, boolean b, boolean c, boolean d) {
+        return (a ^ b) & (c ^ d) || (d ^ a) & (b ^ c);
     }
 }

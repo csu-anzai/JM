@@ -9,25 +9,13 @@
  * Вам надо придумать и записать несложную формулу, использующую только арифметические операторы.
  * В качестве примера написано заведомо неправильное выражение. Исправьте его.
  */
-package com.javamentor.Stepik_02_01_07;
+package com.javamentor.Stepik_02_01_02;
 
 public class Main {
     public static void main(String[] args) {
-
+        System.out.println(leapYearCount(2000));
     }
-
     public static int leapYearCount(int year) {
-
-//        float a = (float)year;      //из int во float
-//
-//        float b = a % 4;            //берем остаток от деления на 4
-//        float c = a % 100;          //берем остаток от деления на 100
-//
-//        float d = a % 400;          //берем остаток от деления на 400
-//
-//        if ((b == 0) & (c != 0) | (d == 0)) {
-//            return
-//        }
-        return (year - (year % 4)) / 4 - (year - (year % 100)) / 100 + (year - (year % 400)) / 400; //смотрел комменты
+        return year/4 - year/100 + year/400;
     }
 }
