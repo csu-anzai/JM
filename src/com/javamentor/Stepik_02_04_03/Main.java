@@ -54,12 +54,13 @@ public class Main {
             preResult.append('\n');                                         //на новую строку
             for (int j = 0; j < textLines.length; j++) {                    //проходим по репликам
                 if (textLines[j].startsWith(roles[i])) {                    //если реплика начинается с имени роли
-                    String numRow = (j+1) + ")";                            //номер строки из textLines
+                    String numRow = (j + 1) + ")";                            //номер строки из textLines
                     textLines[j] = textLines[j].replaceFirst(roles[i], numRow);  //перезаписываем имя в реплике на номер
                     preResult.append(textLines[j]);                         //добавляем к роли реплику
                     preResult.append('\n');                                 //на новую строку
                 }
-            } preResult.append('\n');                                       //на новую строку после всех реплик роли
+            }
+            preResult.append('\n');                                       //на новую строку после всех реплик роли
         }
         String result = preResult.toString();                               //большую строку переводим в стринг
         return result;                                                      //возвращаем стринг

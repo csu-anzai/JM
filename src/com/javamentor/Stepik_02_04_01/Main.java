@@ -24,9 +24,3 @@ public class Main {
         return value1;
     }
 }
-//        BigInteger ret = BigInteger.ONE;    //создаем единицу BigInteger
-//        for (int i = 1; i <= value; ++i) {      //условие
-//            ret = ret.multiply(BigInteger.valueOf(i));      //в результат пишем умножение результат * i
-//        } return ret;       //возврат BigInteger
-//    }
-//}

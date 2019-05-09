@@ -23,18 +23,10 @@ public class Main {
     }
 
     public static boolean isPalindrome(String text) {
-        String a = "abc";
-        String b = new String("abc");
-        boolean r = a == b; //false
-        a.equals(b);        //true
-
-        System.out.println(r);
-        System.out.println(a.equals(b));
-
         StringBuffer text2 = new StringBuffer(text.replaceAll("[^a-zA-Z0-9]", ""));        //подготовка Строки для реверса
         text2 = text2.reverse();                                                                            //реверс Строки
 
-        return text.equalsIgnoreCase(text2.toString());     //возвращаем
+        return text.equalsIgnoreCase(text2.toString());
 
     }
 }
