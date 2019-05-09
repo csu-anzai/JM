@@ -12,22 +12,6 @@ public class Main {
     }
 
     public static char charExpression(int a) {
-//        byte t = 4;
-//        byte b = 8;
-//        byte e = t + b;
-
-
-        return (char)(((int)'\\') + a);     //записал в одну строку
+        return (char)('\\' + a);     //записал в одну строку
     }
 }
-
-//        char b = '\\';      //берем символ юникода
-//        System.out.println(b);
-//
-//        int code = (int) b;     //приводим номер символа к инт
-//        System.out.println(code);
-//
-//        int c = (code + a);     //плюсуем расстояние
-//        System.out.println(c);
-//
-//        char d = (char)c;       //получаем символ по номеру С

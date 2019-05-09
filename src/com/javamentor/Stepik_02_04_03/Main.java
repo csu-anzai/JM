@@ -45,16 +45,17 @@ public class Main {
 
     private static String printTextPerRole(String[] roles, String[] textLines) {
         for (int k = 0; k < roles.length; k++) {                            //добавляем к ролям ":"
-            roles[k] = roles[k] + ": ";
+            roles[k] = roles[k] + ":";
         }
         StringBuilder preResult = new StringBuilder();                      //большая строка
+        preResult.append('\n');                                             //сначала пустая строка
         for (int i = 0; i < roles.length; i++) {                            //проходим по ролям
             preResult.append(roles[i]);                                     //добавляем роли в большую строку
             preResult.append('\n');                                         //на новую строку
             for (int j = 0; j < textLines.length; j++) {                    //проходим по репликам
                 if (textLines[j].startsWith(roles[i])) {                    //если реплика начинается с имени роли
                     String numRow = (j+1) + ")";                            //номер строки из textLines
-                    textLines[j] = textLines[j].replace(roles[i], numRow);  //перезаписываем имя в реплике на номер
+                    textLines[j] = textLines[j].replaceFirst(roles[i], numRow);  //перезаписываем имя в реплике на номер
                     preResult.append(textLines[j]);                         //добавляем к роли реплику
                     preResult.append('\n');                                 //на новую строку
                 }
@@ -64,44 +65,3 @@ public class Main {
         return result;                                                      //возвращаем стринг
     }
 }
-//        for (int i = 0; i < roles.length; i++) {
-//            roles[i] = roles[i] + ":";
-//            System.out.println(roles[i]);
-//        }
-//
-//        for (int j = 0; j < textLines.length; j++) {
-//            textLines[j].replace("Городничий:", "x)");
-//            System.out.println(textLines[j]);
-//
-//
-//        }
-//        System.out.println(Arrays.toString(roles));
-//        System.out.println(Arrays.toString(textLines));
-//        return "";
-//
-//    }
-//}
-//        StringBuilder roles2 = new StringBuilder();
-//        StringBuilder textLines2 = new StringBuilder();
-//
-//        for (int i = 0; i <roles.length; i++) {
-//            roles2.append(roles[i] + "\n");
-//        }
-//        for (int j = 0; j <textLines.length; j++) {
-//            textLines2.append(textLines[j] + "\n");
-//        }
-////        for (int k = 0; k < textLines2.length(); k++) {
-////            textLines2.replace(0, roles[k].length(), "1)");
-////            System.out.println(textLines2.toString());
-////        }
-//
-//        System.out.println(roles2.length());
-//        System.out.println(textLines2.length());
-//
-//        System.out.println(roles2.toString());
-//        System.out.println(textLines2.toString());
-//        return "";
-//
-//
-//    }
-//}
