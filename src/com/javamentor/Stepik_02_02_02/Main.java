@@ -13,10 +13,10 @@ package com.javamentor.Stepik_02_02_02;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(isPowerOfTwo(65));
+        System.out.println(isPowerOfTwo(-64));
     }
 
     public static boolean isPowerOfTwo(int value) {
-        return (Integer.bitCount(Math.abs(value)) == 1);   
+        return Integer.bitCount(Math.abs(value)) == 1;
     }
 }
