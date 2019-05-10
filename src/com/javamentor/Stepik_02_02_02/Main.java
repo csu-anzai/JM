@@ -13,19 +13,10 @@ package com.javamentor.Stepik_02_02_02;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(isPowerOfTwo(-256));
+        System.out.println(isPowerOfTwo(65));
     }
 
     public static boolean isPowerOfTwo(int value) {
-
-        value = Math.abs(value);            //получаем абсолютное значение
-
-        boolean b = false;
-        for (int i = 0; i < 31; i++) {      //проходим по 32 разрядам числа
-            if (value == 1 << i) {          //сдвигаем бит единицы влево на 1 при каждой итерации и сверяем с value
-                b = true;                   //в b пишем true
-            }
-        }
-        return b;                           //возвращаем из метода b
+        return (Integer.bitCount(Math.abs(value)) == 1);   
     }
 }
