@@ -40,7 +40,6 @@ public class Main {
                 "Лука Лукич: Господи боже! еще и с секретным предписаньем!"};
 
         System.out.println(printTextPerRole(roles, textLines));
-
     }
 
     private static String printTextPerRole(String[] roles, String[] textLines) {
