@@ -12,22 +12,14 @@ import java.math.BigInteger;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(factorial(3));
+        System.out.println(factorial(0));
     }
-
-    public static BigInteger factorial(int value) {     //параметр лишь говорит до какого числа умножаем
-        BigInteger value1 = BigInteger.ONE;             //начальная точка факториала
-        for (int i = 1; i <= value; i++) {              //проходимся по всему value
-            BigInteger j = BigInteger.valueOf(i);       //перевод int в BigInteger для перемножения
-            value1 = value1.multiply(j);                //перемножаем начиная с 1 и до value
-        }
-        return value1;
+    public static BigInteger factorial(int value) {
+        BigInteger j = BigInteger.valueOf(value);           //перевод из инт в бигинт
+        BigInteger i = BigInteger.ONE;                      //создаем переменную i
+        if (value != 0) {                                   //рекурсия остановится когда value-1 дойдет до 0
+            i = j.multiply(factorial(value - 1));     //пишем в i умножение value на (value - 1)
+            return i;
+        } return i;
     }
 }
-//        BigInteger ret = BigInteger.ONE;    //создаем единицу BigInteger
-//        for (int i = 1; i <= value; ++i) {      //условие
-//            ret = ret.multiply(BigInteger.valueOf(i));      //в результат пишем умножение результат * i
-//        } return ret;       //возврат BigInteger
-//    }
-//}
-

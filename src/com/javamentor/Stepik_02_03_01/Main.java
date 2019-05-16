@@ -23,19 +23,10 @@ public class Main {
     }
 
     public static boolean isPalindrome(String text) {
-        boolean palindrom = false;      //наша возвращаемая логическая переменная
+        StringBuffer text2 = new StringBuffer(text.replaceAll("[^a-zA-Z0-9]", ""));        //подготовка Строки для реверса
+        text2 = text2.reverse();                                                                            //реверс Строки
 
-        text = text.replaceAll("[^a-zA-Z0-9]", "");     //удаляем символы путем их замены на ""
-        System.out.println(text);
-
-        StringBuffer text2 = new StringBuffer(text);        //подготовка Строки для реверса
-        text2 = text2.reverse();        //реверс Строки
-        System.out.println(text2);
-
-        palindrom = text.equalsIgnoreCase(text2.toString());        //проверяем на истинность условия
-
-        return palindrom;       //возвращаем
+        return text.equalsIgnoreCase(text2.toString());
 
     }
 }
-

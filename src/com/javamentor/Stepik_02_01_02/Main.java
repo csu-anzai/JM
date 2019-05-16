@@ -13,17 +13,9 @@ package com.javamentor.Stepik_02_01_02;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(leapYearCount(404));
+        System.out.println(leapYearCount(2000));
     }
-
     public static int leapYearCount(int year) {
-        /**
-         * Формула кратности 4: ( ГОД - ОСТАТОК(ГОД/4) ) / 4
-         */
-        int forFour = (year - (year%4))/4;
-        int forOneHundred = (year - (year%100))/100;
-        int forFourHundred = (year - (year%400))/400;
-        int result = (forFour - forOneHundred) + forFourHundred;
-        return result;
+        return year/4 - year/100 + year/400;
     }
 }
