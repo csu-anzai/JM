@@ -5,8 +5,8 @@
  * направо или налево. Ваша задача — привести робота в заданную точку игрового поля.
  * Робот описывается классом Robot. Вы можете пользоваться следующими его методами (реализация вам неизвестна):
  */
- 
-package com.javamentor.Stepik_03_03_01;
+
+package com.javamentor.Stepik_03_03_01; 
 
 public class Main {
     public static void main(String[] args) {
