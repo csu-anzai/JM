@@ -12,6 +12,6 @@ public class Main {
         int[][] m3 = new int[1][];
 
         System.out.println(Arrays.toString(m1));
-        System.out.println(Arrays.toString(m2));
+        System.out.println(Arrays.toString(m2)); 
     }
 }
