@@ -68,7 +68,9 @@ String является массивом символов, и так же как
 (не путать с перегрузкой) иначе для двух одинаковых объектов всегда будет false
 ```  
 ```java  
-equals(): нужно проверить ссылки на объекты this == obj -> true, obj == null -> false, проверить классы this.getClass() != obj.getClass() -> false, привести obj к типу класса (ссылка object1) и проверить поля this.var1 == object1.var1.
+equals(): нужно проверить ссылки на объекты this == obj -> true, obj == null -> false, 
+проверить классы this.getClass() != obj.getClass() -> false, 
+привести obj к типу класса (ссылка object1) и проверить поля this.var1 == object1.var1.
 hashCode(): если примитив - добавляем матиматики и возвращаем переменную.  
 ```  
 
