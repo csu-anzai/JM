@@ -26,7 +26,7 @@ Java - объектно-ориентированный язык программ
 ```   
 
 ```java
-	|type		|Default Value	|
+	|Type		|Default Value	|
 	|byte		|	0	|
 	|short		|	0	|
 	|int		|	0	|
