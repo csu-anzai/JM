@@ -18,14 +18,19 @@ public class Main {
 
 
     public static double integrate(DoubleUnaryOperator f, double a, double b) {
+        //переводим шаг сетки в кол-во прямоугольников
         int base = 10;
         int exp = -7;
         double countRectangles = Math.pow(base, Math.abs(exp));
+        //суммарная длина прямоугольника
         double length = 0.0;
+        //ширина одного прямоугольника
         double width = (b - a) / countRectangles;
+        //считаем суммарную длину
         for (double i = 0.0; i < countRectangles; i++) {
             length = length + f.applyAsDouble(i);
         }
+        //возвращаем площадь
         return length * width;
     }
 }
