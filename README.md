@@ -19,13 +19,15 @@ Java - объектно-ориентированный язык программ
 ---
 2.1 Примитивные типы
 ```java
-	byte
-	short
-	int
-	long
-	float double
-	char
-	boolean
+	type		|	Default Value
+	byte		|		0
+	short		|		0
+	int		|		0
+	long		|		0L
+	float 		|		0.0f
+	double		|		0.0d
+	char		|		'\u0000'
+	boolean		|		false
 ```
 2.2 Преобразования типов  
 2.3 Массивы и строки  
