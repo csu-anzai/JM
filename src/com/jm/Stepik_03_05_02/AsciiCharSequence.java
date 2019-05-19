@@ -15,24 +15,35 @@
 package com.jm.Stepik_03_05_02;
 
 public class AsciiCharSequence implements CharSequence{
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        byte[] bb = {1,22,33};
+        AsciiCharSequence aa = new AsciiCharSequence(bb);
+        System.out.println(aa.length());
     }
 
+    byte[] array;
+
+    public AsciiCharSequence(byte[] c){
+        for (int i = 0; i < c.length; i++){
+            array[i] = c[i];
+        }
+    }
 
     @Override
     public int length() {
-        return 0;
+        return array.length;
     }
 
     @Override
     public char charAt(int index) {
-        return 0;
+        return (char)array[index];
     }
 
     @Override
     public CharSequence subSequence(int start, int end) {
-        return null;
+        return this.subSequence(start, end);
     }
+
 }
 
