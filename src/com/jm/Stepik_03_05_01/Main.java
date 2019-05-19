@@ -12,8 +12,7 @@ import java.util.function.DoubleUnaryOperator;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(integrate(x -> 1, 0, 10));
-
+        System.out.println(integrate(x -> 1, 0, 1));
     }
 
 
@@ -21,16 +20,16 @@ public class Main {
         //переводим шаг сетки в кол-во прямоугольников
         int base = 10;
         int exp = -7;
-        double countRectangles = Math.pow(base, Math.abs(exp));
+        double numRectangles = Math.pow(base, Math.abs(exp));
         //суммарная длина прямоугольника
-        double length = 0.0;
+        double sumLength = 0.0;
         //ширина одного прямоугольника
-        double width = (b - a) / countRectangles;
+        double width = (b - a) / numRectangles;
         //считаем суммарную длину
-        for (double i = 0.0; i < countRectangles; i++) {
-            length = length + f.applyAsDouble(i);
+        for (int i = 0; i < numRectangles; i++) {
+            sumLength = sumLength + f.applyAsDouble(i);
         }
         //возвращаем площадь
-        return length * width;
+        return sumLength * width;
     }
 }
