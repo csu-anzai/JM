@@ -23,7 +23,8 @@ public class Main {
         double sumLength = 0.0;
         //ширина одного прямоугольника
         double width = (b - a) * stepGrid;
-        //считаем суммарную длину одного прямоугольника
+        //считаем длину одного суммарного прямоугольника
+        //начиная с "a" и до "b" с шагом равным ширине прямоугольника
         for (double i = a; i < b; i += width) {
             sumLength += f.applyAsDouble(i);
         }
