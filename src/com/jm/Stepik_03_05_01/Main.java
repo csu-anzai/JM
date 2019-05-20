@@ -12,22 +12,20 @@ import java.util.function.DoubleUnaryOperator;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(integrate(x -> 1, 0, 1));
+        System.out.println(integrate(x -> 1, 0, 10));
     }
-
-
     public static double integrate(DoubleUnaryOperator f, double a, double b) {
-        //переводим шаг сетки в кол-во прямоугольников
+        //шаг сетки
         int base = 10;
         int exp = -7;
-        double numRectangles = Math.pow(base, Math.abs(exp));
-        //суммарная длина прямоугольника
+        double stepGrid = Math.pow(base, exp);
+        //длина одного суммарного прямоугольника
         double sumLength = 0.0;
         //ширина одного прямоугольника
-        double width = (b - a) / numRectangles;
-        //считаем суммарную длину
-        for (int i = 0; i < numRectangles; i++) {
-            sumLength = sumLength + f.applyAsDouble(i);
+        double width = (b - a) * stepGrid;
+        //считаем суммарную длину одного прямоугольника
+        for (double i = a; i < b; i += width) {
+            sumLength += f.applyAsDouble(i);
         }
         //возвращаем площадь
         return sumLength * width;
