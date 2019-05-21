@@ -17,6 +17,7 @@ package com.jm.Stepik_03_05_02;
 public class AsciiCharSequence implements CharSequence{
 
     byte[] array;
+    private String value;
 
 
     public AsciiCharSequence(byte[] array) {
@@ -25,24 +26,24 @@ public class AsciiCharSequence implements CharSequence{
 
     @Override
     public int length() {
-        return array.length;
+        return this.toString().length();
     }
 
     @Override
     public char charAt(int index) {
-        System.out.println(array[index]);
-        return (char)array[index];
+        return this.toString().charAt(index);
     }
 
     @Override
     public CharSequence subSequence(int start, int end) {
-        return this.subSequence(start, end);
+        return this.toString().subSequence(start, end);
     }
 
     @Override
     public String toString() {
-        return "char";
+        return value;
     }
+
 
 }
 
