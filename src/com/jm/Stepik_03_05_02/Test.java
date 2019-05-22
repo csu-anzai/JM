@@ -3,11 +3,14 @@ package com.jm.Stepik_03_05_02;
 public class Test {
     public static void main(String[] args) {
 
+        byte[] test = {60, 61, 62, 63, 64, 65, 66};
 
-        AsciiCharSequence asciiCharSequence = new AsciiCharSequence(new byte[] {1, 2, 3, 0});
-        System.out.println(asciiCharSequence.array.length);
+        AsciiCharSequence ascii = new AsciiCharSequence(test);
+        System.out.println(ascii.length());
+        System.out.println(ascii.charAt(1));
+        System.out.println(ascii.subSequence(0, 2));
+        System.out.println(ascii.toString());
 
-        System.out.println(asciiCharSequence.length());
-        System.out.println(asciiCharSequence.charAt(1));
+
     }
 }
