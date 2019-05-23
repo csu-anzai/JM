@@ -16,7 +16,7 @@ package com.jm.Stepik_03_05_02;
 
 public class AsciiCharSequence implements CharSequence{
 
-    byte[] array;
+    private byte[] array;
 
     public AsciiCharSequence(byte[] array) {
         this.array = array;
@@ -48,10 +48,10 @@ public class AsciiCharSequence implements CharSequence{
 
     @Override
     public String toString() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < array.length; i++) {
-            result += (char)array[i];
+            result.append((char)array[i]);
         }
-        return result;
+        return result.toString(); //не пойму почему именно result.toString()
     }
 }
