@@ -16,8 +16,10 @@ package com.jm.Stepik_03_05_02;
 
 public class AsciiCharSequence implements CharSequence{
 
+    //определяем поля класса
     private byte[] array;
 
+    //конструктор
     public AsciiCharSequence(byte[] array) {
         this.array = array;
     }
@@ -32,18 +34,27 @@ public class AsciiCharSequence implements CharSequence{
         char ch = '\u0000';
         if ((index >= 0) & (index <= array.length)) {
             ch = (char)array[index];
-        } return ch;
+        }
+        return ch;
     }
 
     @Override
     public CharSequence subSequence(int start, int end) {
-        StringBuilder sb = new StringBuilder();
-        if ((start >= 0) & (start < end) & (end <= array.length)) {
-            for (int i = start; i < end; i++) {
-                sb.append((char)array[i]);
-            }
+//        StringBuilder sb = new StringBuilder();
+//        if ((start >= 0) & (start < end) & (end <= array.length)) {
+//            for (int i = start; i < end; i++) {
+//                sb.append((char)array[i]);
+//            }
+//        } else if (start == end) {
+//            sb.append("");
+//        }
+//        return sb;
+//    }
+        byte[] newArray = new byte[end - start];
+        for (int i = start; i < end; i++) {
+            newArray[i - start] = array[i]; //i-start что б был 0-ой индекс, а не скажем 8
         }
-        return sb;
+        return new AsciiCharSequence(newArray);
     }
 
     @Override
@@ -52,6 +63,6 @@ public class AsciiCharSequence implements CharSequence{
         for (int i = 0; i < array.length; i++) {
             result.append((char)array[i]);
         }
-        return result.toString(); //не пойму почему именно result.toString()
+        return result.toString(); //тк у StringBuilder есть метод toString - нужный нам возвращаемы тип
     }
 }
