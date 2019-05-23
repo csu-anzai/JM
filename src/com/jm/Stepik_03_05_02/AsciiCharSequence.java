@@ -54,7 +54,7 @@ public class AsciiCharSequence implements CharSequence{
         for (int i = start; i < end; i++) {
             newArray[i - start] = array[i]; //i-start что б был 0-ой индекс, а не скажем 8
         }
-        return new AsciiCharSequence(newArray);
+        return new AsciiCharSequence(newArray); //вопрос - почему new Ascii а не CharSequence?
     }
 
     @Override
