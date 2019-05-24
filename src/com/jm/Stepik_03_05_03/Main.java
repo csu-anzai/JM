@@ -43,4 +43,21 @@
 package com.jm.Stepik_03_05_03;
 
 public class Main {
+    public static void main(String[] args) {
+
+        String[] test = {
+                "фак",
+                "шлак",
+                "спам",
+                "черт побери"
+        };
+
+        SpamAnalyzer spamAnalyzer = new SpamAnalyzer(test);
+        NegativeTextAnalyzer negativeTextAnalyzer = new NegativeTextAnalyzer();
+        TooLongTextAnalyzer tooLongTextAnalyzer = new TooLongTextAnalyzer(100);
+
+
+    }
+
+
 }

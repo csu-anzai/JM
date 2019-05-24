@@ -1,14 +1,24 @@
 package com.jm.Stepik_03_05_03;
 
-class NegativeTextAnalyzer extends KeywordAnalyzer implements TextAnalyzer{
+class NegativeTextAnalyzer extends KeywordAnalyzer {
+
+    NegativeTextAnalyzer(){
+
+    }
 
     @Override
-    String getKeywords() {
+    protected String getKeywords() {
         return null;
     }
 
     @Override
-    String getLabel() {
+    protected String getLabel() {
         return null;
     }
+
+    @Override
+    public Label processText(String text){
+        return null;
+    }
+
 }
