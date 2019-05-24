@@ -6,8 +6,8 @@ abstract class KeywordAnalyzer implements TextAnalyzer {
     abstract String getLabel();
 
     @Override
-    public Label processText (String text) {
-        return null;
-    }
+    public abstract Label processText(String text);
+
+
 
 }

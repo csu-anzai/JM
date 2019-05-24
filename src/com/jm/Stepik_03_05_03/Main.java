@@ -45,15 +45,26 @@ package com.jm.Stepik_03_05_03;
 public class Main {
     public static void main(String[] args) {
 
-        String[] test = {
+        String[] spam = {
                 "фак",
-                "шлак",
                 "спам",
                 "черт побери"
         };
 
-        SpamAnalyzer spamAnalyzer = new SpamAnalyzer(test);
+        String[] negative = {
+                ":(",
+                "=(",
+                ":|",
+        };
+
+        SpamAnalyzer spamAnalyzer = new SpamAnalyzer(spam);
+        System.out.println(spamAnalyzer.getKeywords());
+        System.out.println(spamAnalyzer.getLabel());
+
         NegativeTextAnalyzer negativeTextAnalyzer = new NegativeTextAnalyzer();
+        System.out.println(negativeTextAnalyzer.getKeywords());
+        System.out.println(negativeTextAnalyzer.getLabel());
+
         TooLongTextAnalyzer tooLongTextAnalyzer = new TooLongTextAnalyzer(100);
 
 
