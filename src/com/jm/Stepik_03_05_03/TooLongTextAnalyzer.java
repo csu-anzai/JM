@@ -17,5 +17,3 @@ class TooLongTextAnalyzer implements TextAnalyzer {
         }
     }
 }
-
-
