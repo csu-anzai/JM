@@ -12,6 +12,7 @@ class NegativeTextAnalyzer extends KeywordAnalyzer {
 
     @Override
     protected String[] getKeywords() {
+        //скопипастил из СПАМ
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < keywords.length; i++){
             for (int j = 0; j < negative.length; j++){
