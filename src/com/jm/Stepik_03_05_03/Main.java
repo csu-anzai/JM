@@ -42,32 +42,31 @@
 
 package com.jm.Stepik_03_05_03;
 
+import java.awt.*;
+
 public class Main {
     public static void main(String[] args) {
 
-        String[] test = {
-                "здесь есть фак слово",
-                "спам в этой строке",
-                "ругательство черт побери недопустимо",
-                "здесь все хорошо",
-                "и здесь норм"
+        String[] spamKeywords = {
+                "спам",
+                "черт побери"
         };
 
+        String text = "коментариииииииииииииииииииииииииииииииииииииииииииииииий";
 
-
-        SpamAnalyzer spamAnalyzer = new SpamAnalyzer(test);
-        System.out.println(spamAnalyzer.getKeywords());
-        System.out.println(spamAnalyzer.getLabel());
-
+        SpamAnalyzer spamAnalyzer = new SpamAnalyzer(spamKeywords, text);
         NegativeTextAnalyzer negativeTextAnalyzer = new NegativeTextAnalyzer();
-        System.out.println(negativeTextAnalyzer.getKeywords());
-        System.out.println(negativeTextAnalyzer.getLabel());
-
         TooLongTextAnalyzer tooLongTextAnalyzer = new TooLongTextAnalyzer(40);
-        System.out.println(tooLongTextAnalyzer.processText("dvndfvndfkvjndfkvndfkjvndfkjnvdfidfnvindvinsdnvsdoivnsdo"));
 
+        TextAnalyzer[] analyzers = {spamAnalyzer, negativeTextAnalyzer, tooLongTextAnalyzer};
+
+        System.out.println(checkLabels(analyzers, text));
 
     }
 
+    public static Label checkLabels(TextAnalyzer[] analyzers, String text) {
 
+
+        return Label.OK;
+    }
 }

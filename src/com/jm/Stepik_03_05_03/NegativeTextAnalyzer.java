@@ -4,39 +4,49 @@ import java.util.ArrayList;
 
 class NegativeTextAnalyzer extends KeywordAnalyzer {
 
-    String[] negative = {
+    private String[] negative = {
             ":(",
             "=(",
             ":|",
     };
+    private String text;
 
     @Override
-    protected String[] getKeywords() {
-        //скопипастил из СПАМ
-        ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < keywords.length; i++){
-            for (int j = 0; j < negative.length; j++){
-                if (keywords[i].contains(negative[j])){
-                    arrayList.add(keywords[i]);
-                    System.out.println(keywords[i]);
-                }
+    //возвращаем найденные негатив-слова
+    protected String[] getKeywords(){
+        ArrayList arrayListNegative = new ArrayList();
+        for (int i = 0; i < negative.length; i++){
+            if (negative[i].contains(text)){
+                arrayListNegative.add(negative[i]);
+                System.out.println(negative[i]);
             }
         }
-        String[] result = new String[arrayList.size()];
-        for (int i = 0; i < arrayList.size(); i++){
-            result[i] = arrayList.get(i).toString();
+        String[] resultNegative= new String[arrayListNegative.size()];
+        for (int j = 0; j < arrayListNegative.size(); j++){
+            resultNegative[j] = arrayListNegative.get(j).toString();
         }
-        return result;
+        return resultNegative;
     }
 
     @Override
-    protected String getLabel() {
-        return null;
+    //возвращаем метку
+    protected String getLabel(){
+        if (getKeywords().length > 0) {
+            return "найдено";
+        } else {
+            return "не найдено";
+        }
     }
 
     @Override
-    public Label processText(String text){
-        return null;
+    //здесь анализируем текст
+    public Label processText(String text) {
+        if (getKeywords().length > 0 && getLabel().equals("найдено")){
+            return Label.NEGATIVE_TEXT;
+        } else{
+            return Label.OK;
+        }
+
     }
 
 }
