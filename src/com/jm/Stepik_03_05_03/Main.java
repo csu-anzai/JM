@@ -54,9 +54,9 @@ public class Main {
 
         String text = "коментариииииииииииииииииииииииииииииииииииииииииииииииий";
 
-        SpamAnalyzer spamAnalyzer = new SpamAnalyzer(spamKeywords, text);
-        NegativeTextAnalyzer negativeTextAnalyzer = new NegativeTextAnalyzer();
-        TooLongTextAnalyzer tooLongTextAnalyzer = new TooLongTextAnalyzer(40);
+        TextAnalyzer spamAnalyzer = new SpamAnalyzer(spamKeywords, text);
+        TextAnalyzer negativeTextAnalyzer = new NegativeTextAnalyzer();
+        TextAnalyzer tooLongTextAnalyzer = new TooLongTextAnalyzer(40);
 
         TextAnalyzer[] analyzers = {spamAnalyzer, negativeTextAnalyzer, tooLongTextAnalyzer};
 
@@ -65,6 +65,9 @@ public class Main {
     }
 
     public static Label checkLabels(TextAnalyzer[] analyzers, String text) {
+
+
+
 
 
         return Label.OK;
