@@ -61,8 +61,13 @@ public class Main {
     public static Label checkLabels(TextAnalyzer[] analyzers, String text) {
 
         if (analyzers[0].processText(text).equals(Label.SPAM)) return Label.SPAM;
-        if (analyzers[0].processText(text).equals(Label.OK) & analyzers[1].processText(text).equals(Label.NEGATIVE_TEXT)) return Label.NEGATIVE_TEXT;
-        if (analyzers[0].processText(text).equals(Label.OK) & analyzers[1].processText(text).equals(Label.OK) & analyzers[2].processText(text).equals(Label.TOO_LONG)) return Label.TOO_LONG;
+
+        if (analyzers[0].processText(text).equals(Label.OK) &
+                analyzers[1].processText(text).equals(Label.NEGATIVE_TEXT)) return Label.NEGATIVE_TEXT;
+
+        if (analyzers[0].processText(text).equals(Label.OK) &
+                analyzers[1].processText(text).equals(Label.OK) &
+                analyzers[2].processText(text).equals(Label.TOO_LONG)) return Label.TOO_LONG;
         else {
             return Label.OK;
         }
