@@ -52,23 +52,20 @@ public class Main {
                 "черт побери"
         };
 
-        String text = "коментариииииииииииииииииииииииииииииииииииииииииииииииий";
+        int maxLength = 40;
 
-        TextAnalyzer spamAnalyzer = new SpamAnalyzer(spamKeywords, text);
-        TextAnalyzer negativeTextAnalyzer = new NegativeTextAnalyzer();
-        TextAnalyzer tooLongTextAnalyzer = new TooLongTextAnalyzer(40);
+        TextAnalyzer[] analyzers = {
+                new SpamAnalyzer(spamKeywords),
+                new NegativeTextAnalyzer(),
+                new TooLongTextAnalyzer(maxLength)
+        };
 
-        TextAnalyzer[] analyzers = {spamAnalyzer, negativeTextAnalyzer, tooLongTextAnalyzer};
-
-        System.out.println(checkLabels(analyzers, text));
+        System.out.println(checkLabels(analyzers, "sduivheriudvh oivjeroivherio sdvdsv vnfdv k33939"));
 
     }
 
     public static Label checkLabels(TextAnalyzer[] analyzers, String text) {
-
-
-
-
+        analyzers[0].processText(text);
 
         return Label.OK;
     }

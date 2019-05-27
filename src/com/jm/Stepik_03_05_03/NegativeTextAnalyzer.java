@@ -9,7 +9,6 @@ class NegativeTextAnalyzer extends KeywordAnalyzer {
             "=(",
             ":|",
     };
-    private String text;
 
     @Override
     //возвращаем найденные негатив-слова
