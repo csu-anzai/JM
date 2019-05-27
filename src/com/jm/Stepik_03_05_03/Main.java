@@ -42,16 +42,11 @@
 
 package com.jm.Stepik_03_05_03;
 
-import java.awt.*;
-
 public class Main {
+
     public static void main(String[] args) {
 
-        String[] spamKeywords = {
-                "спам",
-                "черт побери"
-        };
-
+        String[] spamKeywords = {"спам", "черт побери"};
         int maxLength = 40;
 
         TextAnalyzer[] analyzers = {
@@ -60,13 +55,16 @@ public class Main {
                 new TooLongTextAnalyzer(maxLength)
         };
 
-        System.out.println(checkLabels(analyzers, "sduivheriudvh oivjeroivherio sdvdsv vnfdv k33939"));
-
+        System.out.println(checkLabels(analyzers, "sduivhercgfvсамiudvh vddfg"));
     }
 
     public static Label checkLabels(TextAnalyzer[] analyzers, String text) {
-        analyzers[0].processText(text);
 
-        return Label.OK;
+        if (analyzers[0].processText(text).equals(Label.SPAM)) return Label.SPAM;
+        if (analyzers[0].processText(text).equals(Label.OK) & analyzers[1].processText(text).equals(Label.NEGATIVE_TEXT)) return Label.NEGATIVE_TEXT;
+        if (analyzers[0].processText(text).equals(Label.OK) & analyzers[1].processText(text).equals(Label.OK) & analyzers[2].processText(text).equals(Label.TOO_LONG)) return Label.TOO_LONG;
+        else {
+            return Label.OK;
+        }
     }
 }

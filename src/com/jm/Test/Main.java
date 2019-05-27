@@ -13,5 +13,9 @@ public class Main {
 
         System.out.println(Arrays.toString(m1));
         System.out.println(Arrays.toString(m2));
+
+        String s = ":)";
+        String ss = " :)";
+        System.out.println(s.contains(ss));
     }
 }
