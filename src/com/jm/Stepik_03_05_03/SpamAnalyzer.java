@@ -1,6 +1,8 @@
 package com.jm.Stepik_03_05_03;
 
 
+import java.util.Arrays;
+
 class SpamAnalyzer extends KeywordAnalyzer {
 
     private String[] keywords;
@@ -27,6 +29,7 @@ class SpamAnalyzer extends KeywordAnalyzer {
                 spam = true;
             }
         }
+
         if (spam) {
             return getLabel();
         } else {
