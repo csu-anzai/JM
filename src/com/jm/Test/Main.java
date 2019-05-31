@@ -4,14 +4,23 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+        Main m = new Main();
+        Boolean[] booleans = new Boolean[3];
 
-        int[] m1 = {1,3,-5,0};
+        System.out.println(Arrays.toString(booleans));
 
-        int[] m2 = new int[]{1,3,-5,0};
+        System.out.println(Arrays.toString(m.boolIn(booleans)));
+    }
 
-        int[][] m3 = new int[1][];
-
-        System.out.println(Arrays.toString(m1));
-        System.out.println(Arrays.toString(m2));
+    public Boolean[] boolIn(Boolean[] b){
+        for (int i = 0; i < b.length; i++){
+            b[i] = true;
+        }return b;
     }
 }
+
+
+
+
+
+
