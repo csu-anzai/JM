@@ -7,7 +7,7 @@ class NegativeTextAnalyzer extends KeywordAnalyzer {
             "=(",
             ":|",
     };
-    
+
     @Override
     protected String[] getKeywords(){
         return negative;
