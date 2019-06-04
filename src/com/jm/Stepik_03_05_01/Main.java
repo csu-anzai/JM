@@ -12,12 +12,12 @@ import java.util.function.DoubleUnaryOperator;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(integrate(x -> 1, 0, 10));
+        System.out.println(integrate(x -> 1, 1, 14));
     }
     public static double integrate(DoubleUnaryOperator f, double a, double b) {
         //шаг сетки
         int base = 10;
-        int exp = -7;
+        int exp = 0;
         double stepGrid = Math.pow(base, exp);
         //длина одного суммарного прямоугольника
         double sumLength = 0.0;

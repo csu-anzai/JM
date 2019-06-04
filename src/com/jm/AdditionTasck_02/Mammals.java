@@ -5,6 +5,5 @@ public abstract class Mammals implements Animals {
     public abstract String voice();
     @Override
     public abstract String go();
-
 }
 

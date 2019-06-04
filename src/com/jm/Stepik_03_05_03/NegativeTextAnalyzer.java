@@ -32,5 +32,4 @@ class NegativeTextAnalyzer extends KeywordAnalyzer {
             return Label.OK;
         }
     }
-
 }

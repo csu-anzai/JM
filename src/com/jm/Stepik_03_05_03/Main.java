@@ -44,7 +44,14 @@ package com.jm.Stepik_03_05_03;
 
 public class Main {
 
+    public final static StringBuilder sb = new StringBuilder("abc");
+
     public static void main(String[] args) {
+
+
+        sb.append("eee");
+        System.out.println(sb);
+
         Main m = new Main();
 
         String[] spamKeywords = {"first", "second"};
