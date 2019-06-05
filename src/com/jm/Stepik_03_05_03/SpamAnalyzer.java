@@ -25,9 +25,7 @@ class SpamAnalyzer extends KeywordAnalyzer {
     public Label processText(String text) {
         if (true) {
             for (int i = 0; i < keywords.length; i++) {
-                if (text.contains(keywords[i])) {
-                    return getLabel();
-                }
+                if (text.contains(keywords[i])) return getLabel();
             }
             return getLabel();
         } else {

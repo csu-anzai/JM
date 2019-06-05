@@ -48,10 +48,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-        sb.append("eee");
-        System.out.println(sb);
-
         Main m = new Main();
 
         String[] spamKeywords = {"first", "second"};
