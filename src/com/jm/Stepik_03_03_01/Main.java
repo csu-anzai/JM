@@ -14,29 +14,32 @@ public class Main {
         moveRobot(robot, 33, -4);
     }
     public static void moveRobot(Robot robot, int toX, int toY) {
-        while (robot.getX() < toX) {
-            while (robot.getDirection() != Robot.Direction.RIGHT) {
-                robot.turnRight();
-            }
-            robot.stepForward();
-        }
-        while (robot.getX() > toX) {
-            while (robot.getDirection() != Robot.Direction.LEFT) {
-                robot.turnRight();
-            }
-            robot.stepForward();
-        }
-        while (robot.getY() < toY) {
-            while (robot.getDirection() != Robot.Direction.UP) {
-                robot.turnRight();
-            }
-            robot.stepForward();
-        }
-        while (robot.getY() > toY) {
-            while (robot.getDirection() != Robot.Direction.DOWN) {
-                robot.turnRight();
-            }
-            robot.stepForward();
-        }
+//        while (robot.getX() < toX) {
+//            while (robot.getDirection() != Robot.Direction.RIGHT) {
+//                robot.turnRight();
+//            }
+//            robot.stepForward();
+//        }
+//        while (robot.getX() > toX) {
+//            while (robot.getDirection() != Robot.Direction.LEFT) {
+//                robot.turnRight();
+//            }
+//            robot.stepForward();
+//        }
+//        while (robot.getY() < toY) {
+//            while (robot.getDirection() != Robot.Direction.UP) {
+//                robot.turnRight();
+//            }
+//            robot.stepForward();
+//        }
+//        while (robot.getY() > toY) {
+//            while (robot.getDirection() != Robot.Direction.DOWN) {
+//                robot.turnRight();
+//            }
+//            robot.stepForward();
+//        }
+
+        robot.getDirection();
+
     }
 }

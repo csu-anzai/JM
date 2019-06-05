@@ -12,23 +12,30 @@ import java.util.function.DoubleUnaryOperator;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(integrate(x -> 1, 1, 14));
+        System.out.println(integrate(x -> 1, 1, 10));
     }
     public static double integrate(DoubleUnaryOperator f, double a, double b) {
         //шаг сетки
         int base = 10;
-        int exp = 0;
+        int exp = -6;
         double stepGrid = Math.pow(base, exp);
-        //длина одного суммарного прямоугольника
+//        //длина одного суммарного прямоугольника
+//        double sumLength = 0.0;
+//        //ширина одного прямоугольника
+//        double width = (b - a) * stepGrid;
+//        //считаем длину одного суммарного прямоугольника
+//        //начиная с "a" и до "b" с шагом равным ширине прямоугольника
+//        for (double i = a; i < b; i += width) {
+//            sumLength += f.applyAsDouble(i);
+//        }
+//        //возвращаем площадь
+//        return sumLength * width;
+
         double sumLength = 0.0;
-        //ширина одного прямоугольника
-        double width = (b - a) * stepGrid;
-        //считаем длину одного суммарного прямоугольника
-        //начиная с "a" и до "b" с шагом равным ширине прямоугольника
-        for (double i = a; i < b; i += width) {
+        for (double i = a; i < b; i += stepGrid){ //к а прибавляем 10-6
             sumLength += f.applyAsDouble(i);
         }
-        //возвращаем площадь
-        return sumLength * width;
+        return sumLength * stepGrid;
+
     }
 }
