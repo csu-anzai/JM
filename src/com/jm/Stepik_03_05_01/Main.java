@@ -32,10 +32,9 @@ public class Main {
 //        return sumLength * width;
 
         double sumLength = 0.0;
-        for (double i = a; i < b; i += stepGrid){ //к а прибавляем 10-6
-            sumLength += f.applyAsDouble(i);
+        for ( ;a < b; a += stepGrid){ //к а прибавляем 10-6
+            sumLength += f.applyAsDouble(a);
         }
         return sumLength * stepGrid;
-
     }
 }
