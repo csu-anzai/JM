@@ -13,7 +13,9 @@ public class Main {
         Robot robot = new Robot();
         moveRobot(robot, 33, -4);
     }
+
     public static void moveRobot(Robot robot, int toX, int toY) {
+
 //        while (robot.getX() < toX) {
 //            while (robot.getDirection() != Robot.Direction.RIGHT) {
 //                robot.turnRight();
@@ -39,7 +41,30 @@ public class Main {
 //            robot.stepForward();
 //        }
 
-        robot.getDirection();
-
+        if (robot.getX() < toX){
+            rotate(robot, Robot.Direction.RIGHT);
+            go(robot, toX - robot.getX());
+        } else {
+            rotate(robot, Robot.Direction.LEFT);
+            go(robot, robot.getX() - toX);
+        }
+        if (robot.getY() < toY){
+            rotate(robot, Robot.Direction.UP);
+            go(robot, toY - robot.getY());
+        } else {
+            rotate(robot, Robot.Direction.DOWN);
+            go(robot, robot.getY() - toY);
+        }
     }
+    public static void rotate(Robot robot, Robot.Direction d){
+        while (robot.getDirection() != d){
+            robot.turnRight();
+        }
+    }
+    public static void go(Robot robot, int a){
+        for (int i = 0; i < a; i++){
+            robot.stepForward();
+        }
+    }
+
 }
