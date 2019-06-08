@@ -14,6 +14,7 @@
 
 package com.jm.Stepik_03_05_02;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class AsciiCharSequence implements CharSequence{
@@ -44,7 +45,6 @@ public class AsciiCharSequence implements CharSequence{
 
     @Override
     public CharSequence subSequence(int start, int end) {
-
         byte[] newArray = new byte[end - start];
         for (int i = start; i < end; i++) {
             newArray[i - start] = array[i]; //i-start что б был 0-ой индекс, а не скажем 8
@@ -54,10 +54,13 @@ public class AsciiCharSequence implements CharSequence{
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < array.length; i++) {
-            result.append((char)array[i]);
-        }
-        return result.toString(); //тк у StringBuilder есть метод toString - нужный нам возвращаемы тип
+//        StringBuilder result = new StringBuilder();
+//        for (int i = 0; i < array.length; i++) {
+//            result.append((char)array[i]);
+//        }
+//        return result.toString(); //тк у StringBuilder есть метод toString - нужный нам возвращаемы тип
+//    }
+//        String result = new String(array);
+        return new String(array);
     }
 }
