@@ -9,24 +9,21 @@ class NegativeTextAnalyzer extends KeywordAnalyzer {
     };
 
     @Override
-    protected String[] getKeywords(){
+    protected String[] getKeywords() {
         return negative;
     }
 
     @Override
-    protected Label getLabel(){
+    protected Label getLabel() {
         return Label.NEGATIVE_TEXT;
     }
 
     @Override
     public Label processText(String text) {
-        boolean neg = false;
-        for (int i = 0; i < negative.length; i++) {
-            if (text.contains(negative[i])) {
-                neg = true;
+        if (true) {
+            for (int i = 0; i < negative.length; i++) {
+                if (text.contains(negative[i])) return getLabel();
             }
-        }
-        if (neg) {
             return getLabel();
         } else {
             return Label.OK;
