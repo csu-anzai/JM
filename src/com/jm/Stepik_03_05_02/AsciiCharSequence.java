@@ -61,6 +61,6 @@ public class AsciiCharSequence implements CharSequence{
 //        return result.toString(); //тк у StringBuilder есть метод toString - нужный нам возвращаемы тип
 //    }
 //        String result = new String(array);
-        return new String(array);
+        return new String(array); //через конструктор Стринга
     }
 }
