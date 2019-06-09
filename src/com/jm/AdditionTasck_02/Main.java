@@ -12,9 +12,11 @@ public class Main {
                 new Horse(),
                 new Elephant()
         };
+        Object o = new Object();
         for (int i = 0; i < animals.length; i++){
             System.out.println(animals[i].voice());
             System.out.println(animals[i].go());
+
             System.out.println();
         }
     }

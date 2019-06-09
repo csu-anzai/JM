@@ -10,6 +10,7 @@ public class Main {
         System.out.println(Arrays.toString(booleans));
 
         System.out.println(Arrays.toString(m.boolIn(booleans)));
+
     }
 
     public Boolean[] boolIn(Boolean[] b){

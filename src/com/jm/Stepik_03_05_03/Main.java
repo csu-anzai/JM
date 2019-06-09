@@ -44,7 +44,10 @@ package com.jm.Stepik_03_05_03;
 
 public class Main {
 
+    public final static StringBuilder sb = new StringBuilder("abc");
+
     public static void main(String[] args) {
+
         Main m = new Main();
 
         String[] spamKeywords = {"first", "second"};
@@ -56,35 +59,24 @@ public class Main {
                 new TooLongTextAnalyzer(maxLength)
         };
 
-        System.out.println(m.checkLabels(analyzers, "first spam"));
+        System.out.println(m.checkLabels(analyzers, "=ftr5 spam"));
     }
 
-    public Label checkLabels(TextAnalyzer[] analyzers, String text) {
-
-        int k = 0;
+    public Label checkLabels(TextAnalyzer[] analyzers, String text) { //переписал покороче
+        Label result = null;
         for (int i = 0; i < analyzers.length; i++) {
             if (analyzers[i].processText(text).equals(Label.SPAM)) {
-                k = 1;
+                result = Label.SPAM;
                 break;
             } else if (analyzers[i].processText(text).equals(Label.NEGATIVE_TEXT)) {
-                k = 2;
+                result = Label.NEGATIVE_TEXT;
                 break;
             } else if (analyzers[i].processText(text).equals(Label.TOO_LONG)) {
-                k = 3;
+                result = Label.TOO_LONG;
                 break;
             } else {
-                k = 4;
+                result = Label.OK;
             }
-        }
-            switch (k){
-                case 1 :
-                    return Label.SPAM;
-                case 2 :
-                    return Label.NEGATIVE_TEXT;
-                case 3 :
-                    return Label.TOO_LONG;
-                default:
-                    return Label.OK;
-            }
-        }
+        } return result;
+    }
 }

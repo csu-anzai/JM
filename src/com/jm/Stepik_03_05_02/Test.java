@@ -10,7 +10,5 @@ public class Test {
         System.out.println(ascii.charAt(1));
         System.out.println(ascii.subSequence(5, 7));
         System.out.println(ascii.toString());
-
-
     }
 }
