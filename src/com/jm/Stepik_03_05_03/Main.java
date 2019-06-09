@@ -62,7 +62,7 @@ public class Main {
         System.out.println(m.checkLabels(analyzers, "=ftr5 spam"));
     }
 
-    public Label checkLabels(TextAnalyzer[] analyzers, String text) {
+    public Label checkLabels(TextAnalyzer[] analyzers, String text) { //переписал покороче
         Label result = null;
         for (int i = 0; i < analyzers.length; i++) {
             if (analyzers[i].processText(text).equals(Label.SPAM)) {

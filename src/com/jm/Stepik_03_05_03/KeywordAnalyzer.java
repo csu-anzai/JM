@@ -8,16 +8,7 @@ abstract class KeywordAnalyzer implements TextAnalyzer {
     protected abstract Label getLabel();
 
     @Override
-    public Label processText(String text)
-    {
-//        if (true){
-//            for (int i = 0; i < key.length; i++){
-//                if (text.contains(key[i])) return getLabel();
-//            }
-//            return getLabel();
-//        } else {
-//            return Label.OK;
-//        }
+    public Label processText(String text){
         return null;
     }
 }
