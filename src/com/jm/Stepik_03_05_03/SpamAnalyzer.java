@@ -23,13 +23,15 @@ class SpamAnalyzer extends KeywordAnalyzer {
 
     @Override
     public Label processText(String text) {
-        if (true) {
-            for (int i = 0; i < keywords.length; i++) {
-                if (text.contains(keywords[i])) return getLabel();
+        Label label = null;
+        for (int i = 0; i < keywords.length; i++) {
+            if (text.contains(keywords[i])) {
+                label = getLabel();
+                break;
+            } else {
+                label = Label.OK;
             }
-            return getLabel();
-        } else {
-            return Label.OK;
         }
+        return label;
     }
 }

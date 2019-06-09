@@ -20,13 +20,15 @@ class NegativeTextAnalyzer extends KeywordAnalyzer {
 
     @Override
     public Label processText(String text) {
-        if (true) {
-            for (int i = 0; i < negative.length; i++) {
-                if (text.contains(negative[i])) return getLabel();
+        Label label = null;
+        for (int i = 0; i < negative.length; i++) {
+            if (text.contains(negative[i])) {
+                label = getLabel();
+                break;
+            } else {
+                label = Label.OK;
             }
-            return getLabel();
-        } else {
-            return Label.OK;
         }
+        return label;
     }
 }

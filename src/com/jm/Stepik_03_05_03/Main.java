@@ -59,44 +59,24 @@ public class Main {
                 new TooLongTextAnalyzer(maxLength)
         };
 
-        System.out.println(m.checkLabels(analyzers, "firt spam"));
+        System.out.println(m.checkLabels(analyzers, "=ftr5 spam"));
     }
 
     public Label checkLabels(TextAnalyzer[] analyzers, String text) {
-//        int k = 0;
-//        for (int i = 0; i < analyzers.length; i++) {
-//            if (analyzers[i].processText(text).equals(Label.SPAM)) {
-//                k = 1;
-//                break;
-//            } else if (analyzers[i].processText(text).equals(Label.NEGATIVE_TEXT)) {
-//                k = 2;
-//                break;
-//            } else if (analyzers[i].processText(text).equals(Label.TOO_LONG)) {
-//                k = 3;
-//                break;
-//            } else {
-//                k = 4;
-//            }
-//        }
-//            switch (k){
-//                case 1 :
-//                    return Label.SPAM;
-//                case 2 :
-//                    return Label.NEGATIVE_TEXT;
-//                case 3 :
-//                    return Label.TOO_LONG;
-//                default:
-//                    return Label.OK;
-//            }
-
-        if (analyzers[0].processText(text).equals(Label.SPAM)) {
-            return Label.SPAM;
-        } else if (analyzers[1].processText(text).equals(Label.NEGATIVE_TEXT)) {
-            return Label.NEGATIVE_TEXT;
-        } else if (analyzers[2].processText(text).equals(Label.TOO_LONG)) {
-            return Label.TOO_LONG;
-        } else {
-            return Label.OK;
-        }
+        Label result = null;
+        for (int i = 0; i < analyzers.length; i++) {
+            if (analyzers[i].processText(text).equals(Label.SPAM)) {
+                result = Label.SPAM;
+                break;
+            } else if (analyzers[i].processText(text).equals(Label.NEGATIVE_TEXT)) {
+                result = Label.NEGATIVE_TEXT;
+                break;
+            } else if (analyzers[i].processText(text).equals(Label.TOO_LONG)) {
+                result = Label.TOO_LONG;
+                break;
+            } else {
+                result = Label.OK;
+            }
+        } return result;
     }
 }
