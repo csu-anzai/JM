@@ -44,7 +44,7 @@ public class AsciiCharSequence implements CharSequence{
     }
 
     @Override
-    public CharSequence subSequence(int start, int end) {
+    public CharSequence subSequence(int start, int end) { // Arrays.copyOf
         byte[] newArray = new byte[end - start];
         for (int i = start; i < end; i++) {
             newArray[i - start] = array[i]; //i-start что б был 0-ой индекс, а не скажем 8

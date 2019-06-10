@@ -18,6 +18,26 @@ public class Main {
             b[i] = true;
         }return b;
     }
+
+    private public class Person(){
+        String name;
+    }
+
+    protected class Animals(){
+
+    }
+
+    private class Job(){
+
+    }
+
+    class Car(){
+
+    }
+
+    static class Cat(){
+
+    }
 }
 
 
