@@ -24,7 +24,7 @@ public class AsciiCharSequence implements CharSequence{
 
     //конструктор
     public AsciiCharSequence(byte[] array) {
-//        this.array = array;
+        this.array = array;
         this.array = Arrays.copyOf(array, array.length); //переписал через копирование массива
 
     }
@@ -45,7 +45,7 @@ public class AsciiCharSequence implements CharSequence{
 
     @Override
     public CharSequence subSequence(int start, int end) { // Arrays.copyOf
-        byte[] newArray = new byte[end - start];
+        byte[] array = Arrays.copyOf(array, array[end - start]);
         for (int i = start; i < end; i++) {
             newArray[i - start] = array[i]; //i-start что б был 0-ой индекс, а не скажем 8
         }
