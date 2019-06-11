@@ -9,11 +9,11 @@
  * Слишком длинные комментарии будем определять исходя из данного числа – максимальной длины комментария.
  * Вы решили абстрагировать фильтр в виде следующего интерфейса:
  * interface TextAnalyzer {
- *     Label processText(String text);
+ * Label processText(String text);
  * }
  * Label – тип-перечисление, которые содержит метки, которыми будем помечать текст:
  * enum Label {
- *     SPAM, NEGATIVE_TEXT, TOO_LONG, OK
+ * SPAM, NEGATIVE_TEXT, TOO_LONG, OK
  * }
  * Дальше, вам необходимо реализовать три класса, которые реализуют данный интерфейс: SpamAnalyzer,
  * NegativeTextAnalyzer и TooLongTextAnalyzer.
@@ -59,24 +59,28 @@ public class Main {
                 new TooLongTextAnalyzer(maxLength)
         };
 
-        System.out.println(m.checkLabels(analyzers, "=ftr5 spam"));
+        System.out.println(m.checkLabels(analyzers, "=sffrst"));
     }
 
     public Label checkLabels(TextAnalyzer[] analyzers, String text) { //переписал покороче
-        Label result = null;
+//        Label result = Label.OK;
+//        for (int i = 0; i < analyzers.length; i++) {
+//            if (analyzers[i].processText(text).equals(Label.SPAM)) {
+//                result = Label.SPAM;
+//                break;
+//            } else if (analyzers[i].processText(text).equals(Label.NEGATIVE_TEXT)) {
+//                result = Label.NEGATIVE_TEXT;
+//                break;
+//            } else if (analyzers[i].processText(text).equals(Label.TOO_LONG)) {
+//                result = Label.TOO_LONG;
+//                break;
+//            }
+//        } return result;
+//    }
+        Label result = Label.OK;
         for (int i = 0; i < analyzers.length; i++) {
-            if (analyzers[i].processText(text).equals(Label.SPAM)) {
-                result = Label.SPAM;
-                break;
-            } else if (analyzers[i].processText(text).equals(Label.NEGATIVE_TEXT)) {
-                result = Label.NEGATIVE_TEXT;
-                break;
-            } else if (analyzers[i].processText(text).equals(Label.TOO_LONG)) {
-                result = Label.TOO_LONG;
-                break;
-            } else {
-                result = Label.OK;
-            }
-        } return result;
+            if (analyzers[i].processText(text) != Label.OK) result = analyzers[i].processText(text);
+        }
+        return result;
     }
 }

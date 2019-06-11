@@ -24,8 +24,8 @@ public class AsciiCharSequence implements CharSequence{
 
     //конструктор
     public AsciiCharSequence(byte[] array) {
-//        this.array = array;
-        this.array = Arrays.copyOf(array, array.length); //переписал через копирование массива
+        this.array = array;
+//        this.array = Arrays.copyOf(array, array.length); //переписал через копирование массива
 
     }
 
@@ -44,16 +44,16 @@ public class AsciiCharSequence implements CharSequence{
     }
 
     @Override
-    public CharSequence subSequence(int start, int end) {
-        byte[] newArray = new byte[end - start];
-        for (int i = start; i < end; i++) {
-            newArray[i - start] = array[i]; //i-start что б был 0-ой индекс, а не скажем 8
+    public CharSequence subSequence(int start, int end) { // Arrays.copyOf
+        byte[] newArray = Arrays.copyOf(array, end - start);
+        for (; start < end; start++) {
+            newArray[start - start] = array[start]; //start-start что б был 0-ой индекс, а не скажем 8
         }
         return new AsciiCharSequence(newArray); //вопрос - почему new Ascii а не CharSequence?
     }
 
     @Override
-    public String toString() {
+    public String toString(){
 //        StringBuilder result = new StringBuilder();
 //        for (int i = 0; i < array.length; i++) {
 //            result.append((char)array[i]);
