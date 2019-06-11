@@ -50,8 +50,8 @@ public class AsciiCharSequence implements CharSequence{
             newArray[start - start] = array[start]; //start-start что б был 0-ой индекс, а не скажем 8
         }
         return new AsciiCharSequence(newArray); //вопрос - почему new Ascii а не CharSequence?
-
     }
+
     @Override
     public String toString(){
 //        StringBuilder result = new StringBuilder();

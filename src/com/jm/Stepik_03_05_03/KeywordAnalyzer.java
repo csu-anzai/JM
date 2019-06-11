@@ -1,8 +1,5 @@
 package com.jm.Stepik_03_05_03;
 
-import java.io.Serializable;
-import java.lang.constant.Constable;
-
 abstract class KeywordAnalyzer implements TextAnalyzer {
 
     protected abstract String[] getKeywords();
@@ -10,6 +7,9 @@ abstract class KeywordAnalyzer implements TextAnalyzer {
 
     @Override
     public Label processText(String text){
-        return null;
+        Label label = Label.OK;
+        for (String s : getKeywords()) {
+            if (text.contains(s)) label = getLabel();
+        } return label;
     }
 }
