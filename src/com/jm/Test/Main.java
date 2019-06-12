@@ -5,39 +5,54 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         Main m = new Main();
-        Boolean[] booleans = new Boolean[3];
 
-        System.out.println(Arrays.toString(booleans));
+        Main.Inner1 inner1 = m.new Inner1();
+        Main.Inner2 inner2 = m.new Inner2();
+        Main.Inner3 inner3 = m.new Inner3();
+        Main.Inner4 inner4 = m.new Inner4();
 
-        System.out.println(Arrays.toString(m.boolIn(booleans)));
+        System.out.println(inner4.y);
+        System.out.println(inner4.t);
+        inner4.y = 7;
+        inner4.t = 10;
+        System.out.println(inner4.y);
+        System.out.println(inner4.t);
+
+        inner3.printInfo();
 
     }
 
-    public Boolean[] boolIn(Boolean[] b){
-        for (int i = 0; i < b.length; i++){
-            b[i] = true;
-        }return b;
+    int x = 4;
+    private int r = 0;
+
+    public class Inner1{
+        String s;
     }
 
-//    private public class Person(){
-//        String name;
-//    }
-//
-//    protected class Animals(){
-//
-//    }
-//
-//    private class Job(){
-//
-//    }
-//
-//    class Car(){
-//
-//    }
-//
-//    static class Cat(){
-//
-//    }
+    protected class Inner2{
+        double d = 1.0;
+        void printInfo(){
+            System.out.println(d);
+        }
+    }
+
+    class Inner3 extends Inner2{
+        byte b = 3;
+
+        @Override
+        void printInfo() {
+            super.printInfo();
+        }
+    }
+
+    private class Inner4{
+        int y = 5;
+        private int t = 8;
+
+
+
+
+    }
 }
 
 
