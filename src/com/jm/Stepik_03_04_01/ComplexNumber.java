@@ -68,56 +68,56 @@ public final class ComplexNumber {
 
     }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//        //проверка ссылок на объекты
-//        if (this == obj) {
-//            return true;
-//        }
-//        //проверка на null
-//        if (obj == null) {
-//            return false;
-//        }
-//        //проверка класса
-//        if (this.getClass() != obj.getClass()) {
-//            return false;
-//        }
-//
-//        //проверка полей
-//        ComplexNumber d = (ComplexNumber) obj;
-//        if (this.im != d.im) {
-//            return false;
-//        }
-//        if (this.re != d.re) {
-//            return false;
-//        }
-//        return true;
-//    }
-////    @Override
-////    public int hashCode(){
-////        final int jo = 17;
-////        double result = 1;
-////        result = result * jo + im;
-////        result = result * jo + re;
-////        return (int) result;
-////    }
-//    @Override
-//    public int hashCode() {
-//        return (int)((Double.doubleToLongBits(re)) - (Double.doubleToLongBits(re) >>> 32));
-//    }
-
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ComplexNumber that = (ComplexNumber) o;
-        return Double.compare(that.re, re) == 0 &&
-                Double.compare(that.im, im) == 0;
-    }
+    public boolean equals(Object obj) {
+        //проверка ссылок на объекты
+        if (this == obj) {
+            return true;
+        }
+        //проверка на null
+        if (obj == null) {
+            return false;
+        }
+        //проверка класса
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
 
+        //проверка полей
+        ComplexNumber d = (ComplexNumber) obj;
+        if (this.im != d.im) {
+            return false;
+        }
+        if (this.re != d.re) {
+            return false;
+        }
+        return true;
+    }
+//    @Override
+//    public int hashCode(){
+//        final int jo = 17;
+//        double result = 1;
+//        result = result * jo + im;
+//        result = result * jo + re;
+//        return (int) result;
+//    }
     @Override
     public int hashCode() {
-        return Objects.hash(re, im);
+        return (int)((Double.doubleToLongBits(re)) - (Double.doubleToLongBits(re) >>> 32));
     }
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        ComplexNumber that = (ComplexNumber) o;
+//        return Double.compare(that.re, re) == 0 &&
+//                Double.compare(that.im, im) == 0;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(re, im);
+//    }
 }
 
