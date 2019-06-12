@@ -1,6 +1,6 @@
 package com.jm.Test;
 
-public class ComplNumber{
+public class ComplNumber {
     private final double id;
     private final double d;
 
@@ -29,6 +29,10 @@ public class ComplNumber{
         ComplNumber that = (ComplNumber) obj;
         if (this.id != that.id) return false;
         if (this.d != that.d) return false;
+
+//        if (this.d.compareTo(that.d) != 0) {
+//            return false;
+//        }
 
         return true;
     }

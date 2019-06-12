@@ -59,7 +59,7 @@ public class Main {
                 new TooLongTextAnalyzer(maxLength)
         };
 
-        System.out.println(m.checkLabels(analyzers, "it's long and sad second spam :("));
+        System.out.println(m.checkLabels(analyzers, "i'ffffffffffffffffffffffffffffffffffffffffs lo"));
     }
 
     public Label checkLabels(TextAnalyzer[] analyzers, String text) { //переписал покороче
@@ -77,13 +77,13 @@ public class Main {
 //            }
 //        } return result;
 //    }
-        Label result = Label.OK;
+        //Label result = Label.OK;
         for (int i = 0; i < analyzers.length; i++) {
-            if (analyzers[i].processText(text) != Label.OK) {
-                result = analyzers[i].processText(text);
-                break;
+            Label l = analyzers[i].processText(text);
+            if (l != Label.OK) {
+                return l;
             }
         }
-        return result;
+        return Label.OK;
     }
 }
