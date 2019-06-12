@@ -59,7 +59,7 @@ public class Main {
                 new TooLongTextAnalyzer(maxLength)
         };
 
-        System.out.println(m.checkLabels(analyzers, "i'ffffffffffffffffffffffffffffffffffffffffs lo"));
+        System.out.println(m.checkLabels(analyzers, "i'fio"));
     }
 
     public Label checkLabels(TextAnalyzer[] analyzers, String text) { //переписал покороче

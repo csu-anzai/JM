@@ -45,11 +45,14 @@ public class AsciiCharSequence implements CharSequence{
 
     @Override
     public CharSequence subSequence(int start, int end) { // Arrays.copyOf
-        byte[] newArray = Arrays.copyOf(array, end - start);
-        for (; start < end; start++) {
-            newArray[start - start] = array[start]; //start-start что б был 0-ой индекс, а не скажем 8
-        }
-        return new AsciiCharSequence(newArray); //вопрос - почему new Ascii а не CharSequence?
+//        byte[] newArray = Arrays.copyOf(array, end - start);
+//        for (; start < end; start++) {
+//            newArray[start - start] = array[start]; //start-start что б был 0-ой индекс, а не скажем 8
+//        }
+//        return new AsciiCharSequence(newArray); //вопрос - почему new Ascii а не CharSequence?
+        byte[] newArray = new byte[end-start];
+        System.arraycopy(array, start, newArray, 0,end-start); //через System.arraycopy
+        return new AsciiCharSequence(newArray);
     }
 
     @Override
