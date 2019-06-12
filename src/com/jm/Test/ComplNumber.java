@@ -28,11 +28,7 @@ public class ComplNumber {
 
         ComplNumber that = (ComplNumber) obj;
         if (this.id != that.id) return false;
-        if (this.d != that.d) return false;
-
-//        if (this.d.compareTo(that.d) != 0) {
-//            return false;
-//        }
+        if (this.d > that.d && this.d < that.d ) return false;
 
         return true;
     }
