@@ -15,13 +15,13 @@ public class Main {
 
     public static double sqrt(double x) {
 //        if (x < 0){
-////            try {
-////                throw new IllegalArgumentException();
-////            } catch (IllegalArgumentException e){
-////                System.out.println("Expected non-negative number, got " + x);
-////            }
-////
-////        }
+//            try {
+//                throw new IllegalArgumentException();
+//            } catch (IllegalArgumentException e){
+//                System.out.println("Expected non-negative number, got " + x);
+//            }
+//
+//        }
         return Math.sqrt(x);
 
     }
