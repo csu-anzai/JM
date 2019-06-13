@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println(getCallerClassAndMethodName());
         anotherMethod();
-        System.out.println(LOGGER);
+//        System.out.println(LOGGER);
 
     }
 
@@ -32,11 +32,19 @@ public class Main {
 //        System.out.println(t.getLocalizedMessage());
 //        System.out.println(t.getSuppressed());
 //        System.out.println(t.getStackTrace());
-        StackTraceElement[] stackTraceElements = t.getStackTrace();
+        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+
+        String className = stackTraceElements[1].getClassName();
+//        System.out.println(className);
+
+        String methodName = stackTraceElements[2].getMethodName();
+//        System.out.println(methodName);
+
+        String message = className + "." + methodName;
 //        return Arrays.toString(stackTraceElements);
 //        return LOGGER.toString();
 //        return t.getMessage();
-        return null;
+        return message;
     }
 
 //    @Override
