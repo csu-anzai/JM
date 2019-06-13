@@ -8,21 +8,15 @@ package com.jm.Stepik_04_01_01;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println(Math.sqrt(-1));
         System.out.println(sqrt(-1));
     }
-
-
-
-    public static double sqrt(double x) {
-//        if (x < 0){
-//            try {
-//                throw new IllegalArgumentException();
-//            } catch (IllegalArgumentException e){
-//                System.out.println("Expected non-negative number, got " + x);
-//            }
-//
-//        }
+    
+    public static double sqrt(double x) throws IllegalArgumentException {
+        if (x < 0) {
+            throw new IllegalArgumentException("Expected non-negative number, got " + x);
+        }
         return Math.sqrt(x);
-
     }
 }
+
