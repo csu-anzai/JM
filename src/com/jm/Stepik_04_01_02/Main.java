@@ -19,10 +19,10 @@ public class Main {
     }
 
     public static String getCallerClassAndMethodName() {
-        if (Thread.currentThread().getStackTrace().length == 3){
+        if (Thread.currentThread().getStackTrace().length == 3){ //вызов из main
             return null;
         }
-        return Thread.currentThread().getStackTrace()[2].getClassName() + "#" +
+        return Thread.currentThread().getStackTrace()[2].getClassName() + "#" + //вызов из др методов
                 Thread.currentThread().getStackTrace()[2].getMethodName();
     }
 }
