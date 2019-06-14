@@ -8,47 +8,21 @@
  */
 package com.jm.Stepik_04_01_02;
 
-import java.util.Arrays;
-import java.util.logging.Logger;
-
 public class Main {
     public static void main(String[] args) {
         System.out.println(getCallerClassAndMethodName());
         anotherMethod();
-//        System.out.println(LOGGER);
-
     }
 
-    private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
-
-    private static void anotherMethod(){
+    private static void anotherMethod() {
         System.out.println(getCallerClassAndMethodName());
     }
 
-    public static String getCallerClassAndMethodName(){
-        Throwable t = new Throwable();
-//        System.out.println(t.getCause());
-//        System.out.println(t.fillInStackTrace());
-//        System.out.println(t.getLocalizedMessage());
-//        System.out.println(t.getSuppressed());
-//        System.out.println(t.getStackTrace());
-        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
-
-        String className = stackTraceElements[1].getClassName();
-//        System.out.println(className);
-
-        String methodName = stackTraceElements[2].getMethodName();
-//        System.out.println(methodName);
-
-        String message = className + "." + methodName;
-//        return Arrays.toString(stackTraceElements);
-//        return LOGGER.toString();
-//        return t.getMessage();
-        return message;
+    public static String getCallerClassAndMethodName() {
+        if (Thread.currentThread().getStackTrace().length == 3){
+            return null;
+        }
+        return Thread.currentThread().getStackTrace()[2].getClassName() + "#" +
+                Thread.currentThread().getStackTrace()[2].getMethodName();
     }
-
-//    @Override
-//    public String toString() {
-//        return super.toString();
-//    }
 }
