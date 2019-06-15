@@ -19,10 +19,13 @@ public class Main {
     }
 
     public static String getCallerClassAndMethodName() {
-        if (Thread.currentThread().getStackTrace().length == 3){ //вызов из main
+        Throwable t = new Throwable();
+        StackTraceElement[] stackTraceElements = t.getStackTrace();
+//        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+        if (stackTraceElements.length == 2){ //вызов из main
             return null;
         }
-        return Thread.currentThread().getStackTrace()[2].getClassName() + "#" + //вызов из др методов
-                Thread.currentThread().getStackTrace()[2].getMethodName();
+        return stackTraceElements[2].getClassName() + "#" + //вызов из др методов
+                stackTraceElements[2].getMethodName();
     }
 }
