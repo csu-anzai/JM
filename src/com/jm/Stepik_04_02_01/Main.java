@@ -47,67 +47,17 @@ package com.jm.Stepik_04_02_01;
 
 public class Main {
     public static void main(String[] args) {
-        Robot robot = new Robot();
-        moveRobot(robot, 33, -4);
+
+        moveRobot(robotConnectionManager, 33, -4);
     }
+
 
     public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
         //1)устанавить соединение с роботом
         //2)дать роботу команду на перемещение в заданную точку
         //3)закрыть соединение
         //повтор соединения  до 3х раз
-    }
 
-    public static void moveRobot(Robot robot, int toX, int toY) {
 
-//        while (robot.getX() < toX) {
-//            while (robot.getDirection() != Robot.Direction.RIGHT) {
-//                robot.turnRight();
-//            }
-//            robot.stepForward();
-//        }
-//        while (robot.getX() > toX) {
-//            while (robot.getDirection() != Robot.Direction.LEFT) {
-//                robot.turnRight();
-//            }
-//            robot.stepForward();
-//        }
-//        while (robot.getY() < toY) {
-//            while (robot.getDirection() != Robot.Direction.UP) {
-//                robot.turnRight();
-//            }
-//            robot.stepForward();
-//        }
-//        while (robot.getY() > toY) {
-//            while (robot.getDirection() != Robot.Direction.DOWN) {
-//                robot.turnRight();
-//            }
-//            robot.stepForward();
-//        }
-
-        if (robot.getX() < toX){
-            rotate(robot, Robot.Direction.RIGHT);
-            go(robot, toX - robot.getX());
-        } else {
-            rotate(robot, Robot.Direction.LEFT);
-            go(robot, robot.getX() - toX);
-        }
-        if (robot.getY() < toY){
-            rotate(robot, Robot.Direction.UP);
-            go(robot, toY - robot.getY());
-        } else {
-            rotate(robot, Robot.Direction.DOWN);
-            go(robot, robot.getY() - toY);
-        }
-    }
-    public static void rotate(Robot robot, Robot.Direction d){
-        while (robot.getDirection() != d){
-            robot.turnRight();
-        }
-    }
-    public static void go(Robot robot, int a){
-        for (int i = 0; i < a; i++){
-            robot.stepForward();
-        }
     }
 }
