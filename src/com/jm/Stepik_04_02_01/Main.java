@@ -46,4 +46,12 @@
 package com.jm.Stepik_04_02_01;
 
 public class Main {
+    public static void main(String[] args) {
+
+    }
+
+    public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
+        // your implementation here
+    }
+
 }
