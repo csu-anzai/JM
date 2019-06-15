@@ -51,7 +51,10 @@ public class Main {
     }
 
     public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
-        // your implementation here
+        //1)устанавить соединение с роботом
+        //2)дать роботу команду на перемещение в заданную точку
+        //3)закрыть соединение
+        //повтор соединения  до 3х раз
     }
 
 }
