@@ -48,7 +48,6 @@ package com.jm.Stepik_04_02_01;
 public class Main {
     public static void main(String[] args) {
 
-        moveRobot(robotConnectionManager, 33, -4);
     }
 
 
@@ -57,6 +56,8 @@ public class Main {
         //2)дать роботу команду на перемещение в заданную точку
         //3)закрыть соединение
         //повтор соединения  до 3х раз
+
+
 
 
     }
