@@ -48,8 +48,9 @@ package com.jm.Stepik_04_02_01;
 public class Main {
     public static void main(String[] args) {
 
-    }
+        moveRobot(new Robot(), 0, 0);
 
+    }
 
     public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
         //1)устанавить соединение с роботом
@@ -57,6 +58,11 @@ public class Main {
         //3)закрыть соединение
         //повтор соединения  до 3х раз
 
+        RobotConnection connection = robotConnectionManager.getConnection();
+
+        connection.moveRobotTo(0,0);
+
+        connection.close();
 
 
 
