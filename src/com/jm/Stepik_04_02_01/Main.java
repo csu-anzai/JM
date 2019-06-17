@@ -50,20 +50,21 @@ public class Main {
         Robot robot = new Robot();
         moveRobot(robot, 0, 0);
     }
-    public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) throws RobotConnectionException{
+
+    public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) throws RobotConnectionException {
         int attempt = 0; //попытка соединения
         while (robotConnectionManager.getConnection().equals(false) && attempt < 3) { //подключаемся до 3х раз
-            RobotConnection connection = robotConnectionManager.getConnection(); //устанавливаем соединение
-            try {
-                connection.moveRobotTo(toX, toY); //если произошла ошибка здесь
-            } catch (Exception e) {
-                connection.close(); //закрываем соединение
-            }
+            robotConnectionManager.getConnection(); //устанавливаем соединение
             attempt++;
         }
+        RobotConnection connection = robotConnectionManager.getConnection(); //получили соединение
+        connection.moveRobotTo(toX, toY); //если произошла ошибка здесь
+        connection.close(); //закрываем соединение
+
         if (attempt == 3) { //если было 3 попытки подключения бросаем исключение
             throw new RobotConnectionException("Не удалось подключиться с 3х попыток");
         }
     }
 }
+
 
