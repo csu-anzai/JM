@@ -47,24 +47,34 @@ package com.jm.Stepik_04_02_01;
 
 public class Main {
     public static void main(String[] args) {
+        Robot robot = new Robot();
 
-        moveRobot(new Robot(), 0, 0);
+        moveRobot(robot, 0, 0);
+
+    }
+
+    public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) throws RobotConnectionException{
+        int attempt = 0; //попытка соединения
+
+        while (robotConnectionManager.getConnection().equals(false) && attempt < 3) { //подключаемся до 3х раз
+            RobotConnection connection = robotConnectionManager.getConnection();
+
+            connection.moveRobotTo(toX, toY);
+            connection.close();
+
+            attempt++;
+        }
+
+        if (attempt == 3) {
+            throw new RobotConnectionException("Не удалось подключиться с 3х попыток");
+        }
+
+
+
+
 
     }
 
-    public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
-        //1)устанавить соединение с роботом
-        //2)дать роботу команду на перемещение в заданную точку
-        //3)закрыть соединение
-        //повтор соединения  до 3х раз
 
-        RobotConnection connection = robotConnectionManager.getConnection();
-
-        connection.moveRobotTo(0,0);
-
-        connection.close();
-
-
-
-    }
 }
+
