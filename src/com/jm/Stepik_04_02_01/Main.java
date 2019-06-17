@@ -48,11 +48,8 @@ package com.jm.Stepik_04_02_01;
 public class Main {
     public static void main(String[] args) {
         Robot robot = new Robot();
-
         moveRobot(robot, 0, 0);
-
     }
-
     public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) throws RobotConnectionException{
         int attempt = 0; //попытка соединения
         while (robotConnectionManager.getConnection().equals(false) && attempt < 3) { //подключаемся до 3х раз
@@ -61,20 +58,12 @@ public class Main {
                 connection.moveRobotTo(toX, toY); //если произошла ошибка здесь
             } catch (Exception e) {
                 connection.close(); //закрываем соединение
-                System.out.println("ошибка");
             }
             attempt++;
         }
-        if (attempt == 3) { //если было 3 попытки бросаем исключение
+        if (attempt == 3) { //если было 3 попытки подключения бросаем исключение
             throw new RobotConnectionException("Не удалось подключиться с 3х попыток");
         }
-
-
-
-
-
     }
-
-
 }
 
