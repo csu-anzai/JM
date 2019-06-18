@@ -3,9 +3,9 @@
  * к нему по беспроводному каналу связи.
  * Подключение к роботу представляется в программе интерфейсом RobotConnection:
  * public interface RobotConnection extends AutoCloseable {
- *     void moveRobotTo(int x, int y);
- *     @Override
- *     void close();
+ * void moveRobotTo(int x, int y);
+ *
+ * @Override void close();
  * }
  * Да, робот с тех пор поумнел и стал понимать команду на перемещение в заданную точку (метод moveRobotTo). Ему больше
  * не нужны пошаговые инструкции.
@@ -13,7 +13,7 @@
  * Для закрытия соединения в интерфейсе есть метод close().
  * За установку соединения отвечает RobotConnectionManager:
  * public interface RobotConnectionManager {
- *     RobotConnection getConnection();
+ * RobotConnection getConnection();
  * }
  * Метод getConnection() делает попытку соединиться с роботом и возвращает установленное соединение, через которое
  * можно отдавать роботу команды.
@@ -21,12 +21,12 @@
  * Всякое бывает. Поэтому любой метод RobotConnectionManager и RobotConnection может бросить непроверяемое
  * исключение RobotConnectionException:
  * public class RobotConnectionException extends RuntimeException {
- *     public RobotConnectionException(String message) {
- *         super(message);
- *     }
- *     public RobotConnectionException(String message, Throwable cause) {
- *         super(message, cause);
- *     }
+ * public RobotConnectionException(String message) {
+ * super(message);
+ * }
+ * public RobotConnectionException(String message, Throwable cause) {
+ * super(message, cause);
+ * }
  * }
  * Ваша задача — реализовать метод который устанавливает соединение с роботом, отдает ему команду на перемещение
  * в заданную точку и затем закрывает соединение, выполняя при необходимости повтор этой последовательности до трех раз.
@@ -52,19 +52,24 @@ public class Main {
     }
 
     public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) throws RobotConnectionException {
-        int attempt = 0; //попытка соединения
-        while (robotConnectionManager.getConnection().equals(false) && attempt < 3) { //подключаемся до 3х раз
-            robotConnectionManager.getConnection(); //устанавливаем соединение
-            attempt++;
-        }
-        RobotConnection connection = robotConnectionManager.getConnection(); //получили соединение
-        connection.moveRobotTo(toX, toY); //если произошла ошибка здесь
-        connection.close(); //закрываем соединение
-
-        if (attempt == 3) { //если было 3 попытки подключения бросаем исключение
-            throw new RobotConnectionException("Не удалось подключиться с 3х попыток");
+        int attempt = 0;
+        try {
+            for (; attempt < 3; attempt++) {
+                try (RobotConnection connection = robotConnectionManager.getConnection()) {
+                    connection.moveRobotTo(toX, toY);
+                    break;
+                } catch (RobotConnectionException e1) {
+                    System.out.println("Исключение: " + e1);
+                }
+            }
+            if (attempt == 3) {
+                throw new RobotConnectionException("Не удалось подключиться с 3х попыток");
+            }
+        } catch (Exception ex1) {
+            System.out.println("Исключение: " + ex1);
+            attempt = 4;
+        } finally {
+            robotConnectionManager.getConnection().close();
         }
     }
 }
-
-
