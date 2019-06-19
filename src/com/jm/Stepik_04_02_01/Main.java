@@ -54,24 +54,19 @@ public class Main {
     public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) throws RobotConnectionException {
         byte attempt = 0;
         while (attempt < 3) {
-            RobotConnection connection;
-            try {
+            try (RobotConnection connection = robotConnectionManager.getConnection()) {
                 if (attempt == 3) {
                     throw new RobotConnectionException("Не удалось подключиться с 3х попыток");
                 }
-//                robotConnectionManager.getConnection();
-                connection = robotConnectionManager.getConnection();
                 connection.moveRobotTo(toX, toY);
                 connection.close();
-                attempt++;
                 break;
             } catch (RobotConnectionException e1) {
-                System.out.println("Исключение: " + e1);
-            } catch (Exception ex1) {
+                attempt++;
+                System.out.println("Исключение1: " + e1);
+            } catch (Exception e2) {
                 attempt = 4;
-                System.out.println("Исключение: " + ex1);
-            } finally {
-                connection.close();
+                System.out.println("Исключение2: " + e2);
             }
         }
     }
