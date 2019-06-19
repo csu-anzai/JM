@@ -46,6 +46,7 @@
 package com.jm.Stepik_04_02_01;
 
 public class Main {
+
     public static void main(String[] args) {
         Robot robot = new Robot();
         moveRobot(robot, 0, 0);
@@ -55,18 +56,16 @@ public class Main {
         byte attempt = 0;
         while (attempt < 3) {
             try (RobotConnection connection = robotConnectionManager.getConnection()) {
-                if (attempt == 3) {
-                    throw new RobotConnectionException("Не удалось подключиться с 3х попыток");
-                }
                 connection.moveRobotTo(toX, toY);
-                connection.close();
-                break;
-            } catch (RobotConnectionException e1) {
+                attempt = 3;
+            } catch (RobotConnectionException e) {
                 attempt++;
-                System.out.println("Исключение1: " + e1);
-            } catch (Exception e2) {
-                attempt = 4;
-                System.out.println("Исключение2: " + e2);
+                if (attempt == 3) {
+                    throw new RobotConnectionException("Не подключились с 3х попыток");
+                }
+            } catch (Exception e1) {
+                //attempt = 4; //не нужно!
+                throw e1;
             }
         }
     }
