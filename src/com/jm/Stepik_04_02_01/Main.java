@@ -71,7 +71,7 @@ public class Main {
                 attempt = 4;
                 System.out.println("Исключение: " + ex1);
             } finally {
-                getConnection().close();
+                connection.close();
             }
         }
     }
