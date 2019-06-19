@@ -16,16 +16,28 @@
 
 package com.jm.Stepik_04_03_01;
 
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main {
-
-    private static final Logger LOGGER1 = Logger.getLogger(ClassA.class.getName());
-    private static final Logger LOGGER2 = Logger.getLogger(ClassB.class.getName());
-
     public static void main(String[] args) {
-        System.out.println(LOGGER1);
-
     }
+
+    private static void configureLogging() {
+        final Logger LOGGER1 = Logger.getLogger(ClassA.class.getName());
+        final Logger LOGGER2 = Logger.getLogger(ClassB.class.getName());
+
+        LOGGER1.log(Level.ALL, "Current value of x is {0}", x);
+        LOGGER2.log(Level.WARNING, "Current value of x is {0}", x);
+
+        ConsoleHandler consoleHandler1 = new ConsoleHandler();
+        ConsoleHandler consoleHandler2 = new ConsoleHandler();
+
+        LOGGER1.addHandler(consoleHandler1);
+        LOGGER1.addHandler(consoleHandler2);
+    }
+
 
 }
