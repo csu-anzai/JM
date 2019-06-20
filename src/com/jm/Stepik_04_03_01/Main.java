@@ -16,7 +16,6 @@
 
 package com.jm.Stepik_04_03_01;
 
-import java.beans.XMLEncoder;
 import java.util.logging.*;
 
 public class Main {
@@ -26,11 +25,24 @@ public class Main {
 
     public static void main(String[] args) {
         configureLogging();
+
+        //test
+        LOGGER_CLASS_A.finest("FINEST");
+        System.out.println();
+        LOGGER_CLASS_A.finer("FINER");
+        System.out.println();
+        LOGGER_CLASS_A.fine("FINE");
+        System.out.println();
+        LOGGER_CLASS_A.info("INFO");
+        System.out.println();
+        LOGGER_CLASS_A.warning("WARNING");
+        System.out.println();
+        LOGGER_CLASS_A.severe("SEVERE");
     }
 
     private static void configureLogging() {
-//        public static final Logger LOGGER_CLASS_A = Logger.getLogger(ClassA.class.getName());
-//        public static final Logger LOGGER_CLASS_B = Logger.getLogger(ClassB.class.getName());
+//        final Logger LOGGER_CLASS_A = Logger.getLogger("org.stepic.java.logging.ClassA");
+//        final Logger LOGGER_CLASS_B = Logger.getLogger("org.stepic.java.logging.ClassB");
 
         LOGGER_CLASS_A.setLevel(Level.FINEST); //задаем уровень
         LOGGER_CLASS_B.setLevel(Level.WARNING);
@@ -44,14 +56,12 @@ public class Main {
         consoleHandlerClassA.setLevel(Level.FINEST); //задаем уровень обработчика
         consoleHandlerClassB.setLevel(Level.WARNING);
 
-        XMLFormatter xmlFormatter = new XMLFormatter();
+        XMLFormatter xmlFormatter = new XMLFormatter(); //создаем XML форматтер
 
-        consoleHandlerClassA.setFormatter(xmlFormatter); //устанавливаем форматтер
+        consoleHandlerClassA.setFormatter(xmlFormatter); //устанавливаем форматтер обработчику
         consoleHandlerClassB.setFormatter(xmlFormatter);
 
         LOGGER_CLASS_A.addHandler(consoleHandlerClassA); //добавляем обработчик логгеру
         LOGGER_CLASS_B.addHandler(consoleHandlerClassB);
     }
-
-
 }
