@@ -16,27 +16,34 @@
 
 package com.jm.Stepik_04_03_01;
 
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Handler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 public class Main {
+
+    public static final Logger LOGGER_CLASS_A = Logger.getLogger(ClassA.class.getName());
+    public static final Logger LOGGER_CLASS_B = Logger.getLogger(ClassB.class.getName());
+
     public static void main(String[] args) {
+        configureLogging();
     }
 
     private static void configureLogging() {
-        final Logger LOGGER1 = Logger.getLogger(ClassA.class.getName());
-        final Logger LOGGER2 = Logger.getLogger(ClassB.class.getName());
+        LOGGER_CLASS_A.setLevel(Level.FINEST); //задаем уровень
+        LOGGER_CLASS_B.setLevel(Level.WARNING);
 
-        LOGGER1.log(Level.ALL, "Current value of x is {0}", x);
-        LOGGER2.log(Level.WARNING, "Current value of x is {0}", x);
+        LOGGER_CLASS_A.setUseParentHandlers(true); //по умолчанию всегда в консоль
+        LOGGER_CLASS_B.setUseParentHandlers(true);
 
-        ConsoleHandler consoleHandler1 = new ConsoleHandler();
-        ConsoleHandler consoleHandler2 = new ConsoleHandler();
+        Handler consoleHandlerClassA = new ConsoleHandler(); //создаем обработчик
+        Handler consoleHandlerClassB = new ConsoleHandler();
 
-        LOGGER1.addHandler(consoleHandler1);
-        LOGGER1.addHandler(consoleHandler2);
+        consoleHandlerClassA.setLevel(Level.FINEST); //задаем уровень обработчика
+        consoleHandlerClassA.setLevel(Level.WARNING);
+//        consoleHandlerClassA.setFormatter(XMLFormatter);
+//        consoleHandlerClassB.setFormatter(XMLFormatter);
+
+        LOGGER_CLASS_A.addHandler(consoleHandlerClassA); //добавляем обработчик логгеру
+        LOGGER_CLASS_B.addHandler(consoleHandlerClassB);
     }
 
 
