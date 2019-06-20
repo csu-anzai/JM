@@ -33,6 +33,8 @@ public class Main {
         System.out.println();
         LOGGER_CLASS_A.fine("FINE");
         System.out.println();
+        LOGGER_CLASS_A.config("CONFIG");
+        System.out.println();
         LOGGER_CLASS_A.info("INFO");
         System.out.println();
         LOGGER_CLASS_A.warning("WARNING");
