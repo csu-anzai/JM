@@ -65,5 +65,8 @@ public class Main {
 
         LOGGER_CLASS_A.addHandler(consoleHandlerClassA); //добавляем обработчик логгеру
         LOGGER_CLASS_B.addHandler(consoleHandlerClassB);
+
+        LOGGER_CLASS_A.getParent(); //получаем логгер org.stepic.java.logging
+        LOGGER_CLASS_B.getParent();
     }
 }
