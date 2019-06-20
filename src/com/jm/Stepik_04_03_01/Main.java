@@ -16,31 +16,38 @@
 
 package com.jm.Stepik_04_03_01;
 
+import java.beans.XMLEncoder;
 import java.util.logging.*;
 
 public class Main {
-
-    public static final Logger LOGGER_CLASS_A = Logger.getLogger(ClassA.class.getName());
-    public static final Logger LOGGER_CLASS_B = Logger.getLogger(ClassB.class.getName());
+//ВОПРОС: мы создали константу LOGGER и выполняем статические методы. Это как???
+    public static final Logger LOGGER_CLASS_A = Logger.getLogger("org.stepic.java.logging.ClassA");
+    public static final Logger LOGGER_CLASS_B = Logger.getLogger("org.stepic.java.logging.ClassB");
 
     public static void main(String[] args) {
         configureLogging();
     }
 
     private static void configureLogging() {
+//        public static final Logger LOGGER_CLASS_A = Logger.getLogger(ClassA.class.getName());
+//        public static final Logger LOGGER_CLASS_B = Logger.getLogger(ClassB.class.getName());
+
         LOGGER_CLASS_A.setLevel(Level.FINEST); //задаем уровень
         LOGGER_CLASS_B.setLevel(Level.WARNING);
 
-        LOGGER_CLASS_A.setUseParentHandlers(true); //по умолчанию всегда в консоль
+        LOGGER_CLASS_A.setUseParentHandlers(true); //по умолчанию и так в консоль, но на всякий true
         LOGGER_CLASS_B.setUseParentHandlers(true);
 
         Handler consoleHandlerClassA = new ConsoleHandler(); //создаем обработчик
         Handler consoleHandlerClassB = new ConsoleHandler();
 
         consoleHandlerClassA.setLevel(Level.FINEST); //задаем уровень обработчика
-        consoleHandlerClassA.setLevel(Level.WARNING);
-//        consoleHandlerClassA.setFormatter(XMLFormatter);
-//        consoleHandlerClassB.setFormatter(XMLFormatter);
+        consoleHandlerClassB.setLevel(Level.WARNING);
+
+        XMLFormatter xmlFormatter = new XMLFormatter();
+
+        consoleHandlerClassA.setFormatter(xmlFormatter); //устанавливаем форматтер
+        consoleHandlerClassB.setFormatter(xmlFormatter);
 
         LOGGER_CLASS_A.addHandler(consoleHandlerClassA); //добавляем обработчик логгеру
         LOGGER_CLASS_B.addHandler(consoleHandlerClassB);
