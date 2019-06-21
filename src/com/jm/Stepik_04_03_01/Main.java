@@ -32,7 +32,7 @@ public class Main {
         LOGGER_CLASS_A.setLevel(Level.ALL); //задаем уровень логгера
         LOGGER_CLASS_B.setLevel(Level.WARNING);
 
-        LOGGER_CLASS_A.setUseParentHandlers(true); //разрешаем пересылать сообщение родителю
+        LOGGER_CLASS_A.setUseParentHandlers(true); //разрешаем передавать сообщение родителю
         LOGGER_CLASS_B.setUseParentHandlers(true);
 
         LOGGER.setUseParentHandlers(false); //запрещаем передавать сообщение родителю
