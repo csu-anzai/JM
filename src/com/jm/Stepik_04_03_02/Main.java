@@ -36,4 +36,7 @@ package com.jm.Stepik_04_03_02;
 
 public class Main {
     // implement UntrustworthyMailWorker, Spy, Inspector, Thief, StolenPackageException, IllegalPackageException as public static classes here
+
+    MailServices[] mailServices;
+    UntrustworthyMailWorker untrustworthyMailWorker = new UntrustworthyMailWorker(mailServices);
 }

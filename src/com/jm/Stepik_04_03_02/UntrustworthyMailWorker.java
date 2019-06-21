@@ -9,12 +9,20 @@ package com.jm.Stepik_04_03_02;
  * экземпляр RealMailService.
  */
 public class UntrustworthyMailWorker implements MailService {
+
+    private MailServices[] mailServices;
+
     @Override
     public Sendable processMail(Sendable mail) {
-        return null;
+        return mail;
     }
 
-    UntrustworthyMailWorker (MailService[] mailServices){
+    UntrustworthyMailWorker (MailServices[] mailServices){
+            this.mailServices = mailServices;
+        }
 
+
+    public RealMailService getRealMailService(){
+        return null;
     }
 }
