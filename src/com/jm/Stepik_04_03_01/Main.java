@@ -20,76 +20,67 @@ import java.util.logging.*;
 
 public class Main {
 //ВОПРОС: мы создали константу LOGGER и выполняем статические методы. Это как???
-    public static final Logger LOGGER_CLASS_A1 = Logger.getLogger("org.stepic.java");
-    public static final Logger LOGGER_CLASS_A2 = Logger.getLogger("org.stepic.java.logging.ClassA");
-
-    public static final Logger LOGGER_CLASS_B1 = Logger.getLogger("org.stepic.java");
-    public static final Logger LOGGER_CLASS_B2 = Logger.getLogger("org.stepic.java.logging.ClassB"); //лишний??
+    public static final Logger LOGGER_CLASS_A = Logger.getLogger("org.stepic.java.logging.ClassA");
+    public static final Logger LOGGER_CLASS_B = Logger.getLogger("org.stepic.java.logging.ClassB");
 
     public static void main(String[] args) {
         configureLogging();
-
-
+        
         //test
-        LOGGER_CLASS_A2.finest("FINEST");
+        LOGGER_CLASS_A.finest("FINEST");
         System.out.println();
-        LOGGER_CLASS_A2.finer("FINER");
+        LOGGER_CLASS_A.finer("FINER");
         System.out.println();
-        LOGGER_CLASS_A2.fine("FINE");
+        LOGGER_CLASS_A.fine("FINE");
         System.out.println();
-        LOGGER_CLASS_A2.config("CONFIG");
+        LOGGER_CLASS_A.config("CONFIG");
         System.out.println();
-        LOGGER_CLASS_A2.info("INFO");
+        LOGGER_CLASS_A.info("INFO");
         System.out.println();
-        LOGGER_CLASS_A2.warning("WARNING");
+        LOGGER_CLASS_A.warning("WARNING");
         System.out.println();
-        LOGGER_CLASS_A2.severe("SEVERE");
+        LOGGER_CLASS_A.severe("SEVERE");
     }
 
     private static void configureLogging() {
 //        final Logger LOGGER_CLASS_A = Logger.getLogger("org.stepic.java.logging.ClassA");
 //        final Logger LOGGER_CLASS_B = Logger.getLogger("org.stepic.java.logging.ClassB");
 
-        LOGGER_CLASS_A2.setLevel(Level.FINEST); //задаем уровень
-        LOGGER_CLASS_B2.setLevel(Level.WARNING);
+        LOGGER_CLASS_A.setLevel(Level.FINEST); //задаем уровень
+        LOGGER_CLASS_B.setLevel(Level.WARNING);
 
-        LOGGER_CLASS_A1.setLevel(Level.ALL); //задаем уровень для родителя
-        LOGGER_CLASS_B1.setLevel(Level.ALL);
+        LOGGER_CLASS_A.getParent().setLevel(Level.ALL); //задаем уровень для родителя для печати в консоль
+        LOGGER_CLASS_B.getParent().setLevel(Level.ALL);
 
-        LOGGER_CLASS_A2.setUseParentHandlers(true); //по умолчанию и так в консоль, но на всякий true
-        LOGGER_CLASS_B2.setUseParentHandlers(true);
+        LOGGER_CLASS_A.setUseParentHandlers(true); //по умолчанию и так в консоль, но на всякий true
+        LOGGER_CLASS_B.setUseParentHandlers(true);
 
-
-
-        LOGGER_CLASS_A2.setFilter(new Filter() { //фильтр родителя
+        LOGGER_CLASS_A.setFilter(new Filter() { //фильтр родителя
             @Override
             public boolean isLoggable(LogRecord record) {
                 return false;
             }
         });
 
-        LOGGER_CLASS_B2.setFilter(new Filter() {
+        LOGGER_CLASS_B.setFilter(new Filter() {
             @Override
             public boolean isLoggable(LogRecord record) {
                 return false;
             }
         });
 
-        Handler consoleHandlerClassA2 = new ConsoleHandler(); //создаем обработчик
-        Handler consoleHandlerClassB2 = new ConsoleHandler();
+        Handler consoleHandlerClassA = new ConsoleHandler(); //создаем обработчик
+        Handler consoleHandlerClassB = new ConsoleHandler();
 
-        consoleHandlerClassA2.setLevel(Level.FINEST); //задаем уровень обработчика
-        consoleHandlerClassB2.setLevel(Level.WARNING);
+        consoleHandlerClassA.setLevel(Level.FINEST); //задаем уровень обработчика
+        consoleHandlerClassB.setLevel(Level.WARNING);
 
         XMLFormatter xmlFormatter = new XMLFormatter(); //создаем XML форматтер
 
-        consoleHandlerClassA2.setFormatter(xmlFormatter); //устанавливаем форматтер обработчику
-        consoleHandlerClassB2.setFormatter(xmlFormatter);
+        consoleHandlerClassA.setFormatter(xmlFormatter); //устанавливаем форматтер обработчику
+        consoleHandlerClassB.setFormatter(xmlFormatter);
 
-        LOGGER_CLASS_A2.addHandler(consoleHandlerClassA2); //добавляем обработчик логгеру
-        LOGGER_CLASS_B2.addHandler(consoleHandlerClassB2);
-
-        LOGGER_CLASS_A2.getParent(); //получаем логгер org.stepic.java.logging
-        LOGGER_CLASS_B2.getParent();
+        LOGGER_CLASS_A.addHandler(consoleHandlerClassA); //добавляем обработчик логгеру
+        LOGGER_CLASS_B.addHandler(consoleHandlerClassB);
     }
 }
