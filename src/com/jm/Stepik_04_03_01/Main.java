@@ -39,13 +39,6 @@ public class Main {
 
         LOGGER.setLevel(Level.ALL); //задаем уровень логгера
 
-        LOGGER.setFilter(new Filter() { //запрещаем передавать сообщение дальше
-            @Override
-            public boolean isLoggable(LogRecord record) {
-                return false;
-            }
-        });
-
         Handler consoleHandlerLogger = new ConsoleHandler(); //создаем обработчик
 
         consoleHandlerLogger.setLevel(Level.ALL); //задаем уровень для обработчика
