@@ -21,8 +21,6 @@ public class UntrustworthyMailWorker implements MailService {
         this.mailService = mailService;
     }
 
-
-
     public RealMailService getRealMailService(){
         return null;
     }
