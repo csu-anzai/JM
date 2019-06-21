@@ -10,16 +10,17 @@ package com.jm.Stepik_04_03_02;
  */
 public class UntrustworthyMailWorker implements MailService {
 
-    private MailServices[] mailServices;
+    private MailService[] mailService;
 
     @Override
     public Sendable processMail(Sendable mail) {
         return mail;
     }
 
-    UntrustworthyMailWorker (MailServices[] mailServices){
-            this.mailServices = mailServices;
-        }
+    UntrustworthyMailWorker (MailService[] mailService){
+        this.mailService = mailService;
+    }
+
 
 
     public RealMailService getRealMailService(){
