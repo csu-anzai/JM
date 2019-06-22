@@ -44,8 +44,6 @@ package com.jm.Stepik_03_05_03;
 
 public class Main {
 
-    public final static StringBuilder sb = new StringBuilder("abc");
-
     public static void main(String[] args) {
 
         Main m = new Main();

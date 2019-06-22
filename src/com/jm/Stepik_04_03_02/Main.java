@@ -37,6 +37,34 @@ package com.jm.Stepik_04_03_02;
 public class Main {
     // implement UntrustworthyMailWorker, Spy, Inspector, Thief, StolenPackageException, IllegalPackageException as public static classes here
 
-    MailServices[] mailServices;
-    UntrustworthyMailWorker untrustworthyMailWorker = new UntrustworthyMailWorker(mailServices);
-}
+
+
+//    UntrustworthyMailWorker untrustworthyMailWorker = new UntrustworthyMailWorker();
+//    Spy spy = new Spy();
+//    Thief thief = new Thief();
+//    Inspector inspector = new Inspector();
+//    RealMailService realMailService = new RealMailService();
+//
+//    MailService[] mailService = {
+//            untrustworthyMailWorker,
+//            spy,
+//            thief,
+//            inspector,
+//    };
+
+
+
+    public static void main(String[] args) {
+        int minPrice = 0;
+
+        MailService[] mailServices = {
+                new UntrustworthyMailWorker(),
+                new Spy(),
+                new Thief(minPrice),
+                new Inspector(),
+        };
+
+
+    }
+
+    }

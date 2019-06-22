@@ -8,8 +8,18 @@ package com.jm.Stepik_04_03_02;
  * нулевой ценностью и содержимым посылки "stones instead of {content}".
  */
 public class Thief implements MailService {
+    private int minPrice;
+
     @Override
     public Sendable processMail(Sendable mail) {
         return null;
+    }
+
+    Thief (int minPrice){
+        this.minPrice = minPrice;
+    }
+
+    public int getStolenValue(){
+        return 0;
     }
 }
