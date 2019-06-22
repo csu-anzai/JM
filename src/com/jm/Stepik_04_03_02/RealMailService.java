@@ -1,5 +1,8 @@
 package com.jm.Stepik_04_03_02;
 
+/*
+Класс, в котором скрыта логика настоящей почты
+*/
 public class RealMailService implements MailService {
 
     @Override
