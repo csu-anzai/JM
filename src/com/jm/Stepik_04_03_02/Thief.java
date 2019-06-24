@@ -10,13 +10,16 @@ package com.jm.Stepik_04_03_02;
 public class Thief implements MailService {
     private int minPrice;
 
-    @Override
-    public Sendable processMail(Sendable mail) {
-        return null;
+    public Thief (int minPrice){
+        this.minPrice = minPrice;
     }
 
-    Thief (int minPrice){
-        this.minPrice = minPrice;
+    @Override
+    public Sendable processMail(Sendable mail) {
+        if (minPrice < цена посылки) {  //как получить посылку???
+
+        }
+        return new MailPackage();
     }
 
     public int getStolenValue(){

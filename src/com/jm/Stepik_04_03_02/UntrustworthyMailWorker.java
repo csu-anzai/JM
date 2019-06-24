@@ -12,16 +12,16 @@ public class UntrustworthyMailWorker implements MailService {
 
     private MailService[] mailService;
 
+    public UntrustworthyMailWorker(MailService[] mailService) {
+        this.mailService = mailService;
+    }
+
     @Override
     public Sendable processMail(Sendable mail) {
         for (int i = 0; i < mailService.length; i++) {
             mail = mailService[i + 1].processMail(mailService[i].processMail(mail));
         }
         return mail;
-    }
-
-    UntrustworthyMailWorker(MailService[] mailService) {
-        this.mailService = mailService;
     }
 
     public RealMailService getRealMailService() {

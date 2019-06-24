@@ -34,37 +34,30 @@
 
 package com.jm.Stepik_04_03_02;
 
+import java.util.logging.Logger;
+
 public class Main {
+    public static final Logger LOGGER = Logger.getLogger(Spy.class.getName());
+
     // implement UntrustworthyMailWorker, Spy, Inspector, Thief, StolenPackageException, IllegalPackageException as public static classes here
 
-
-
-//    UntrustworthyMailWorker untrustworthyMailWorker = new UntrustworthyMailWorker();
-//    Spy spy = new Spy();
-//    Thief thief = new Thief();
-//    Inspector inspector = new Inspector();
-//    RealMailService realMailService = new RealMailService();
-//
-//    MailService[] mailService = {
-//            untrustworthyMailWorker,
-//            spy,
-//            thief,
-//            inspector,
-//    };
-
-
-
     public static void main(String[] args) {
+
         int minPrice = 0;
 
-        MailService[] mailServices = {
-                new UntrustworthyMailWorker(),
-                new Spy(),
-                new Thief(minPrice),
-                new Inspector(),
-        };
+        MailService[] mailService = new MailService[4];
+
+        mailService[0] = new UntrustworthyMailWorker(mailService); //не понял почему именно так!
+        mailService[1] = new Spy(LOGGER);
+        mailService[2] = new Thief(minPrice);
+        mailService[3] = new Inspector();
+
+        for (int i = 0; i < mailService.length; i++){
+            mailService[i] = mailService[i].processMail(mail);
+        }
+
 
 
     }
 
-    }
+}
