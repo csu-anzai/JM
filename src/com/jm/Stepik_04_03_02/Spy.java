@@ -1,7 +1,5 @@
 package com.jm.Stepik_04_03_02;
 
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

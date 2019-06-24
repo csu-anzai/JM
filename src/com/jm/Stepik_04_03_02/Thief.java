@@ -9,7 +9,7 @@ package com.jm.Stepik_04_03_02;
  */
 public class Thief implements MailService {
     private int minPrice;
-    private static int stolenValue; //сумма сворованного
+    private static int stolenValue = 0; //сумма сворованного
 
     public Thief (int minPrice){
         this.minPrice = minPrice;
@@ -17,12 +17,12 @@ public class Thief implements MailService {
 
     @Override
     public Sendable processMail(Sendable mail) {
-        if (mail instanceof Package){
-            if (minPrice < Package.getPrice()){
+        if (mail instanceof Package) {
+            if (minPrice < Package.getPrice()) {
                 stolenValue += Package.getPrice();
             }
         }
-        return new Package("stones instead of {content}", 0);
+        return new Package("stones", 0);
     }
 
     public int getStolenValue(){

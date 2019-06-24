@@ -13,13 +13,18 @@ public class Inspector implements MailService {
     public static final String BANNED_SUBSTANCE = "banned substance";
 
     @Override
-    public Sendable processMail(Sendable mail) throws IllegalPackageException{
-        if (mail instanceof MailPackage){
-            if (MailPackage.getMessage().contains(WEAPONS) | MailPackage.getMessage().contains(BANNED_SUBSTANCE)){
+    public Sendable processMail(Sendable mail) throws IllegalPackageException {
+        if (mail instanceof MailPackage) {
 
+            if (MailPackage.getMessage().contains(WEAPONS) | MailPackage.getMessage().contains(BANNED_SUBSTANCE)) {
+                throw new IllegalPackageException();
+            }
+
+            if (MailPackage.getMessage().contains("stones")) {
+                throw new StolenPackageException();
             }
 
         }
-        return null;
+        return mail;
     }
 }
