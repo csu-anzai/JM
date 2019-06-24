@@ -13,7 +13,13 @@ public class Inspector implements MailService {
     public static final String BANNED_SUBSTANCE = "banned substance";
 
     @Override
-    public Sendable processMail(Sendable mail) {
+    public Sendable processMail(Sendable mail) throws IllegalPackageException{
+        if (mail instanceof MailPackage){
+            if (MailPackage.getMessage().contains(WEAPONS) | MailPackage.getMessage().contains(BANNED_SUBSTANCE)){
+
+            }
+
+        }
         return null;
     }
 }

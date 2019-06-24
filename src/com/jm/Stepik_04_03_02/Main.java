@@ -43,7 +43,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int minPrice = 0;
+        int minPrice = 10;
 
         MailService[] mailService = new MailService[4];
 
@@ -52,9 +52,6 @@ public class Main {
         mailService[2] = new Thief(minPrice);
         mailService[3] = new Inspector();
 
-        for (int i = 0; i < mailService.length; i++){
-            mailService[i] = mailService[i].processMail(mail);
-        }
 
 
 
