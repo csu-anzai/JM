@@ -15,15 +15,12 @@ public class Inspector implements MailService {
     @Override
     public Sendable processMail(Sendable mail) throws IllegalPackageException {
         if (mail instanceof MailPackage) {
-
-            if (MailPackage.getMessage().contains(WEAPONS) | MailPackage.getMessage().contains(BANNED_SUBSTANCE)) {
+            if (MailPackage.getContent().contains(WEAPONS) | MailPackage.getContent().contains(BANNED_SUBSTANCE)) {
                 throw new IllegalPackageException();
             }
-
-            if (MailPackage.getMessage().contains("stones")) {
+            if (MailPackage.getContent().contains("stones")) {
                 throw new StolenPackageException();
             }
-
         }
         return mail;
     }

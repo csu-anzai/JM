@@ -17,12 +17,12 @@ public class Thief implements MailService {
 
     @Override
     public Sendable processMail(Sendable mail) {
-        if (mail instanceof Package) {
+        if (mail instanceof MailPackage) {
             if (minPrice < Package.getPrice()) {
                 stolenValue += Package.getPrice();
             }
         }
-        return new Package("stones", 0);
+        return new MailPackage(MailPackage.getFrom(), MailPackage.getTo(), MailPackage.getContent("stones"));
     }
 
     public int getStolenValue(){
