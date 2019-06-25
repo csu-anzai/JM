@@ -7,20 +7,24 @@ package com.jm.Stepik_04_03_02;
  * (содержит слово "stones"), то тревога прозвучит в виде StolenPackageException. Оба исключения вы должны объявить
  * самостоятельно в виде непроверяемых исключений.
  */
-public static class Inspector implements MailService {
+public class Inspector implements MailService {
 
     public static final String WEAPONS = "weapons";
     public static final String BANNED_SUBSTANCE = "banned substance";
 
     @Override
-    public Sendable processMail(Sendable mail) throws IllegalPackageException {
+    public Sendable processMail(Sendable mail) throws IllegalPackageException, StolenPackageException {
         if (mail instanceof MailPackage) {
-            if (MailPackage.getContent().contains(WEAPONS) | MailPackage.getContent().contains(BANNED_SUBSTANCE)) {
-                throw new IllegalPackageException("Запрещенное содержимое");
-            }
-            if (MailPackage.getContent().contains("stones")) {
-                throw new StolenPackageException("Посылка состоящая из камней");
-            }
+//            try {
+                if (((MailPackage) mail).getContent().equals(WEAPONS) || ((MailPackage) mail).getContent().equals(BANNED_SUBSTANCE)) {
+                    throw new IllegalPackageException();
+                }
+                if (((MailPackage) mail).getContent().equals("stones")) {
+                    throw new StolenPackageException();
+                }
+//            } catch (IllegalPackageException | StolenPackageException e) {
+//                System.out.println(e);
+//            }
         }
         return mail;
     }

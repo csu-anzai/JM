@@ -3,7 +3,7 @@ package com.jm.Stepik_04_03_02;
 /*
 Класс, который задает посылку. У посылки есть текстовое описание содержимого и целочисленная ценность.
 */
-public static class Package {
+public class Package {
     private final String content;
     private final int price;
 

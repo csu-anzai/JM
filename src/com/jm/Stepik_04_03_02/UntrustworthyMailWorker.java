@@ -8,7 +8,7 @@ package com.jm.Stepik_04_03_02;
  * вход processMail второго элемента, и т. д.) и метод getRealMailService, который возвращает ссылку на внутренний
  * экземпляр RealMailService.
  */
-public static class UntrustworthyMailWorker implements MailService {
+public class UntrustworthyMailWorker implements MailService {
 
     private MailService[] mailService;
 
