@@ -16,10 +16,10 @@ public class Inspector implements MailService {
     public Sendable processMail(Sendable mail) throws IllegalPackageException {
         if (mail instanceof MailPackage) {
             if (MailPackage.getContent().contains(WEAPONS) | MailPackage.getContent().contains(BANNED_SUBSTANCE)) {
-                throw new IllegalPackageException();
+                throw new IllegalPackageException("Запрещенное содержимое");
             }
             if (MailPackage.getContent().contains("stones")) {
-                throw new StolenPackageException();
+                throw new StolenPackageException("Посылка состоящая из камней");
             }
         }
         return mail;
