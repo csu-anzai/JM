@@ -48,5 +48,13 @@ public class Main {
         mailService[2] = new Thief(minPrice);
         mailService[3] = new Inspector();
         mailService[4] = new RealMailService();
+
+//        MailService[] mailServices = {
+//                new UntrustworthyMailWorker(mailService),
+//                new Spy(LOGGER),
+//                new Thief(minPrice),
+//                new Inspector(),
+//                new RealMailService()
+//        };
     }
 }
