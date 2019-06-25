@@ -7,7 +7,7 @@ package com.jm.Stepik_04_03_02;
  * Воровство происходит следующим образом: вместо посылки, которая пришла вору, он отдает новую, такую же, только с
  * нулевой ценностью и содержимым посылки "stones instead of {content}".
  */
-public class Thief implements MailService {
+public static class Thief implements MailService {
     private int minPrice;
     private static int stolenValue = 0; //сумма сворованного
 

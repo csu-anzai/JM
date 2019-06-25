@@ -7,7 +7,7 @@ package com.jm.Stepik_04_03_02;
  * (содержит слово "stones"), то тревога прозвучит в виде StolenPackageException. Оба исключения вы должны объявить
  * самостоятельно в виде непроверяемых исключений.
  */
-public class Inspector implements MailService {
+public static class Inspector implements MailService {
 
     public static final String WEAPONS = "weapons";
     public static final String BANNED_SUBSTANCE = "banned substance";

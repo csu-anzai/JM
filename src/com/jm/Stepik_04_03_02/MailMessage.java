@@ -3,7 +3,7 @@ package com.jm.Stepik_04_03_02;
 /*
 Письмо, у которого есть текст, который можно получить с помощью метода `getMessage`
 */
-public class MailMessage extends AbstractSendable{
+public static class MailMessage extends AbstractSendable{
 
     private final String message;
 
