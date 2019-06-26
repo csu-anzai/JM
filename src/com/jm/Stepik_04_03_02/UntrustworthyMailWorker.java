@@ -14,7 +14,6 @@ public class UntrustworthyMailWorker implements MailService {
 
     public UntrustworthyMailWorker(MailService[] mailService) {
         this.mailService = mailService;
-//        super(mailService);
     }
 
     @Override
