@@ -22,10 +22,13 @@ public class Thief implements MailService {
             stolenValue += ((MailPackage) mail).getContent().getPrice();
             return new MailPackage(mail.getFrom(), mail.getTo(), new Package("stones instead of" + ((MailPackage) mail).getContent().getContent(), 0));
         } else {
-            return mail;
+            if (mail instanceof MailMessage) {
+                return mail;
+            } else {
+                return mail;
+            }
+        }
     }
-
-}
 
     public int getStolenValue() {
         return stolenValue;
