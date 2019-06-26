@@ -8,26 +8,26 @@ package com.jm.Stepik_04_03_02;
  * нулевой ценностью и содержимым посылки "stones instead of {content}".
  */
 public class Thief implements MailService {
+
     private int minPrice;
     private static int stolenValue = 0; //сумма сворованного
 
-    public Thief (int minPrice){
+    public Thief(int minPrice) {
         this.minPrice = minPrice;
     }
 
     @Override
     public Sendable processMail(Sendable mail) {
-        if (mail instanceof MailPackage) {
-            if (minPrice < ((MailPackage) mail).getContent().getPrice()) {
-                stolenValue += ((MailPackage) mail).getContent().getPrice();
-                MailPackage newMail = (MailPackage) mail; //берем подделку
-                return newMail(new Package("stones", 0));
-            }
-        }
-        return mail;
+        if ((mail instanceof MailPackage) & (minPrice < ((MailPackage) mail).getContent().getPrice())) {
+            stolenValue += ((MailPackage) mail).getContent().getPrice();
+            return new MailPackage(mail.getFrom(), mail.getTo(), new Package("stones instead of" + ((MailPackage) mail).getContent().getContent(), 0));
+        } else {
+            return mail;
     }
 
-    public int getStolenValue(){
+}
+
+    public int getStolenValue() {
         return stolenValue;
     }
 }
