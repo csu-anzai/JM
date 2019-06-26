@@ -22,6 +22,7 @@ public class Thief implements MailService {
                 stolenValue += ((MailPackage) mail).getContent().getPrice();
                 MailPackage newMail = new MailPackage(mail.getFrom(), mail.getTo(), new Package("stones", 0)); //берем подделку
                 mail = null; //воруем посылку
+                System.gc();
                 return newMail;
             }
         }
