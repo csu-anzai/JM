@@ -10,7 +10,7 @@ package com.jm.Stepik_04_03_02;
 public class Thief implements MailService {
 
     private int minPrice;
-    private static int stolenValue = 0; //сумма сворованного
+    private int stolenValue; //сумма сворованного
 
     public Thief(int minPrice) {
         this.minPrice = minPrice;
@@ -18,16 +18,15 @@ public class Thief implements MailService {
 
     @Override
     public Sendable processMail(Sendable mail) {
-        if ((mail instanceof MailPackage) & (minPrice < ((MailPackage) mail).getContent().getPrice())) {
-            stolenValue += ((MailPackage) mail).getContent().getPrice();
-            return new MailPackage(mail.getFrom(), mail.getTo(), new Package("stones instead of" + ((MailPackage) mail).getContent().getContent(), 0));
-        } else {
-            if (mail instanceof MailMessage) {
-                return mail;
-            } else {
-                return mail;
-            }
+        if ((mail instanceof MailPackage) && (minPrice <= ((MailPackage) mail).getContent().getPrice())) {
+            MailPackage newMail = (MailPackage) mail;
+            String oldContent = newMail.getContent().getContent();
+            Package newPackage = new Package("stones instead of " + oldContent, 0);
+            MailPackage newMailPackage = new MailPackage(newMail.getFrom(), newMail.getTo(), newPackage);
+            stolenValue += newMail.getContent().getPrice();
+            return newMailPackage;
         }
+        return mail;
     }
 
     public int getStolenValue() {
