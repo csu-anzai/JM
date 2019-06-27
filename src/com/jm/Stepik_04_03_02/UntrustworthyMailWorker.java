@@ -14,18 +14,17 @@ public class UntrustworthyMailWorker implements MailService {
     private RealMailService realMailService;
 
     public UntrustworthyMailWorker(MailService[] mailService) {
+//        System.arraycopy(mailService, 0, this.mailService, 0, mailService.length);
         this.mailService = mailService;
         this.realMailService = getRealMailService();
     }
 
-
     @Override
     public Sendable processMail(Sendable mail) {
         for (int i = 0; i < mailService.length; i++){
-            mail = mailService[i].processMail(mail);
-            return mail;
+            return mailService[i].processMail(mail);
         }
-        return mail;
+        return realMailService.processMail(mail);
     }
 
     public RealMailService getRealMailService() {

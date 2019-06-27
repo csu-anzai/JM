@@ -20,11 +20,9 @@ public class Thief implements MailService {
     public Sendable processMail(Sendable mail) {
         if ((mail instanceof MailPackage) && (minPrice <= ((MailPackage) mail).getContent().getPrice())) {
             MailPackage newMail = (MailPackage) mail;
-            String oldContent = newMail.getContent().getContent();
-            Package newPackage = new Package("stones instead of " + oldContent, 0);
-            MailPackage newMailPackage = new MailPackage(newMail.getFrom(), newMail.getTo(), newPackage);
+            Package newPackage = new Package("stones instead of" + newMail.getContent().getContent(), 0);
             stolenValue += newMail.getContent().getPrice();
-            return newMailPackage;
+            return new MailPackage(newMail.getFrom(), newMail.getTo(), newPackage);
         }
         return mail;
     }
