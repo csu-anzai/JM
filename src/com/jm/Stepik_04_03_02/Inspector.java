@@ -18,7 +18,7 @@ public class Inspector implements MailService {
             MailPackage newMailPackage = (MailPackage) mail;
             if (newMailPackage.getContent().getContent().contains(WEAPONS) || newMailPackage.getContent().getContent().contains(BANNED_SUBSTANCE)) {
                 throw new IllegalPackageException();
-            } else if (newMailPackage.getContent().getContent().contains("stones ")) {
+            } else if (newMailPackage.getContent().getContent().contains("stones")) {
                 throw new StolenPackageException();
             }
 //        } else if (mail instanceof MailMessage){

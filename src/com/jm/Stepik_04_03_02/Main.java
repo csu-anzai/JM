@@ -37,23 +37,42 @@ package com.jm.Stepik_04_03_02;
 import java.util.logging.Logger;
 
 public class Main {
-
     public static void main(String[] args) {
         final Logger LOGGER = Logger.getLogger(Spy.class.getName());
         int minPrice = 10;
 
-        MailService[] mailService = new MailService[4];
-        mailService[0] = new UntrustworthyMailWorker(mailService); //не понял почему именно так!
-        mailService[1] = new Spy(LOGGER);
-        mailService[2] = new Thief(minPrice);
-        mailService[3] = new Inspector();
+        MailService[] mailServices = {
+                new Spy(LOGGER),
+                new Thief(minPrice),
+                new Inspector(),
+        };
 
-//        MailService[] mailServices = {
-//                new UntrustworthyMailWorker(mailService),
-//                new Spy(LOGGER),
-//                new Thief(minPrice),
-//                new Inspector(),
-//                new RealMailService()
-//        };
+        UntrustworthyMailWorker untrustworthyMailWorker = new UntrustworthyMailWorker(mailServices);
+
+        MailMessage mailMessage1 = new MailMessage("Igor", "Evgeniy", "Hello");
+        MailMessage mailMessage2 = new MailMessage("Evgeniy", "Igor", "This is stones");
+        MailMessage mailMessage3 = new MailMessage("Igor", "Austin Powers", "Yes!");
+        MailMessage mailMessage4 = new MailMessage("Igor", "Noname", "ups...");
+
+        Package package1 = new Package("Kitchen", 100500);
+        Package package2 = new Package("Glas", 9);
+        Package package3 = new Package("weapons", 1000);
+        Package package4 = new Package("banned substance", 11);
+
+        MailPackage mailPackage1 = new MailPackage("Igor", "Evgeniy", package1);
+        MailPackage mailPackage2 = new MailPackage("Igor", "Evgeniy", package2);
+        MailPackage mailPackage3 = new MailPackage("Austin Powers", "Evgeniy", package3);
+        MailPackage mailPackage4 = new MailPackage("Evgeniy", "Austin Powers", package4);
+
+//        untrustworthyMailWorker.processMail(mailMessage1);
+//        untrustworthyMailWorker.processMail(mailMessage2);
+//        untrustworthyMailWorker.processMail(mailMessage3);
+//        untrustworthyMailWorker.processMail(mailMessage4);
+
+//        untrustworthyMailWorker.processMail(mailPackage1);
+//        untrustworthyMailWorker.processMail(mailPackage2);
+//        untrustworthyMailWorker.processMail(mailPackage3);
+        untrustworthyMailWorker.processMail(mailPackage4);
+
     }
 }

@@ -11,23 +11,21 @@ package com.jm.Stepik_04_03_02;
 public class UntrustworthyMailWorker implements MailService {
 
     private MailService[] mailService;
-    private RealMailService realMailService;
+    private RealMailService realMailService = new RealMailService();
 
     public UntrustworthyMailWorker(MailService[] mailService) {
-//        System.arraycopy(mailService, 0, this.mailService, 0, mailService.length);
         this.mailService = mailService;
-        this.realMailService = getRealMailService();
     }
 
     @Override
     public Sendable processMail(Sendable mail) {
         for (int i = 0; i < mailService.length; i++){
-            return mailService[i].processMail(mail);
+            mail = mailService[i].processMail(mail);
         }
-        return realMailService.processMail(mail);
+        return getRealMailService().processMail(mail); //переписал! Было: realMailService.processMail(mail);
     }
 
     public RealMailService getRealMailService() {
-        return new RealMailService();
+        return realMailService;
     }
 }

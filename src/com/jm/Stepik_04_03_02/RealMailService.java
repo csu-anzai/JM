@@ -7,7 +7,7 @@ public class RealMailService implements MailService {
 
     @Override
     public Sendable processMail(Sendable mail) {
-        // Здесь описан код настоящей системы отправки почты.
+        System.out.println("Это реальная почтовая служба:" + " " + mail.getFrom() + " to " + mail.getTo());
         return mail;
     }
 }
