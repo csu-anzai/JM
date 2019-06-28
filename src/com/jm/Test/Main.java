@@ -4,6 +4,15 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+        Animal a = new Animal();
+        Dog dog = new Dog();
+        Cat cat = new Cat();
+
+        Animal a1 = new Dog();
+        Cat cat1 = (Cat) a1;
+
+
+
         Main m = new Main();
 
         Main.Inner1 inner1 = m.new Inner1();
