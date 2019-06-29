@@ -19,7 +19,7 @@ public class Main {
     }
 
     public static String getCallerClassAndMethodName() {
-        Throwable t = new Throwable(); //в чем разница: через объект Throwable или черер Thread??????
+        Throwable t = new Throwable();
         StackTraceElement[] stackTraceElements = t.getStackTrace();
 //        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace(); //не правильно
         if (stackTraceElements.length == 2){ //вызов из main
