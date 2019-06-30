@@ -73,6 +73,5 @@ public class Main {
 //        untrustworthyMailWorker.processMail(mailPackage2);
 //        untrustworthyMailWorker.processMail(mailPackage3);
         untrustworthyMailWorker.processMail(mailPackage4);
-
     }
 }
