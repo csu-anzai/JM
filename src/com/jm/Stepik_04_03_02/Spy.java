@@ -14,11 +14,11 @@ import java.util.logging.Logger;
  */
 public class Spy implements MailService {
 
-    private Logger LOGGER;
+    private Logger logger;
     public static final String AUSTIN_POWERS = "Austin Powers";
 
-    public Spy(Logger LOGGER) {
-        this.LOGGER = LOGGER;
+    public Spy(Logger logger) {
+        this.logger = logger;
     }
 
     @Override
@@ -26,9 +26,9 @@ public class Spy implements MailService {
         if (mail instanceof MailMessage){
             MailMessage newMail = (MailMessage) mail;
             if (newMail.getFrom().contains(AUSTIN_POWERS) || newMail.getTo().contains(AUSTIN_POWERS)){
-                LOGGER.log(Level.WARNING, "Detected target mail correspondence: from {0} to {1} \"{2}\"", new Object[] {newMail.getFrom(), newMail.getTo(), newMail.getMessage()});
+                logger.log(Level.WARNING, "Detected target mail correspondence: from {0} to {1} \"{2}\"", new Object[] {newMail.getFrom(), newMail.getTo(), newMail.getMessage()});
             } else {
-                LOGGER.log(Level.INFO, "Usual correspondence: from {0} to {1}", new Object[] {newMail.getFrom(), newMail.getTo()});
+                logger.log(Level.INFO, "Usual correspondence: from {0} to {1}", new Object[] {newMail.getFrom(), newMail.getTo()});
             }
         }
         return mail;

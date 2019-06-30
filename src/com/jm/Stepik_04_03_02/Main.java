@@ -38,11 +38,11 @@ import java.util.logging.Logger;
 
 public class Main {
     public static void main(String[] args) {
-        final Logger LOGGER = Logger.getLogger(Spy.class.getName());
+        final Logger logger = Logger.getLogger(Spy.class.getName());
         int minPrice = 10;
 
         MailService[] mailServices = {
-                new Spy(LOGGER),
+                new Spy(logger),
                 new Thief(minPrice),
                 new Inspector(),
         };
