@@ -22,7 +22,7 @@ public class UntrustworthyMailWorker implements MailService {
         for (int i = 0; i < mailService.length; i++){
             mail = mailService[i].processMail(mail);
         }
-        return realMailService.processMail(mail); //переписал! Было: realMailService.processMail(mail);
+        return getRealMailService().processMail(mail);
     }
 
     public RealMailService getRealMailService() {

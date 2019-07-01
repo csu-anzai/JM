@@ -24,11 +24,13 @@ public class Spy implements MailService {
     @Override
     public Sendable processMail(Sendable mail) {
         if (mail instanceof MailMessage){
-            MailMessage newMail = (MailMessage) mail;
-            if (newMail.getFrom().contains(AUSTIN_POWERS) || newMail.getTo().contains(AUSTIN_POWERS)){
-                logger.log(Level.WARNING, "Detected target mail correspondence: from {0} to {1} \"{2}\"", new Object[] {newMail.getFrom(), newMail.getTo(), newMail.getMessage()});
+            MailMessage newMailMessage = (MailMessage) mail;
+            String from = newMailMessage.getFrom();
+            String to = newMailMessage.getTo();
+            if (from.contains(AUSTIN_POWERS) || to.contains(AUSTIN_POWERS)){
+                logger.log(Level.WARNING, "Detected target mail correspondence: from {0} to {1} \"{2}\"", new Object[] {from, to, newMailMessage.getMessage()});
             } else {
-                logger.log(Level.INFO, "Usual correspondence: from {0} to {1}", new Object[] {newMail.getFrom(), newMail.getTo()});
+                logger.log(Level.INFO, "Usual correspondence: from {0} to {1}", new Object[] {from, to});
             }
         }
         return mail;

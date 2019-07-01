@@ -16,18 +16,12 @@ public class Inspector implements MailService {
     public Sendable processMail(Sendable mail) throws IllegalPackageException, StolenPackageException {
         if (mail instanceof MailPackage) {
             MailPackage newMailPackage = (MailPackage) mail;
-            if (newMailPackage.getContent().getContent().contains(WEAPONS) || newMailPackage.getContent().getContent().contains(BANNED_SUBSTANCE)) {
+            String content = newMailPackage.getContent().getContent();
+            if (content.contains(WEAPONS) || content.contains(BANNED_SUBSTANCE)) {
                 throw new IllegalPackageException();
-            } else if (newMailPackage.getContent().getContent().contains("stones")) {
+            } else if (content.contains("stones")) {
                 throw new StolenPackageException();
             }
-//        } else if (mail instanceof MailMessage){
-//            MailMessage newMailMessage = (MailMessage) mail;
-//            if (newMailMessage.getMessage().contains(WEAPONS) || newMailMessage.getMessage().contains(BANNED_SUBSTANCE)) {
-//                throw new IllegalPackageException();
-//            } else if (newMailMessage.getMessage().contains("stones")) {
-//                throw new StolenPackageException();
-//            }
         }
         return mail;
     }
