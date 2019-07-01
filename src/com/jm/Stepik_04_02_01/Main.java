@@ -63,9 +63,6 @@ public class Main {
                 if (attempt == 3) {
                     throw new RobotConnectionException("Не подключились с 3х попыток");
                 }
-            } catch (Exception e1) {
-                //attempt = 4; //не нужно!
-                throw e1;
             }
         }
     }
