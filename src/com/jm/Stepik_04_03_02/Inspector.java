@@ -13,7 +13,7 @@ public class Inspector implements MailService {
     public static final String BANNED_SUBSTANCE = "banned substance";
 
     @Override
-    public Sendable processMail(Sendable mail) throws IllegalPackageException, StolenPackageException {
+    public Sendable processMail(Sendable mail) {
         if (mail instanceof MailPackage) {
             MailPackage newMailPackage = (MailPackage) mail;
             String content = newMailPackage.getContent().getContent();
