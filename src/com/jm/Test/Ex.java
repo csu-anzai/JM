@@ -11,10 +11,11 @@ public class Ex {
             c = a/b;
         } catch (ArithmeticException e){
             System.out.println(e.getMessage());
+            c = a/b;
         } catch (Exception e2){
             System.out.println(e2);
+            System.out.println("не видно");
         }
         return c;
-
     }
 }
