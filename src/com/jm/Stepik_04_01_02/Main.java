@@ -8,6 +8,8 @@
  */
 package com.jm.Stepik_04_01_02;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println(getCallerClassAndMethodName());
@@ -18,14 +20,20 @@ public class Main {
         System.out.println(getCallerClassAndMethodName());
     }
 
+
     public static String getCallerClassAndMethodName() {
-        Throwable t = new Throwable(); //в чем разница: через объект Throwable или черер Thread??????
-        StackTraceElement[] stackTraceElements = t.getStackTrace();
-//        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace(); //не правильно
-        if (stackTraceElements.length == 2){ //вызов из main
+//        Throwable t = new Throwable();
+//        StackTraceElement[] stackTraceElements = t.getStackTrace();
+        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace(); //стектрейсэлемент всегда наверху стека, поэтому из мейн 3 вызова, из др метода 4 вызова
+        if (stackTraceElements.length == 3){ //вызов из main
             return null;
         }
-        return stackTraceElements[2].getClassName() + "#" + //вызов из др методов
-                stackTraceElements[2].getMethodName();
+        return stackTraceElements[3].getClassName() + "#" + //вызов из др методов
+                stackTraceElements[3].getMethodName();
+//        for (int i = 0; i < stackTraceElements.length; i++){
+//            System.out.println(stackTraceElements[i]);
+//        }
+//        System.out.println(stackTraceElements.length);
+//        return "eee";
     }
 }

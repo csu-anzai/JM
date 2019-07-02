@@ -11,7 +11,7 @@ public class Main {
         System.out.println(sqrt(-1));
     }
 
-    public static double sqrt(double x) throws IllegalArgumentException {
+    public static double sqrt(double x) {
         if (x < 0) {
             throw new IllegalArgumentException("Expected non-negative number, got " + x);
         }
