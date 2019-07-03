@@ -18,15 +18,13 @@ public class Thief implements MailService {
 
     @Override
     public Sendable processMail(Sendable mail) {
-        if (mail instanceof MailPackage) {
+        if ((mail instanceof MailPackage) && (minPrice <= ((MailPackage) mail).getContent().getPrice())) {
             MailPackage newMail = (MailPackage) mail;
             int pricePackage = newMail.getContent().getPrice();
             String contentPackage = newMail.getContent().getContent();
-            if (minPrice <= pricePackage) {
-                Package newPackage = new Package("stones instead of" + contentPackage, 0);
-                stolenValue += pricePackage;
-                return new MailPackage(newMail.getFrom(), newMail.getTo(), newPackage);
-            }
+            Package newPackage = new Package("stones instead of " + contentPackage, 0);
+            stolenValue += pricePackage;
+            return new MailPackage(newMail.getFrom(), newMail.getTo(), newPackage);
         }
         return mail;
     }
