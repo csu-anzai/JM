@@ -45,6 +45,8 @@
 
 package com.jm.Stepik_04_02_01;
 
+import java.io.IOException;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -54,14 +56,24 @@ public class Main {
 
     public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) throws RobotConnectionException {
         byte attempt = 0;
+        RobotConnection connection = null;
         while (attempt < 3) {
-            try (RobotConnection connection = robotConnectionManager.getConnection()) {
+
+            try {
+                connection = robotConnectionManager.getConnection();
                 connection.moveRobotTo(toX, toY);
-                attempt = 3;
+                attempt = 2;
             } catch (RobotConnectionException e) {
-                attempt++;
+
                 if (attempt == 3) {
                     throw new RobotConnectionException("Не подключились с 3х попыток");
+                }
+                attempt++;
+            } finally {
+                try {
+                    connection.close();
+                } catch (Exception e){
+                    //ignore
                 }
             }
         }
