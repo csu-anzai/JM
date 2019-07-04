@@ -21,20 +21,20 @@ import java.io.InputStream;
 public class Main {
 
     public static void main(String[] args) {
-        ;
-        try{
+
+        try {
             FileInputStream fileInputStream = new FileInputStream("123.txt");
-            fileInputStream.
+            checkSumOfStream(fileInputStream);
         } catch (IOException e){
             System.out.println(e.getMessage());
         }
-
-
-
     }
 
-    public int checkSumOfStream(InputStream inputStream) throws IOException {
+    public static int checkSumOfStream(InputStream inputStream) throws IOException {
         // your implementation here
-        inputStream
+        int result = 0;
+        byte[] b = {0x33, 0x45, 0x01};
+        inputStream.read(b);
+        return result;
     }
 }
