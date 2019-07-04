@@ -14,17 +14,15 @@
 
 package com.jm.Stepik_05_02_01;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 public class Main {
 
     public static void main(String[] args) {
-
+        byte[] b = {0x33, 0x45, 0x01};
         try {
-            FileInputStream fileInputStream = new FileInputStream("123.txt");
-            checkSumOfStream(fileInputStream);
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(b);
+            checkSumOfStream(byteArrayInputStream);
         } catch (IOException e){
             System.out.println(e.getMessage());
         }
@@ -33,8 +31,7 @@ public class Main {
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
         // your implementation here
         int result = 0;
-        byte[] b = {0x33, 0x45, 0x01};
-        inputStream.read(b);
+        
         return result;
     }
 }
