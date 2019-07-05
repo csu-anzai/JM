@@ -34,6 +34,11 @@ public class Main {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         int blockSize;
         int totalBytesWritten = 0;
+        int result = 0;
+
+        for (int i = 0; i < test.length; i++){
+            result += Integer.rotateLeft(result, 1) ^ test[i];
+        }
 
         while ((blockSize = inputStream.read(test)) > 0) {
             byteArrayOutputStream.write(buf, 0, blockSize);
