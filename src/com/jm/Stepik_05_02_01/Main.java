@@ -29,14 +29,12 @@ public class Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-
-        int buf = 1024;
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(buf);
-
+        byte[] buf = inputStream.readAllBytes();
+        inputStream.close();
         int result = 0;
-        for (int i = 0; i < test.length; i++){
+        for (int i = 0; i < buf.length; i++){
             result = Integer.rotateLeft(result, 1);
-            result = result ^ test[i];
+            result = result ^ buf[i];
         }
         return result;
     }
