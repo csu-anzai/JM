@@ -19,8 +19,9 @@ import java.io.*;
 public class Main {
 
     public static void main(String[] args) {
+        byte[] test = {0x33, 0x45, 0x01};
         try {
-            ByteArrayInputStream byteArrayInputStream = null;
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(test);
             System.out.println(checkSumOfStream(byteArrayInputStream));
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -28,23 +29,15 @@ public class Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-        byte[] test = {0x33, 0x45, 0x01};
-        byte[] buf = new byte[1024];
-        inputStream = new ByteArrayInputStream(test);
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        int blockSize;
-        int totalBytesWritten = 0;
+
+        int buf = 1024;
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(buf);
+
         int result = 0;
-
         for (int i = 0; i < test.length; i++){
-            result += Integer.rotateLeft(result, 1) ^ test[i];
+            result = Integer.rotateLeft(result, 1);
+            result = result ^ test[i];
         }
-
-        while ((blockSize = inputStream.read(test)) > 0) {
-            byteArrayOutputStream.write(buf, 0, blockSize);
-            totalBytesWritten += blockSize;
-            System.out.println(totalBytesWritten);
-        }
-        return 1;
+        return result;
     }
 }
