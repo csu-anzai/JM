@@ -29,6 +29,7 @@ public class Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
+        
         byte[] buf = inputStream.readAllBytes();
         int result = 0;
         for (int i = 0; i < buf.length; i++){
