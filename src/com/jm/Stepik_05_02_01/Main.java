@@ -22,7 +22,7 @@ public class Main {
         byte[] b = {0x33, 0x45, 0x01};
         try {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(b);
-            checkSumOfStream(byteArrayInputStream);
+            System.out.println(checkSumOfStream(byteArrayInputStream));
         } catch (IOException e){
             System.out.println(e.getMessage());
         }
@@ -30,12 +30,15 @@ public class Main {
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
         // your implementation here
+        byte[] b = {0x33, 0x45, 0x01};
         int result = 0;
         if (inputStream == null){
             return result;
         } else if (!(inputStream == null)){
+            for (int i = 0; i < b.length; i++){
+                result += Integer.rotateLeft(result, 1)^b[i];
+            }
 
-        }
-
+        } return result;
     }
 }
