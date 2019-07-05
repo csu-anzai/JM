@@ -31,8 +31,11 @@ public class Main {
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
         // your implementation here
         int result = 0;
-        if ()
+        if (inputStream == null){
+            return result;
+        } else if (!(inputStream == null)){
 
-        return result;
+        }
+
     }
 }
