@@ -29,13 +29,17 @@ public class Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-        
-        byte[] buf = inputStream.readAllBytes();
-        int result = 0;
-        for (int i = 0; i < buf.length; i++){
-            result = Integer.rotateLeft(result, 1);
-            result = result ^ buf[i];
+        byte[] buf = new byte[inputStream.available()];
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        int blockSize = 0;
+        while ((blockSize = inputStream.read(buf)) > 0) {
+            byteArrayOutputStream.write(buf, 0, blockSize);
         }
-        return result;
+        int res = 0;
+        for (int i = 0; i < buf.length; i++){
+            res = Integer.rotateLeft(res, 1);
+            res = res ^ (int) buf[i];
+        }
+        return res;
     }
 }
