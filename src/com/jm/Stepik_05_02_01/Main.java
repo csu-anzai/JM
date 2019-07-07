@@ -29,6 +29,8 @@ public class Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
+        int num = inputStream.available();
+        System.out.println(num);
         byte[] buf = new byte[inputStream.available()];
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         int blockSize = 0;
