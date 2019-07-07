@@ -20,10 +20,23 @@
 
 package com.jm.Stepik_05_02_02;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 public class Main {
     public static void main(String[] args) {
 
-        byte[] inputBytes = {65, 13, 10, 10, 13};
+        byte[] inputBytesWindows = {65, 13, 10, 10, 13};
+        try {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(inputBytesWindows);
+            System.out.println(windowsToUnix(byteArrayInputStream));
+        } catch (IOException e1) {
+            System.out.println(e1.getMessage());
+        }
+    }
 
+    public static byte windowsToUnix (InputStream inputStream) throws IOException {
+       return 1;
     }
 }
