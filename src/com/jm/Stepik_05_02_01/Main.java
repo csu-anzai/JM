@@ -29,23 +29,6 @@ public class Main {
     }
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
-//        byte[] buf = new byte[inputStream.available()];
-//        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-//        int blockSize = 0;
-//        while ((blockSize = inputStream.read(buf)) > 0) {
-//            byteArrayOutputStream.write(buf);
-//        }
-//        int res = 0;
-//        int myInt = 0;
-//
-//        for (int i = 0; i < buf.length; i++){
-//
-//            myInt = buf[i] & 0xff;
-//            res = Integer.rotateLeft(res, 1) ^ myInt;
-//        }
-//        return res;
-//    }
-
         int res = 0;
         int myInt = 0;
         int blockSize = 0;
