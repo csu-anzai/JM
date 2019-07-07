@@ -25,18 +25,26 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class Main {
-    public static void main(String[] args) {
 
-        byte[] inputBytesWindows = {65, 13, 10, 10, 13};
+    public static void main(String[] args) {
+        byte[] test = {65, 13, 10, 10, 13};
         try {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(inputBytesWindows);
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(test);
             System.out.println(windowsToUnix(byteArrayInputStream));
-        } catch (IOException e1) {
-            System.out.println(e1.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
     }
 
-    public static byte windowsToUnix (InputStream inputStream) throws IOException {
-       return 1;
+    public static int windowsToUnix(InputStream inputStream) throws IOException {
+        int res = 0;
+        int myInt = 0;
+        int blockSize = 0;
+
+        while ((blockSize = inputStream.read()) != -1) {
+            myInt = blockSize & 0xff; //выполняем расширение до 32 бит без знака
+            res = Integer.rotateLeft(res, 1) ^ myInt;
+        }
+        return res;
     }
 }
