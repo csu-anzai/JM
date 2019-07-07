@@ -34,7 +34,7 @@ public class Main {
         int blockSize = 0;
 
         while ((blockSize = inputStream.read()) != -1) {
-            myInt = blockSize & 0xff;
+            myInt = blockSize & 0xff; //выполняем расширение до 32 бит без знака
             res = Integer.rotateLeft(res, 1) ^ myInt;
         }
         return res;
