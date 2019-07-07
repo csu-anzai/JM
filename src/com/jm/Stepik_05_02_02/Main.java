@@ -21,8 +21,10 @@
 package com.jm.Stepik_05_02_02;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 
 public class Main {
 
@@ -37,14 +39,19 @@ public class Main {
     }
 
     public static int windowsToUnix(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] buf = new byte[inputStream.available()];
         int res = 0;
         int myInt = 0;
         int blockSize = 0;
 
-        while ((blockSize = inputStream.read()) != -1) {
-            myInt = blockSize & 0xff; //выполняем расширение до 32 бит без знака
-            res = Integer.rotateLeft(res, 1) ^ myInt;
+        while ((blockSize = inputStream.read(buf)) != -1) {
+            //myInt = blockSize & 0xff; //выполняем расширение до 32 бит без знака
+            byteArrayOutputStream.write(buf);
         }
+        System.out.println(Arrays.toString(buf));
+
+
         return res;
     }
 }
