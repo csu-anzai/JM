@@ -33,14 +33,20 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         while ((num = scanner.nextInt()) != -1) {
             if (a == 13) {
-                if (num != 10) {
+                if (num == 13) {
                     System.out.println(num);
+                    a = 0;
                 }
             }
             if (num == 13) {
                 a = num;
             }
-            System.out.println(num);
+            if (num != 13){
+                System.out.println(num);
+            }
+            if (a == 13 & num == -1){
+                System.out.println(a);
+            }
 
         }
     }
