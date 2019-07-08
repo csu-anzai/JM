@@ -20,38 +20,28 @@
 
 package com.jm.Stepik_05_02_02;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Arrays;
+import java.io.*;
+import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
-        byte[] test = {65, 13, 10, 10, 13};
-        try {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(test);
-            System.out.println(windowsToUnix(byteArrayInputStream));
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+    public static void main(String[] args) throws IOException {
+
+        int a = 0;
+        int b = 0;
+        int num;
+        Scanner scanner = new Scanner(System.in);
+        while ((num = scanner.nextInt()) != -1) {
+            if (a == 13) {
+                if (num != 10) {
+                    System.out.println(num);
+                }
+            }
+            if (num == 13) {
+                a = num;
+            }
+            System.out.println(num);
+
         }
-    }
-
-    public static int windowsToUnix(InputStream inputStream) throws IOException {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        byte[] buf = new byte[inputStream.available()];
-        int res = 0;
-        int myInt = 0;
-        int blockSize = 0;
-
-        while ((blockSize = inputStream.read(buf)) != -1) {
-            //myInt = blockSize & 0xff; //выполняем расширение до 32 бит без знака
-            byteArrayOutputStream.write(buf);
-        }
-        System.out.println(Arrays.toString(buf));
-
-
-        return res;
     }
 }
