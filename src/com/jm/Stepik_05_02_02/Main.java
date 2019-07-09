@@ -30,24 +30,24 @@ public class Main {
         int a = 0;
         int b = 0;
         int num;
-        Scanner scanner = new Scanner(System.in);
-        while ((num = scanner.nextInt()) != -1) {
-            if (a == 13) {
-                if (num == 13) {
-                    System.out.println(num);
+        try (Scanner scanner = new Scanner(System.in)){
+            while ((num = scanner.nextInt()) != -1) {
+                if (a == 13) {
                     a = 0;
+                    if (num == 13) {
+                        System.out.println(num);
+                    }
+                }
+                if (num == 13) {
+                    a = num;
+                }
+                if (num != 13){
+                    System.out.println(num);
                 }
             }
-            if (num == 13) {
-                a = num;
-            }
-            if (num != 13){
-                System.out.println(num);
-            }
-            if (a == 13 & num == -1){
+            if (a == 13){
                 System.out.println(a);
             }
-
         }
     }
 }
