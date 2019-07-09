@@ -21,41 +21,33 @@
 package com.jm.Stepik_05_02_02;
 
 import java.io.*;
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
 
         int a = 0;
-        int b = 0;
-        int num;
-        byte num1;
-        byte[] buf = new byte[1024];
+        int num = 0;
 
-        Scanner scanner = new Scanner(System.in);
-        while ((num1 = scanner.nextByte()) != -1) {
-            num = num1 & 0xff;
-            if (a == 13) {
-                a = 0;
+        int num1 = 0;
+
+            while ((num = System.in.read()) != -1) {
+//                num = (byte)num1;
+                if ((a == 13) & (num == 13)) {
+                    a = 0;
+                    System.out.write(num);
+                }
                 if (num == 13) {
-                    b = num;
-//                    byteArrayOutputStream.write(buf,0, num);
-                    System.out.println(num);
+                    a = num;
+                }
+                if (num != 13) {
+                    System.out.write(num);
                 }
             }
-            if (num == 13) {
-                a = num;
+
+            if (a == 13) {
+                System.out.write(a);
             }
-            if (num != 13) {
-//                byteArrayOutputStream.write(buf,0, num);
-                System.out.println(num);
-            }
-        }
-        if (a == 13) {
-//            byteArrayOutputStream.write(buf,0, num);
-            System.out.println(a);
-        }
-        scanner.close();
+            System.out.flush();
     }
 }
