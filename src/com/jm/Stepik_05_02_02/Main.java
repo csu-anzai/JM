@@ -30,17 +30,18 @@ public class Main {
         int a = 0;
         int b = 0;
         int num;
+        byte num1;
         byte[] buf = new byte[1024];
 
         Scanner scanner = new Scanner(System.in);
-        while ((num = scanner.nextByte()) != -1) {
-            num = num & 0xff;
+        while ((num1 = scanner.nextByte()) != -1) {
+            num = num1 & 0xff;
             if (a == 13) {
                 a = 0;
                 if (num == 13) {
                     b = num;
 //                    byteArrayOutputStream.write(buf,0, num);
-                    System.out.write(num);
+                    System.out.println(num);
                 }
             }
             if (num == 13) {
@@ -48,13 +49,13 @@ public class Main {
             }
             if (num != 13) {
 //                byteArrayOutputStream.write(buf,0, num);
-                System.out.write(num);
+                System.out.println(num);
             }
         }
         if (a == 13) {
 //            byteArrayOutputStream.write(buf,0, num);
-            System.out.write(a);
+            System.out.println(a);
         }
-//        scanner.close();
+        scanner.close();
     }
 }
