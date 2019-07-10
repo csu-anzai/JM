@@ -27,20 +27,23 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         int a = 0;
+        int b = 0;
         int num = 0;
 
         int num1 = 0;
 
             while ((num = System.in.read()) != -1) {
 //                num = (byte)num1;
-                if ((a == 13) & (num == 13)) {
-                    a = 0;
+                b = 0;
+                if ((a == 13) && (num == 10)) {
                     System.out.write(num);
+                    b = -1;
                 }
+                a = 0;
                 if (num == 13) {
                     a = num;
                 }
-                if (num != 13) {
+                if ((b == 0) && (num != 13)) {
                     System.out.write(num);
                 }
             }
@@ -51,4 +54,3 @@ public class Main {
             System.out.flush();
     }
 }
- 
