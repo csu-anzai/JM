@@ -28,29 +28,45 @@ public class Main {
 
         int a = 0;
         int b = 0;
-        int num = 0;
+        int num;
 
-        int num1 = 0;
+//        byte[] buf = {65, 13, 10, 10, 13, 2, 13, 10};
+//        byte[] buf2 = new byte[1024];
+//
+//        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(buf);
+//        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(10);
 
-            while ((num = System.in.read()) != -1) {
-//                num = (byte)num1;
-                b = 0;
-                if ((a == 13) && (num == 10)) {
-                    System.out.write(num);
-                    b = -1;
-                }
-                a = 0;
-                if (num == 13) {
-                    a = num;
-                }
-                if ((b == 0) && (num != 13)) {
-                    System.out.write(num);
-                }
+        while ((num = System.in.read()) != -1) {
+            b = 0;
+            if ((a == 13) && (num == 10)) {
+                System.out.write(num);
+                System.out.flush();
+                b = -1;
             }
-
-            if (a == 13) {
+            if ((a == 13) && (num == 13)) {
                 System.out.write(a);
+                System.out.flush();
             }
+            if ((a == 13) && (num != 10) && (num != 13)){
+                System.out.write(a);
+                System.out.flush();
+            }
+            a = 0;
+            if (num == 13) {
+                a = num;
+            }
+            if ((b != -1) && (num != 13)) {
+                System.out.write(num);
+                System.out.flush();
+            }
+        }
+
+        if (a == 13) {
+            System.out.write(a);
             System.out.flush();
+        }
+//        byteArrayOutputStream.flush();
+//        byte[] bytes = byteArrayOutputStream.toByteArray();
+
     }
 }
