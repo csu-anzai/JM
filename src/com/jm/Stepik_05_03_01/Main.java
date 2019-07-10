@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         byte[] test = {48, 49, 50, 51};
-        Charset charset = StandardCharsets.US_ASCII;
+        Charset charset = null;
 
         try {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(test);
@@ -27,6 +27,7 @@ public class Main {
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
         int num = 0;
+        charset = StandardCharsets.US_ASCII;
         byte[] buf = new byte[5];
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         while ((num = inputStream.read(buf)) != -1) {
