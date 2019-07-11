@@ -10,12 +10,13 @@ package com.jm.Stepik_05_03_01;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
 
         byte[] test = {48, 49, 50, 51};
-        Charset charset = null;
+        Charset charset = StandardCharsets.US_ASCII;
 
         try {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(test);
@@ -26,21 +27,22 @@ public class Main {
     }
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
+        Reader reader = new InputStreamReader(inputStream, charset);
+        CharArrayWriter charArrayWriter = new CharArrayWriter();
+//        StringWriter stringWriter = new StringWriter();
+
+        byte[] test = {48, 49, 50, 51};
+
         int num = 0;
 
-        byte[] buf = new byte[15];
-        char[] cbuf = new char[15];
-        charset = StandardCharsets.US_ASCII;
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        Writer writer = new OutputStreamWriter(byteArrayOutputStream, StandardCharsets.US_ASCII);
-
-        StringWriter stringWriter = new StringWriter();
-
-        while ((num = (char)inputStream.read(buf)) != -1) {
-            writer.write(cbuf, 0, num);
-            writer.flush();
+//        byte[] buf = new byte[inputStream.available()];
+        StringBuilder sb = new StringBuilder();
+        char[] cbuf = new char[5];
+        while ((num = reader.read(cbuf)) != -1) {
+            sb.append(cbuf, 0, num);
         }
-        System.out.println(cbuf);
-        return new String(cbuf);
+        String s = new String(sb);
+
+        return s;
     }
 }
