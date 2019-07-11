@@ -27,14 +27,20 @@ public class Main {
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
         int num = 0;
+
+        byte[] buf = new byte[15];
+        char[] cbuf = new char[15];
         charset = StandardCharsets.US_ASCII;
-        byte[] buf = new byte[5];
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        while ((num = inputStream.read(buf)) != -1) {
-            byteArrayOutputStream.write(buf, 0, num);
-            byteArrayOutputStream.flush();
+        Writer writer = new OutputStreamWriter(byteArrayOutputStream, StandardCharsets.US_ASCII);
+
+        StringWriter stringWriter = new StringWriter();
+
+        while ((num = (char)inputStream.read(buf)) != -1) {
+            writer.write(cbuf, 0, num);
+            writer.flush();
         }
-        return new String(buf, charset);
+        System.out.println(cbuf);
+        return new String(cbuf);
     }
 }
- 
