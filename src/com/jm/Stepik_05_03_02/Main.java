@@ -8,23 +8,36 @@
 
 package com.jm.Stepik_05_03_02;
 
-import java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        int num = 0;
-        while ((num = System.in.read()) != -1) {
+        double d1 = 0.0;
+        double sumDouble = 0.0;
 
+        Scanner scanner = new Scanner(System.in);
 
-
-
-
-
-
+        while (scanner.hasNext()) {
+//            while (scanner.hasNextDouble()) {
+//                sumDouble += scanner.nextDouble();
+//            }
+            try {
+                d1 += Double.parseDouble(scanner.next());
+            } catch (NumberFormatException e1) {
+                e1.getMessage();
+            }
 
         }
+
+
+
+//        System.out.printf("%.6f", sumDouble);
+        System.out.printf("%.6f", d1);
+        scanner.close();
     }
-
-
 }
+
+
+
