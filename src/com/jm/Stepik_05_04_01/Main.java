@@ -31,4 +31,14 @@
 package com.jm.Stepik_05_04_01;
 
 public class Main {
+    public static void main(String[] args) {
+
+    }
+
+    public static Animal[] deserializeAnimalArray(byte[] data) {
+        // your implementation here
+    }
+
+
+
 }
