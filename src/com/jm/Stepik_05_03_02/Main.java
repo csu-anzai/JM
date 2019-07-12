@@ -8,12 +8,23 @@
 
 package com.jm.Stepik_05_03_02;
 
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
+        int num = 0;
+        while ((num = System.in.read()) != -1) {
 
 
 
+
+
+
+
+
+        }
     }
 
-    
+
 }

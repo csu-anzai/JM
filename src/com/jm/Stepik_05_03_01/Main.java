@@ -28,16 +28,11 @@ public class Main {
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
         Reader reader = new InputStreamReader(inputStream, charset);
-        CharArrayWriter charArrayWriter = new CharArrayWriter();
-//        StringWriter stringWriter = new StringWriter();
-
-        byte[] test = {48, 49, 50, 51};
 
         int num = 0;
 
-//        byte[] buf = new byte[inputStream.available()];
-        StringBuilder sb = new StringBuilder();
         char[] cbuf = new char[5];
+        StringBuilder sb = new StringBuilder();
         while ((num = reader.read(cbuf)) != -1) {
             sb.append(cbuf, 0, num);
         }
