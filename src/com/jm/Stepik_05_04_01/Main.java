@@ -30,14 +30,28 @@
 
 package com.jm.Stepik_05_04_01;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
 public class Main {
     public static void main(String[] args) {
+        Animal[] result = deserializeAnimalArray(data);
+
 
     }
 
-    public static Animal[] deserializeAnimalArray(byte[] data) {
-        // your implementation here
+    public static Animal[] deserializeAnimalArray(byte[] data) throws IOException, ClassNotFoundException {
+
+
+        ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(data));
+        Animal[] animals = (Animal[]) ois.readObject();
+
+        return animals;
     }
+
+
+}
 
 
 
