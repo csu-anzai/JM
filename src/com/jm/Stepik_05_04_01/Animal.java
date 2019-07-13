@@ -12,7 +12,7 @@ class Animal implements Serializable {
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Animal) {
-            return Object.equals(name, ((Animal) obj).name);
+//            return Object.equals(name, ((Animal) obj).name);
         }
         return false;
     }
