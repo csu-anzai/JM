@@ -36,23 +36,25 @@ import java.io.ObjectInputStream;
 
 public class Main {
     public static void main(String[] args) {
-        Animal[] result = deserializeAnimalArray(data);
-
-
     }
 
-    public static Animal[] deserializeAnimalArray(byte[] data) throws IOException, ClassNotFoundException {
+    public static Animal[] deserializeAnimalArray(byte[] data) {
 
+        int size = 0;
+        Animal[] animals;
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(data));
 
-        ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(data));
-        Animal[] animals = (Animal[]) ois.readObject();
+            size = (int) ois.readInt();
+
+            animals = new Animal[size];
+            for (int i = 0; i < animals.length; i++){
+                animals[i] = (Animal)ois.readObject();
+            }
+        } catch (ClassCastException | IOException | ClassNotFoundException e) {
+            throw new IllegalArgumentException();
+        }
 
         return animals;
     }
-
-
-}
-
-
-
 }
