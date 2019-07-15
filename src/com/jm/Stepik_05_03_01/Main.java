@@ -26,13 +26,18 @@ public class Main {
     }
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
+        Reader reader = new InputStreamReader(inputStream, charset);
+//        BufferedReader bufferedReader = new BufferedReader(inputStream, charset);
+
         int num = 0;
-        byte[] buf = new byte[5];
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        while ((num = inputStream.read(buf)) != -1) {
-            byteArrayOutputStream.write(buf, 0, num);
-            byteArrayOutputStream.flush();
+
+        char[] cbuf = new char[1];
+        StringBuilder sb = new StringBuilder();
+        while ((num = reader.read(cbuf)) != -1) {
+            sb.append(cbuf, 0, num);
         }
-        return new String(buf, charset);
+        String s = new String(sb);
+
+        return s;
     }
 }

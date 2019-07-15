@@ -30,12 +30,6 @@ public class Main {
         int b = 0;
         int num;
 
-//        byte[] buf = {65, 13, 10, 10, 13, 2, 13, 10};
-//        byte[] buf2 = new byte[1024];
-//
-//        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(buf);
-//        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(10);
-
         while ((num = System.in.read()) != -1) {
             b = 0;
             if ((a == 13) && (num == 10)) {
@@ -65,8 +59,5 @@ public class Main {
             System.out.write(a);
             System.out.flush();
         }
-//        byteArrayOutputStream.flush();
-//        byte[] bytes = byteArrayOutputStream.toByteArray();
-
     }
 }
