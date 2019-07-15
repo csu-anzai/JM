@@ -27,6 +27,7 @@ public class Main {
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
         Reader reader = new InputStreamReader(inputStream, charset);
+//        BufferedReader bufferedReader = new BufferedReader(inputStream, charset);
 
         int num = 0;
 
