@@ -6,7 +6,7 @@ package com.jm.Test;
 
 import java.io.*;
 
-public class Stepik_IO {
+public class Stepik_05_01_ReadInUTF8 {
     public static void main(String[] args) throws IOException {
         int num = 0;
 
