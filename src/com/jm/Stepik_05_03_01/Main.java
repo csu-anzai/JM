@@ -10,7 +10,6 @@ package com.jm.Stepik_05_03_01;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,7 +30,7 @@ public class Main {
 
         int num = 0;
 
-        char[] cbuf = new char[5];
+        char[] cbuf = new char[1];
         StringBuilder sb = new StringBuilder();
         while ((num = reader.read(cbuf)) != -1) {
             sb.append(cbuf, 0, num);
