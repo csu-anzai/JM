@@ -30,12 +30,10 @@ public class Main {
 
     public static int checkSumOfStream(InputStream inputStream) throws IOException {
         int res = 0;
-        int myInt = 0;
         int blockSize = 0;
 
         while ((blockSize = inputStream.read()) != -1) {
-            myInt = blockSize & 0xff; //выполняем расширение до 32 бит без знака
-            res = Integer.rotateLeft(res, 1) ^ myInt;
+            res = Integer.rotateLeft(res, 1) ^ blockSize;
         }
         return res;
     }
