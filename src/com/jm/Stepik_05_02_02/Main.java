@@ -27,42 +27,43 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-//        int a = 0;
-//        int b = 0;
-//        int num;
-//
-//        while ((num = System.in.read()) != -1) {
-//            b = 0;
-//            if ((a == 13) && (num == 10)) {
-//                System.out.write(num);
-//                System.out.flush();
-//                b = -1;
-//            }
-//            if ((a == 13) && (num == 13)) {
-//                System.out.write(a);
-//                System.out.flush();
-//            }
-//            if ((a == 13) && (num != 10) && (num != 13)){
-//                System.out.write(a);
-//                System.out.flush();
-//            }
-//            a = 0;
-//            if (num == 13) {
-//                a = num;
-//            }
-//            if ((b != -1) && (num != 13)) {
-//                System.out.write(num);
-//                System.out.flush();
-//            }
-//        }
-//
-//        if (a == 13) {
-//            System.out.write(a);
-//            System.out.flush();
-//        }
-//    }
+        int a = 0;
+        int b = 0;
+        int num;
+
+        while ((num = System.in.read()) != -1) {
+            b = 0;
+            if ((a == 13) && (num == 10)) {
+                System.out.write(num);
+                System.out.flush();
+                b = -1;
+            }
+            if ((a == 13) && (num == 13)) {
+                System.out.write(a);
+                System.out.flush();
+            }
+            if ((a == 13) && (num != 10) && (num != 13)){
+                System.out.write(a);
+                System.out.flush();
+            }
+            a = 0;
+            if (num == 13) {
+                a = num;
+            }
+            if ((b != -1) && (num != 13)) {
+                System.out.write(num);
+                System.out.flush();
+            }
+        }
+
+        if (a == 13) {
+            System.out.write(a);
+            System.out.flush();
+        }
+    }
 
         //----------------------------------
+
 //        int a = 0;
 //        int b = 0;
 //        int num;
@@ -80,30 +81,42 @@ public class Main {
 
         //----------------------------------
 
-        int a = 0;
-        int num;
-
-        while ((num = System.in.read()) != -1) {
-            if ((a == 13) && (num ==13)){
-                writeAndFlush(a);
-                a = 0;
-            }
-            if ((a == 13) && (num == 10)){
-                a = 0;
-            }
-            if (num != 13){
-               writeAndFlush(num);
-            }
-            if (num == 13){
-                a = num;
-            }
-        }
-        if (a == 13){
-            writeAndFlush(a);
-        }
-    }
-    public static void writeAndFlush(int a){
-        System.out.write(a);
-        System.out.flush();
-    }
-}
+//        int a = 0;
+//        int b = 0;
+//        int num;
+//        while ((num = System.in.read()) != -1){
+//
+//
+//        }
+//
+//        while ((num = System.in.read()) != -1) {
+//            if ((a == 13) && (num ==13)){
+//                writeAndFlush(a);
+//                a = 0;
+//            }
+//            if ((a == 13) && (num == 10)){
+//                a = 0;
+//            }
+//            if (num != 13){
+//               writeAndFlush(num);
+//            }
+//            if (num == 13){
+//                a = num;
+//            }
+//        }
+//        if (a == 13){
+//            writeAndFlush(a);
+//        }
+//
+//
+//            if (num == 13){
+//                a = num;
+//            }
+//            if (a != 13 && num != 10){
+//        }
+//    }
+//    public static void writeAndFlush(int a){
+//        System.out.write(a);
+//        System.out.flush();
+//    }
+//}
