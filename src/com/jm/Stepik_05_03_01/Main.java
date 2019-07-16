@@ -27,13 +27,13 @@ public class Main {
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
         Reader reader = new InputStreamReader(inputStream, charset);
-//        BufferedReader bufferedReader = new BufferedReader(inputStream, charset);
+        BufferedReader bufferedReader = new BufferedReader(reader); //переписал через BufferedReader
 
         int num = 0;
 
         char[] cbuf = new char[1];
         StringBuilder sb = new StringBuilder();
-        while ((num = reader.read(cbuf)) != -1) {
+        while ((num = bufferedReader.read(cbuf)) != -1) {
             sb.append(cbuf, 0, num);
         }
         String s = new String(sb);

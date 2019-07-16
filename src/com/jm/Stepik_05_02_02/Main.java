@@ -91,11 +91,11 @@ public class Main {
             if ((a == 13) && (num == 10)){
                 a = 0;
             }
-            if (num == 13){
-                a = num;
-            }
             if (num != 13){
                writeAndFlush(num);
+            }
+            if (num == 13){
+                a = num;
             }
         }
         if (a == 13){
