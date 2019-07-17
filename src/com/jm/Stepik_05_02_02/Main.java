@@ -27,96 +27,60 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+//        int a = 0;
+//        int b = 0;
+//        int num;
+
+//        while ((num = System.in.read()) != -1) {
+//            b = 0;
+//            if ((a == 13) && (num == 10)) {
+//                System.out.write(num);
+//                System.out.flush();
+//                b = -1;
+//            }
+//            if ((a == 13) && (num == 13)) {
+//                System.out.write(a);
+//                System.out.flush();
+//            }
+//            if ((a == 13) && (num != 10) && (num != 13)) {
+//                System.out.write(a);
+//                System.out.flush();
+//            }
+//            a = 0;
+//            if (num == 13) {
+//                a = num;
+//            }
+//            if ((b != -1) && (num != 13)) {
+//                System.out.write(num);
+//                System.out.flush();
+//            }
+//        }
+//
+//        if (a == 13) {
+//            System.out.write(a);
+//            System.out.flush();
+//        }
+
         int a = 0;
         int b = 0;
-        int num;
-
-        while ((num = System.in.read()) != -1) {
-            b = 0;
-            if ((a == 13) && (num == 10)) {
-                System.out.write(num);
-                System.out.flush();
-                b = -1;
-            }
-            if ((a == 13) && (num == 13)) {
-                System.out.write(a);
+        if ((a = System.in.read()) != -1) {
+            while ((b = System.in.read()) != -1) {
+                if ((a == 13) && (b == 10)) {
+                    a = b;
+                    System.out.write(a);
+                    System.out.flush();
+                }
+                System.out.write(b);
                 System.out.flush();
             }
-            if ((a == 13) && (num != 10) && (num != 13)){
-                System.out.write(a);
-                System.out.flush();
-            }
-            a = 0;
-            if (num == 13) {
-                a = num;
-            }
-            if ((b != -1) && (num != 13)) {
-                System.out.write(num);
-                System.out.flush();
-            }
-        }
-
-        if (a == 13) {
-            System.out.write(a);
-            System.out.flush();
         }
     }
+}
 
-        //----------------------------------
-
-//        int a = 0;
-//        int b = 0;
-//        int num;
-//
-//        BufferedInputStream bis = new BufferedInputStream(System.in);
-//        byte[] buf = new byte[bis.available()];
-//
-//        buf = bis.readAllBytes();
-//
-//        for (int i = 0; i < buf.length; i++){
-//            if
-//        }
-//
-//        System.out.println(Arrays.toString(buf));
-
-        //----------------------------------
-
-//        int a = 0;
-//        int b = 0;
-//        int num;
-//        while ((num = System.in.read()) != -1){
-//
-//
-//        }
-//
-//        while ((num = System.in.read()) != -1) {
-//            if ((a == 13) && (num ==13)){
-//                writeAndFlush(a);
-//                a = 0;
-//            }
-//            if ((a == 13) && (num == 10)){
-//                a = 0;
-//            }
-//            if (num != 13){
-//               writeAndFlush(num);
-//            }
-//            if (num == 13){
-//                a = num;
-//            }
-//        }
-//        if (a == 13){
-//            writeAndFlush(a);
-//        }
-//
-//
-//            if (num == 13){
-//                a = num;
-//            }
-//            if (a != 13 && num != 10){
-//        }
-//    }
-//    public static void writeAndFlush(int a){
-//        System.out.write(a);
-//        System.out.flush();
-//    }
-//}
+/*
+ * 1)считаем первое значение
+ * 2)если значение не -1 считаем в цикле
+ * 3)если а = 13, проверяем что текущее = 10, тогда а = 10
+ * 4)возврат к шагу №2
+ * 5)
+ */
