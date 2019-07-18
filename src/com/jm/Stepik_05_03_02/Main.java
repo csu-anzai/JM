@@ -15,10 +15,11 @@ public class Main {
         double d1 = 0.0;
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext()) {
-
-                if (scanner.hasNextDouble()) {
-                    d1 += Double.parseDouble(scanner.next("\\d"));
-                }
+            if (scanner.hasNextDouble()) {
+                d1 += scanner.nextDouble(); //переписал без try
+            } else {
+                scanner.next();
+            }
         }
         System.out.printf("%.6f", d1);
         scanner.close();
