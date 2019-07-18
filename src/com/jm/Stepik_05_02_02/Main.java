@@ -21,7 +21,6 @@
 package com.jm.Stepik_05_02_02;
 
 import java.io.*;
-import java.util.Arrays;
 
 public class Main {
 
@@ -61,21 +60,20 @@ public class Main {
 //            System.out.flush();
 //        }
 
-        int a = 0;
-        int b = 0;
-        if ((a = System.in.read()) != -1) {
-            while ((b = System.in.read()) != -1) {
-                if ((a == 13) && (b == 10)) {
-                    a = b;
-                    System.out.write(a);
-                    System.out.flush();
-                }
-                System.out.write(b);
+        int a = System.in.read();
+        while (a != -1) {
+            int b = System.in.read();
+            if ((a != 13) || (b != 10)) {
+                System.out.write(a);
                 System.out.flush();
             }
+            a = b;
         }
     }
 }
+
+
+
 
 /*
  * 1)считаем первое значение
