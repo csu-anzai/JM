@@ -2,7 +2,7 @@ package com.jm.Test;
 
 public class Stepik_05_04_Override_Clone {
 
-    public class Person {
+    public static class Person {
         String name;
         int age;
 
@@ -27,8 +27,9 @@ public class Stepik_05_04_Override_Clone {
 
     }
 
-    public static void main(String[] args) {
-//        Person person1 = new Person("Igor", 30);
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Person person1 = new Person("Igor", 30);
+        person1.clone();
 
     }
 }
