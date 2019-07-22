@@ -26,38 +26,56 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        int a = 0;
-        int b = 0;
-        int num;
+//        int a = 0;
+//        int b = 0;
+//        int num;
 
-        while ((num = System.in.read()) != -1) {
-            b = 0;
-            if ((a == 13) && (num == 10)) {
-                System.out.write(num);
-                System.out.flush();
-                b = -1;
-            }
-            if ((a == 13) && (num == 13)) {
+//        while ((num = System.in.read()) != -1) {
+//            b = 0;
+//            if ((a == 13) && (num == 10)) {
+//                System.out.write(num);
+//                System.out.flush();
+//                b = -1;
+//            }
+//            if ((a == 13) && (num == 13)) {
+//                System.out.write(a);
+//                System.out.flush();
+//            }
+//            if ((a == 13) && (num != 10) && (num != 13)) {
+//                System.out.write(a);
+//                System.out.flush();
+//            }
+//            a = 0;
+//            if (num == 13) {
+//                a = num;
+//            }
+//            if ((b != -1) && (num != 13)) {
+//                System.out.write(num);
+//                System.out.flush();
+//            }
+//        }
+//
+//        if (a == 13) {
+//            System.out.write(a);
+//            System.out.flush();
+//        }
+
+        int a = System.in.read();
+        while (a != -1) {
+            int b = System.in.read();
+            if ((a != 13) || (b != 10)) {
                 System.out.write(a);
                 System.out.flush();
             }
-            if ((a == 13) && (num != 10) && (num != 13)){
-                System.out.write(a);
-                System.out.flush();
-            }
-            a = 0;
-            if (num == 13) {
-                a = num;
-            }
-            if ((b != -1) && (num != 13)) {
-                System.out.write(num);
-                System.out.flush();
-            }
-        }
-
-        if (a == 13) {
-            System.out.write(a);
-            System.out.flush();
+            a = b;
         }
     }
 }
+
+/*
+ * 1)считаем первое значение
+ * 2)если значение не -1 считаем в цикле
+ * 3)если а = 13, проверяем что текущее = 10, тогда а = 10
+ * 4)возврат к шагу №2
+ * 5)
+ */

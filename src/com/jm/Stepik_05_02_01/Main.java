@@ -33,7 +33,7 @@ public class Main {
         int blockSize = 0;
 
         while ((blockSize = inputStream.read()) != -1) {
-            res = Integer.rotateLeft(res, 1) ^ blockSize;
+            res = Integer.rotateLeft(res, 1) ^ blockSize; //почистил
         }
         return res;
     }

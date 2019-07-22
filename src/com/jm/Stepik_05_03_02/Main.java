@@ -8,25 +8,20 @@
 
 package com.jm.Stepik_05_03_02;
 
-import java.io.*;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         double d1 = 0.0;
-        double sumDouble = 0.0;
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext()) {
-            try {
-                d1 += Double.parseDouble(scanner.next());
-            } catch (NumberFormatException e1) {
-                e1.getMessage();
+            if (scanner.hasNextDouble()) {
+                d1 += scanner.nextDouble(); //переписал без try
+            } else {
+                scanner.next();
             }
         }
         System.out.printf("%.6f", d1);
         scanner.close();
     }
 }
-
-
-
