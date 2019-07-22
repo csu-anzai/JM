@@ -2,29 +2,27 @@ package com.jm.Test;
 
 public class Stepik_05_04_Clone {
 
-
     public static void main(String[] args) throws CloneNotSupportedException {
 
         MyObj myObj1 = new MyObj();
         myObj1.i = 1;
-        myObj1.s = "abc1";
+        myObj1.innerObj.j = 2;
 
         MyObj myObj2 = myObj1.clone();
         myObj2.i = 10;
-//        myObj2.s = "abc";
+        myObj2.innerObj.j = 20;
 
-        System.out.println(myObj1.s == myObj2.s);
         System.out.println(myObj1.i);
-        System.out.println(myObj1.s);
+        System.out.println(myObj1.innerObj.j);
+        System.out.println();
         System.out.println(myObj2.i);
-        System.out.println(myObj2.s);
+        System.out.println(myObj2.innerObj.j);
 
     }
 }
 
 class MyObj implements Cloneable {
     int i;
-    String s = "abc";
     InnerObj innerObj = new InnerObj();
 
     @Override
