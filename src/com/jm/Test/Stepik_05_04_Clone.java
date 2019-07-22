@@ -5,40 +5,42 @@ public class Stepik_05_04_Clone {
 
     public static void main(String[] args) throws CloneNotSupportedException {
 
-        FirstObject firstObject = new FirstObject();
-        firstObject.i = 1;
-        firstObject.secondObject.j = 2;
+        MyObject myObject1 = new MyObject();
+        myObject1.i = 1;
+        myObject1.innerObject.j = 2;
 
-        FirstObject firstObject1 = firstObject.clone();
-        firstObject1.i = 10;
-        firstObject1.secondObject.j = 20;
+        MyObject myObject2 = myObject1.clone();
 
-        System.out.println(firstObject.i);
-        System.out.println(firstObject.secondObject.j);
+        myObject2.i = 10;
+        myObject2.innerObject.j = 20;
+
+        System.out.println(myObject1.i);
+        System.out.println(myObject1.innerObject.j);
         System.out.println();
-        System.out.println(firstObject1.i);
-        System.out.println(firstObject1.secondObject.j);
+        System.out.println(myObject2.i);
+        System.out.println(myObject2.innerObject.j);
+
 
     }
 }
 
-class FirstObject implements Cloneable {
+class MyObject implements Cloneable{
     int i;
-    SecondObject secondObject = new SecondObject();
+    InnerObject innerObject = new InnerObject();
 
     @Override
-    protected FirstObject clone() throws CloneNotSupportedException {
-        FirstObject firstObject = (FirstObject) super.clone();
-        firstObject.secondObject = secondObject.clone();
-        return firstObject;
+    public MyObject clone() throws CloneNotSupportedException {
+        MyObject myObject = (MyObject)super.clone();
+        myObject.innerObject = innerObject.clone();
+        return myObject;
     }
 }
 
-class SecondObject implements Cloneable {
+class InnerObject implements Cloneable{
     int j;
 
     @Override
-    protected SecondObject clone() throws CloneNotSupportedException {
-        return (SecondObject) super.clone();
+    public InnerObject clone() throws CloneNotSupportedException {
+        return (InnerObject)super.clone();
     }
 }
