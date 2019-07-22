@@ -12,6 +12,4 @@ public class Stepik_05_03_Read {
         int myInt = in.read();
         System.out.println(myInt); // 255
     }
-
-
 }
