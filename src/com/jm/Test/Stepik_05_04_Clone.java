@@ -5,42 +5,40 @@ public class Stepik_05_04_Clone {
 
     public static void main(String[] args) throws CloneNotSupportedException {
 
-        MyObject myObject1 = new MyObject();
-        myObject1.i = 1;
-        myObject1.innerObject.j = 2;
+        MyObj myObj1 = new MyObj();
+        myObj1.i = 1;
+        myObj1.innerObj.j = 2;
 
-        MyObject myObject2 = myObject1.clone();
+        MyObj myObj2 = myObj1.clone();
+        myObj2.i = 10;
+        myObj2.innerObj.j = 20;
 
-        myObject2.i = 10;
-        myObject2.innerObject.j = 20;
-
-        System.out.println(myObject1.i);
-        System.out.println(myObject1.innerObject.j);
+        System.out.println(myObj1.i);
+        System.out.println(myObj1.innerObj.j);
         System.out.println();
-        System.out.println(myObject2.i);
-        System.out.println(myObject2.innerObject.j);
+        System.out.println(myObj2.i);
+        System.out.println(myObj2.innerObj.j);
 
 
     }
 }
-
-class MyObject implements Cloneable{
+class MyObj implements Cloneable{
     int i;
-    InnerObject innerObject = new InnerObject();
+    InnerObj innerObj = new InnerObj();
 
     @Override
-    public MyObject clone() throws CloneNotSupportedException {
-        MyObject myObject = (MyObject)super.clone();
-        myObject.innerObject = innerObject.clone();
-        return myObject;
+    protected MyObj clone() throws CloneNotSupportedException {
+        MyObj myObj = (MyObj)super.clone();
+        myObj.innerObj = innerObj.clone();
+        return myObj;
     }
 }
 
-class InnerObject implements Cloneable{
+class InnerObj implements Cloneable {
     int j;
 
     @Override
-    public InnerObject clone() throws CloneNotSupportedException {
-        return (InnerObject)super.clone();
+    protected InnerObj clone() throws CloneNotSupportedException {
+        return (InnerObj)super.clone();
     }
 }
