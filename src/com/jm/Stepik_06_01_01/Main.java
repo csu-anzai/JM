@@ -18,6 +18,7 @@ boolean mustAlsoBeTrue = pair.hashCode() == pair2.hashCode(); // true!
 package com.jm.Stepik_06_01_01;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,12 +38,12 @@ public class Main {
         private S ob2;
 
         private Pair(I o1, S o2) {
-            ob1 = o1;
-            ob2 = o2;
+            this.ob1 = ob1;
+            this.ob2 = ob2;
         }
 
-        static <I, S> Pair <I, S> of(I o1, S o2) {
-            return new Pair<I, S>(o1, o2);
+        public static <I, S> Pair<I, S> of(I ob1, S ob2) {
+            return new Pair<>(ob1, ob2);
         }
 
         I getFirst() {
@@ -66,5 +67,6 @@ public class Main {
         public int hashCode() {
             return Objects.hash(ob1, ob2);
         }
+
     }
 }
