@@ -46,11 +46,11 @@ public class Main {
             return new Pair<>(ob1, ob2);
         }
 
-        I getFirst() {
+        public I getFirst() {
             return ob1;
         }
 
-        S getSecond() {
+        public S getSecond() {
             return ob2;
         }
 
@@ -67,6 +67,5 @@ public class Main {
         public int hashCode() {
             return Objects.hash(ob1, ob2);
         }
-
     }
 }
