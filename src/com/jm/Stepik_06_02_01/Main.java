@@ -30,21 +30,19 @@ public class Main {
 
     public static <T> Set<T> symmetricDifference(Set<? extends T> set1, Set<? extends T> set2) {
         Set<T> set3 = new HashSet<>();
-//        set3.addAll(set1);
-//        set3.addAll(set2);
 
-        if (set1.size() == set2.size()){
             Iterator<? extends T> iterator1 = set1.iterator();
             Iterator<? extends T> iterator2 = set2.iterator();
             while (iterator1.hasNext()){
                 T itemSet1 = iterator1.next();
-                while (itemSet1.)
+                if (!set2.contains(itemSet1))
+                    set3.add(itemSet1);
             }
-        }
-
-
+            while (iterator2.hasNext()){
+                T itemSet2 = iterator2.next();
+                if (!set1.contains(itemSet2))
+                    set3.add(itemSet2);
+            }
         return set3;
     }
-
-
 }
