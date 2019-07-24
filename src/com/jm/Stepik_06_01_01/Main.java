@@ -21,29 +21,29 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class Main {
-    public static void main(String[] args) {
-        Pair<Integer, String> pair = Pair.of(1, "hello");
-        Integer i = pair.getFirst();
-        String s = pair.getSecond();
-
-        Pair<Integer, String> pair2 = Pair.of(1, "hello");
-        boolean mustBeTrue = pair.equals(pair2);  //true
-        System.out.println(mustBeTrue);
-        boolean mustAlsoBeTrue = pair.hashCode() == pair2.hashCode();  //true
-        System.out.println(mustAlsoBeTrue);
-    }
+//    public static void main(String[] args) {
+//        Pair<Integer, String> pair = Pair.of(1, "hello"); //сработало с подчеркнутым of
+//        Integer i = pair.getFirst();
+//        String s = pair.getSecond();
+//
+//        Pair<Integer, String> pair2 = Pair.of(1, "hello"); //сработало с подчеркнутым of
+//        boolean mustBeTrue = pair.equals(pair2);  //true
+//        System.out.println(mustBeTrue);
+//        boolean mustAlsoBeTrue = pair.hashCode() == pair2.hashCode();  //true
+//        System.out.println(mustAlsoBeTrue);
+//    }
 
     class Pair<I, S> {
         private I ob1;
         private S ob2;
 
         private Pair(I o1, S o2) {
-            this.ob1 = ob1;
-            this.ob2 = ob2;
+            this.ob1 = o1;
+            this.ob2 = o2;
         }
 
-        public static <I, S> Pair<I, S> of(I ob1, S ob2) {
-            return new Pair<>(ob1, ob2);
+        <I, S> Pair<I, S> of(I o1, S o2) {
+            return new Pair<>(o1, o2);
         }
 
         public I getFirst() {
