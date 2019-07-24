@@ -20,19 +20,19 @@ package com.jm.Stepik_06_01_01;
 import java.util.Objects;
 
 public class Main {
-//    public static void main(String[] args) {
-//        Pair<Integer, String> pair = Pair.of(1, "hello");
-//        Integer i = pair.getFirst();
-//        String s = pair.getSecond();
-//
-//        Pair<Integer, String> pair2 = Pair.of(1, "hello");
-//        boolean mustBeTrue = pair.equals(pair2);  //true
-//        System.out.println(mustBeTrue);
-//        boolean mustAlsoBeTrue = pair.hashCode() == pair2.hashCode();  //true
-//        System.out.println(mustAlsoBeTrue);
-//    }
+    public static void main(String[] args) {
+        Pair<Integer, String> pair = Pair.of(1, "hello");
+        Integer i = pair.getFirst();
+        String s = pair.getSecond();
 
-    class Pair<I, S> {
+        Pair<Integer, String> pair2 = Pair.of(1, "hello");
+        boolean mustBeTrue = pair.equals(pair2);  //true
+        System.out.println(mustBeTrue);
+        boolean mustAlsoBeTrue = pair.hashCode() == pair2.hashCode();  //true
+        System.out.println(mustAlsoBeTrue);
+    }
+
+    static class Pair<I, S> {
         private I ob1;
         private S ob2;
 
@@ -41,9 +41,9 @@ public class Main {
             this.ob2 = o2;
         }
 
-//        static <I, S> Pair<I, S> of(I o1, S o2) { //подчеркивает
-//            return new Pair<>(o1, o2);
-//        }
+        static <I, S> Pair<I, S> of(I o1, S o2) { 
+            return new Pair<>(o1, o2);
+        }
 
         public I getFirst() {
             return ob1;
