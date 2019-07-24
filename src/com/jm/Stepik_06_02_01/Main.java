@@ -7,14 +7,12 @@
 
 package com.jm.Stepik_06_02_01;
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Set<Integer> set1 = new LinkedHashSet<Integer>();
-        Set<Integer> set2 = new LinkedHashSet<Integer>();
+        Set<Integer> set1 = new HashSet<Integer>();
+        Set<Integer> set2 = new HashSet<Integer>();
 
         for (int i = 1; i < 4; i++) {
             set1.add(i);
@@ -23,21 +21,30 @@ public class Main {
         for (int i = 0; i < 3; i++) {
             set2.add(i);
         }
+        System.out.println(set1);
+        System.out.println(set2);
 
-//        System.out.println(symmetricDifference(set1, set2));
+        System.out.println(symmetricDifference(set1, set2));
 
     }
 
-//    public static <T> Set<T> symmetricDifference(Set<? extends T> set1, Set<? extends T> set2) {
-//        Set<Integer> set3 = new LinkedHashSet<>();
-//        for (int i = 0; i < set1.size(); i++){
-//            set3.add(set1);
-//        }
-//        for (int i = 0; i < set2.size(); i++){
-//            set3.add(set2(i));
-//        }
-//        return null;
-//    }
+    public static <T> Set<T> symmetricDifference(Set<? extends T> set1, Set<? extends T> set2) {
+        Set<T> set3 = new HashSet<>();
+//        set3.addAll(set1);
+//        set3.addAll(set2);
+
+        if (set1.size() == set2.size()){
+            Iterator<? extends T> iterator1 = set1.iterator();
+            Iterator<? extends T> iterator2 = set2.iterator();
+            while (iterator1.hasNext()){
+                T itemSet1 = iterator1.next();
+                while (itemSet1.)
+            }
+        }
+
+
+        return set3;
+    }
 
 
 }

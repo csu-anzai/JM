@@ -41,7 +41,7 @@ public class Main {
             this.ob2 = o2;
         }
 
-        static <I, S> Pair<I, S> of(I o1, S o2) { 
+        static <I, S> Pair<I, S> of(I o1, S o2) {
             return new Pair<>(o1, o2);
         }
 
