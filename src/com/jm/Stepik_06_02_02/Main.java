@@ -12,8 +12,28 @@ Sample Output:
 
 package com.jm.Stepik_06_02_02;
 
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        List<Integer> list1 = new ArrayList<>();
+        while (scanner.hasNext()){
+            if (scanner.hasNextInt()){
+                scanner.nextInt();
+                if (scanner.hasNextInt()){
+                    list1.add(scanner.nextInt());
+                }
+            } else {
+                scanner.next();
+            }
+        }
+        Collections.reverse(list1);
 
+        Iterator<Integer> iterator = list1.iterator();
+        while (iterator.hasNext()){
+            System.out.print(iterator.next());
+            System.out.print(" ");
+        }
     }
 }
