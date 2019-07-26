@@ -26,7 +26,7 @@ public class Main {
         Function<CharSequence, Integer> ifFalse = CharSequence::length;
         Function<String, Integer> safeStringLength = ternaryOperator(condition, ifTrue, ifFalse);
 
-        System.out.println(safeStringLength.apply(null));
+        System.out.println(safeStringLength.apply("qwerty"));
     }
 
     public static <T, U> Function<T, U> ternaryOperator(
