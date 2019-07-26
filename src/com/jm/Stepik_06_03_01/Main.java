@@ -14,12 +14,19 @@ Function<String, Integer> safeStringLength = ternaryOperator(condition, ifTrue, 
 
 package com.jm.Stepik_06_03_01;
 
+import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
 
+        Predicate<Object> condition = Objects::isNull;
+        Function<Object, Integer> ifTrue = obj -> 0;
+        Function<CharSequence, Integer> ifFalse = CharSequence::length;
+        Function<String, Integer> safeStringLength = ternaryOperator(condition, ifTrue, ifFalse);
+
+        System.out.println(safeStringLength.apply(null));
     }
 
     public static <T, U> Function<T, U> ternaryOperator(
@@ -27,7 +34,7 @@ public class Main {
             Function<? super T, ? extends U> ifTrue,
             Function<? super T, ? extends U> ifFalse) {
 
-        return null; // your implementation here
+        return x -> condition.test(x) ? ifTrue.apply(x) : ifFalse.apply(x);
 
     }
 }
