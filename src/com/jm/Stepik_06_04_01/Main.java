@@ -25,10 +25,10 @@ public class Main {
 
     public static IntStream pseudoRandomStream(int seed) {
         IntStream integer = IntStream.iterate(seed, n -> n * n);
-        integer.skip(0)
-                .limit(3)
+        integer.filter(n -> n % 100 != 0)
+                //.skip(0)
+                .limit(5)
                 .forEach(System.out::print);
-
 
         return integer; // your implementation here
     }
