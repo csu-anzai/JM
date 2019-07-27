@@ -12,15 +12,24 @@ pseudoRandomStream(13) должен вернуть стрим, состоящи�
 
 package com.jm.Stepik_06_04_01;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
 
+        System.out.println(pseudoRandomStream(13));
     }
 
     public static IntStream pseudoRandomStream(int seed) {
-        return null; // your implementation here
-    }
+        IntStream integer = IntStream.iterate(seed, n -> n * n);
+        integer.skip(0)
+                .limit(3)
+                .forEach(System.out::print);
 
+
+        return integer; // your implementation here
+    }
 }
