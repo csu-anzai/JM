@@ -10,6 +10,7 @@
 Метод должен возвращать число типа long
 Метод не должен ничего выводить в консоль
  */
+
 package com.jm.GitHubTask_07;
 
 public class Main {
