@@ -8,6 +8,7 @@ minMaxConsumer.accept(null, null);
 
 package com.jm.Stepik_06_04_02;
 
+import java.lang.reflect.Array;
 import java.math.BigInteger;
 import java.util.Comparator;
 import java.util.Optional;
@@ -24,6 +25,8 @@ public class Main {
             Comparator<? super T> order,
             BiConsumer<? super T, ? super T> minMaxConsumer) {
 
+
+        
 
         if (stream.count() == 0) {
             minMaxConsumer.accept(null, null);
