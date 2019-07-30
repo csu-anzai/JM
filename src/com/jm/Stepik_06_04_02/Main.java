@@ -8,16 +8,22 @@ minMaxConsumer.accept(null, null);
 
 package com.jm.Stepik_06_04_02;
 
-import java.lang.reflect.Array;
 import java.math.BigInteger;
-import java.util.Comparator;
-import java.util.Optional;
+import java.sql.Array;
+import java.util.*;
 import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
+
     public static void main(String[] args) {
 
+//        Stream<Integer> stream = Stream.of(2, 4, 1, -5);
+//        Comparator<Integer> order = (o1, o2) -> o1.compareTo(o2);
+//        BiConsumer<Integer, Integer> minMaxConsumer = (obj1, obj2) -> obj1.compareTo(obj2);
+//
+//        System.out.println(findMinMax(stream, order, minMaxConsumer);
     }
 
     public static <T> void findMinMax(
@@ -25,13 +31,16 @@ public class Main {
             Comparator<? super T> order,
             BiConsumer<? super T, ? super T> minMaxConsumer) {
 
+//            List <T> list = (List <T>) stream.collect(Collectors.toList());
+//            list.sort(order);
 
-        
-
-        if (stream.count() == 0) {
+        T[] arr = (T[]) stream.toArray();
+        Arrays.sort(arr, order);
+        if (arr.length == 0){
             minMaxConsumer.accept(null, null);
         } else {
-            minMaxConsumer.accept();
+            minMaxConsumer.accept(arr[0], arr[arr.length - 1]);
         }
     }
 }
+
