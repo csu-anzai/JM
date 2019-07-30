@@ -8,11 +8,8 @@ minMaxConsumer.accept(null, null);
 
 package com.jm.Stepik_06_04_02;
 
-import java.math.BigInteger;
-import java.sql.Array;
 import java.util.*;
 import java.util.function.BiConsumer;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
