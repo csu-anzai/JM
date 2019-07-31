@@ -49,8 +49,8 @@ import java.util.stream.Stream;
 public class Main {
     public static void main(String[] args) throws IOException {
         Charset charset = StandardCharsets.UTF_8;
-        InputStreamReader inputStreamReader = new InputStreamReader(System.in, charset);
-        BufferedReader reader = new BufferedReader(inputStreamReader);
+//        InputStreamReader inputStreamReader = new InputStreamReader(System.in, charset);
+//        BufferedReader reader = new BufferedReader(inputStreamReader);
 
 //        List<String> list = new ArrayList<>();
 //        while (true) {
@@ -66,10 +66,18 @@ public class Main {
 //        Stream.of(new Scanner(System.in, charset).nextLine().split("\\s+"))
 //                .filter(s -> s.matches("[^A-Za-zА-Яа-я0-9]")
 
-        Stream<String> stringStream = reader.lines();
-        stringStream.filter(s -> s.matches("[^A-Za-zА-Яа-я0-9] "))
-                .map(String::toLowerCase)
-                .forEach(System.out::println);
+//        Stream<String> stringStream = reader.lines();
+//        stringStream.filter(s -> s.matches("[^A-Za-zА-Яа-я0-9] "))
+////                .map(String::toLowerCase)
+//                .forEach(System.out::println);
+
+//        Scanner scanner = new Scanner(System.in, charset);
+//        Stream<String> stringStream = scanner.tokens();
+//        stringStream.filter(s -> s.matches("[^A-Za-zА-Яа-я0-9] ")
+//                Stream.of(scanner).nextLine().split("\\s+"))
+//                .filter(s -> s.matches("[^A-Za-zА-Яа-я0-9] ")
+
+
 
 
     }
