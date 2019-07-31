@@ -67,7 +67,7 @@ public class Main {
 //                .filter(s -> s.matches("[^A-Za-zА-Яа-я0-9]")
 
         Stream<String> stringStream = reader.lines();
-        stringStream.filter(s -> s.matches("[^A-Za-zА-Яа-я0-9]"))
+        stringStream.filter(s -> s.matches("[^A-Za-zА-Яа-я0-9] "))
                 .map(String::toLowerCase)
                 .forEach(System.out::println);
 
