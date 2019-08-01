@@ -40,17 +40,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        //получаем поток
         Charset charset = StandardCharsets.UTF_8;
-//        InputStreamReader inputStreamReader = new InputStreamReader(System.in, charset);
-//        BufferedReader reader = new BufferedReader(inputStreamReader);
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in, charset);
+        BufferedReader reader = new BufferedReader(inputStreamReader);
 
 //        List<String> list = new ArrayList<>();
 //        while (true) {
@@ -77,6 +77,16 @@ public class Main {
 //                Stream.of(scanner).nextLine().split("\\s+"))
 //                .filter(s -> s.matches("[^A-Za-zА-Яа-я0-9] ")
 
+        //получаем стрим из потока и разбиваем строку
+        Stream<String> stringStream = reader.lines();
+        List<String> list1 = stringStream
+                .map(String::toLowerCase)
+                .flatMap(s -> Arrays.stream(s.split(" ")))
+                .flatMap(s -> Arrays.stream(s.split("-")))
+                .flatMap(s -> Arrays.stream(new String[]{s.replaceAll("[^A-Za-zА-Яа-я0-9]", "")}))
+                .collect(Collectors.toList());
+
+        System.out.println(list1.toString());
 
 
 
