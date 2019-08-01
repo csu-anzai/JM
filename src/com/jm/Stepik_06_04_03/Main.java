@@ -41,43 +41,18 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+
         //получаем поток
         Charset charset = StandardCharsets.UTF_8;
         InputStreamReader inputStreamReader = new InputStreamReader(System.in, charset);
         BufferedReader reader = new BufferedReader(inputStreamReader);
 
-//        List<String> list = new ArrayList<>();
-//        while (true) {
-//            list.add(reader.readLine());
-//            System.out.println(list.toString());
-//        }
-//        Stream<String> stringStream = reader.lines();
-//        stringStream.filter(s -> s.length() > 4)
-////                .peek(s -> s.)
-//                .map(String::toLowerCase)
-//                .forEach(System.out::println);
-
-//        Stream.of(new Scanner(System.in, charset).nextLine().split("\\s+"))
-//                .filter(s -> s.matches("[^A-Za-zА-Яа-я0-9]")
-
-//        Stream<String> stringStream = reader.lines();
-//        stringStream.filter(s -> s.matches("[^A-Za-zА-Яа-я0-9] "))
-////                .map(String::toLowerCase)
-//                .forEach(System.out::println);
-
-//        Scanner scanner = new Scanner(System.in, charset);
-//        Stream<String> stringStream = scanner.tokens();
-//        stringStream.filter(s -> s.matches("[^A-Za-zА-Яа-я0-9] ")
-//                Stream.of(scanner).nextLine().split("\\s+"))
-//                .filter(s -> s.matches("[^A-Za-zА-Яа-я0-9] ")
-
-        //получаем стрим из потока и разбиваем строку
+        //получаем стрим из потока и разбиваем на строки
         Stream<String> stringStream = reader.lines();
         List<String> list1 = stringStream
                 .map(String::toLowerCase)
@@ -86,10 +61,17 @@ public class Main {
                 .flatMap(s -> Arrays.stream(new String[]{s.replaceAll("[^A-Za-zА-Яа-я0-9]", "")}))
                 .collect(Collectors.toList());
 
-        System.out.println(list1.toString());
+        //группируем по количеству вхождений
+        Map<String, Long> map = list1.stream()
+                .collect(Collectors.groupingBy(e -> e, Collectors.counting()));
 
-
-
+        //сортируем
+        map.entrySet().stream()
+        .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                .map(x -> x.getKey())
+                .limit(10)
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
     }
 }
 
