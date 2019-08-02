@@ -62,16 +62,19 @@ public class Main {
                 .collect(Collectors.toList());
 
         //группируем по количеству вхождений
-        Map<String, Long> map = list1.stream()
+        Map<String, Long> groupMap = list1.stream()
                 .collect(Collectors.groupingBy(e -> e, Collectors.counting()));
 
         //сортируем
-        map.entrySet().stream()
-        .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
-                .map(x -> x.getKey())
+        Map<String, Long> sortMap = groupMap.entrySet().stream()
+                .sorted(Map.Entry.<String, Long>comparingByValue().reversed()
+                        .thenComparing(Map.Entry::getKey))
                 .limit(10)
-                .collect(Collectors.toList())
-                .forEach(System.out::println);
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+
+        List<String> linkedList = new LinkedList<String>(sortMap.keySet());
+        linkedList.forEach(System.out::println);
     }
 }
 
