@@ -1,6 +1,5 @@
 /*
 Дан сериализуемый класс Animal:
-
 class Animal implements Serializable {
     private final String name;
     public Animal(String name) {
