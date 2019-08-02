@@ -77,4 +77,3 @@ public class Main {
         linkedList.forEach(System.out::println);
     }
 }
-
