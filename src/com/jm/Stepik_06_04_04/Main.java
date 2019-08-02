@@ -86,4 +86,20 @@ import java.util.function.*;
 package com.jm.Stepik_06_04_04;
 
 public class Main {
+    public static void main(String[] args) {
+
+    }
+
+    public static class MailMessage {
+        // implement here
+    }
+
+    public static class Salary {
+        // implement here
+    }
+
+    public static class MailService {
+        // implement here
+    }
+
 }
