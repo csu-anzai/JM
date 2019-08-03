@@ -89,7 +89,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 
 public class Main {
     public static void main(String[] args) {
@@ -150,7 +149,6 @@ public class Main {
         ): "wrong mailService mailbox content (2)";
 
         assert mailBox.get(randomTo).equals(Collections.<String>emptyList()): "wrong mailService mailbox content (3)";
-
 
         // Создание списка из трех зарплат.
         Salary salary1 = new Salary("Facebook", "Mark Zuckerberg", 1);
