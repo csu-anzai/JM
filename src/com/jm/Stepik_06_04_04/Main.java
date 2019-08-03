@@ -89,6 +89,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class Main {
     public static void main(String[] args) {
@@ -216,14 +217,18 @@ public class Main {
             return to;
         }
 
-        public String getSalary() {
+        public int getSalary() {
             return salary;
         }
         // implement here
     }
 
-    public static class MailService {
+    public static class MailService<T> {
+        private Map<String, List<T>> mailBox;
+
+        public Map<String, List<T>> getMailBox() {
+            return mailBox;
+        }
         // implement here
     }
-
 }
