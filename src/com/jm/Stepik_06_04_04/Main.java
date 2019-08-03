@@ -224,7 +224,7 @@ public class Main {
     }
 
     public static class MailService<T> {
-        private Map<String, List<T>> mailBox;
+        Map<String, List<T>> mailBox;
 
         public Map<String, List<T>> getMailBox() {
             return mailBox;
