@@ -85,10 +85,13 @@ import java.util.function.*;
 
 package com.jm.Stepik_06_04_04;
 
+import com.jm.Stepik_04_03_02.Sendable;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class Main {
     public static void main(String[] args) {
@@ -221,12 +224,24 @@ public class Main {
         // implement here
     }
 
-    public static class MailService<T> {
+    public static class MailService<T> implements Consumer<T> {
         Map<String, List<T>> mailBox;
 
         public Map<String, List<T>> getMailBox() {
             return mailBox;
         }
+
+        @Override
+        public void accept(T t) {
+
+        }
+
+        @Override
+        public Consumer<T> andThen(Consumer<? super T> after) {
+            return null;
+        }
+
+
         // implement here
     }
 }
