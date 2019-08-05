@@ -85,13 +85,9 @@ import java.util.function.*;
 
 package com.jm.Stepik_06_04_04;
 
-import com.jm.Stepik_04_03_02.Sendable;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -172,67 +168,4 @@ public class Main {
         assert salaries.get(randomTo).equals(Arrays.asList(randomSalary)): "wrong salaries mailbox content (3)";
     }
 
-    //----------------------------------------
-
-    public static class MailMessage {
-        private String from;
-        private String to;
-        private String content;
-
-        public MailMessage(String from, String to, String content) {
-            this.from = from;
-            this.to = to;
-            this.content = content;
-        }
-
-        public String getFrom() {
-            return from;
-        }
-
-        public String getTo() {
-            return to;
-        }
-
-        public String getContent() {
-            return content;
-        }
-        // implement here
-    }
-
-    public static class Salary {
-        private String from;
-        private String to;
-        private int salary;
-
-        public Salary(String from, String to, int salary) {
-            this.from = from;
-            this.to = to;
-            this.salary = salary;
-        }
-
-        public String getFrom() {
-            return from;
-        }
-
-        public String getTo() {
-            return to;
-        }
-
-        public int getSalary() {
-            return salary;
-        }
-        // implement here
-    }
-
-    public static class MailService<T> implements Consumer {
-        @Override
-        public void accept(Object o) {
-
-        }
-
-        public Map<String, List<T>> getMailBox() {
-            return ;
-        }
-        // implement here
-    }
 }
