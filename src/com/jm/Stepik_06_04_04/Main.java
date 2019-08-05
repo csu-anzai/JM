@@ -224,24 +224,15 @@ public class Main {
         // implement here
     }
 
-    public static class MailService<T> implements Consumer<T> {
-        Map<String, List<T>> mailBox;
+    public static class MailService<T> implements Consumer {
+        @Override
+        public void accept(Object o) {
+
+        }
 
         public Map<String, List<T>> getMailBox() {
-            return mailBox;
+            return ;
         }
-
-        @Override
-        public void accept(T t) {
-
-        }
-
-        @Override
-        public Consumer<T> andThen(Consumer<? super T> after) {
-            return null;
-        }
-
-
         // implement here
     }
 }
