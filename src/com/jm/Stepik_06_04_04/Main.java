@@ -86,8 +86,6 @@ import java.util.function.*;
 package com.jm.Stepik_06_04_04;
 
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -167,5 +165,4 @@ public class Main {
         assert salaries.get(salary2.getTo()).equals(Arrays.asList(Integer.MAX_VALUE)): "wrong salaries mailbox content (2)";
         assert salaries.get(randomTo).equals(Arrays.asList(randomSalary)): "wrong salaries mailbox content (3)";
     }
-
 }

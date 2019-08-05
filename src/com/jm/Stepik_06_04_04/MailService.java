@@ -9,9 +9,9 @@ public class MailService<T> implements Consumer {
     Map<String, List<T>> myMailBox;
 
     @Override
-    public void accept(Main.Sendable<T> sendable) {
+    public void accept(Object o) {
         myMailBox.entrySet().stream()
-                .collect(Collectors.toMap(Main.Sendable::getTo, Main.Sendable::getContent);
+                .collect(Collectors.toMap()
     }
 
     public Map<String, List<T>> getMailBox() {
