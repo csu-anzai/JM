@@ -4,13 +4,13 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-public class MailService<T> implements Consumer<T> {
+public class MailService<T> implements Consumer <Sendable<T>> {
     Map<String, List<T>> myMailBox;
 
     @Override
-    public void accept(T t) {
+    public void accept(Sendable<T> t) {
         myMailBox = new HashMap<String, List<T>>(){
-            
+
         };
      }
 
