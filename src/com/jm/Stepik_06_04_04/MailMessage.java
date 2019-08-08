@@ -1,6 +1,6 @@
 package com.jm.Stepik_06_04_04;
 
-public class MailMessage {
+public class MailMessage implements Sendable{
     private String from;
     private String to;
     private String content;
@@ -15,12 +15,13 @@ public class MailMessage {
         return from;
     }
 
+    @Override
     public String getTo() {
         return to;
     }
 
+    @Override
     public String getContent() {
         return content;
     }
-    // implement here
 }

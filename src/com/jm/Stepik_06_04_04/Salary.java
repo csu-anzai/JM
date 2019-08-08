@@ -1,6 +1,6 @@
 package com.jm.Stepik_06_04_04;
 
-public class Salary {
+public class Salary implements Sendable{
     private String from;
     private String to;
     private int salary;
@@ -15,12 +15,17 @@ public class Salary {
         return from;
     }
 
+    @Override
     public String getTo() {
         return to;
     }
 
-    public int getSalary() {
+//    public int getSalary() {
+//        return salary;
+//    }
+
+    @Override
+    public Integer getContent() {
         return salary;
     }
-    // implement here
 }
