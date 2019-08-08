@@ -9,6 +9,7 @@ public class MailService<T> implements Consumer<Sendable<T>> {
 
     @Override
     public void accept(Sendable<T> t) {
+        myMailBox = new HashMap<>();
         List<T> list = new ArrayList<>();
         list.add(t.getContent());
         myMailBox.put(t.getTo(),list);

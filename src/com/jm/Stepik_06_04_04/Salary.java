@@ -20,10 +20,6 @@ public class Salary implements Sendable{
         return to;
     }
 
-//    public int getSalary() {
-//        return salary;
-//    }
-
     @Override
     public Integer getContent() {
         return salary;
