@@ -8,19 +8,18 @@ public class MailService<T> implements Consumer<Sendable<T>> {
     Map<String, List<T>> myMailBox;
 
     Map<String, List<T>> getMailBox() {
-        myMailBox = new HashMap<>(){
+        myMailBox = new HashMap<String, List<T>>(){
             @Override
             public List<T> get(Object key) {
-                return super.get(key);
+                return super.getOrDefault(key, new ArrayList<T>());
             }
         };
-
         return myMailBox;
     }
 
     @Override
     public void accept(Sendable<T> t) {
-        List<T> list = new ArrayList<>();
+        List<T> list = myMailBox.getOrDefault(t.getTo(), new ArrayList<>());
         list.add(t.getContent());
         myMailBox.put(t.getTo(), list);
     }

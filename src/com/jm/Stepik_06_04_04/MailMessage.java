@@ -1,6 +1,6 @@
 package com.jm.Stepik_06_04_04;
 
-public class MailMessage implements Sendable{
+public class MailMessage implements Sendable<String> {
     private String from;
     private String to;
     private String content;

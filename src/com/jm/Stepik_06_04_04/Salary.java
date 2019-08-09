@@ -1,6 +1,6 @@
 package com.jm.Stepik_06_04_04;
 
-public class Salary implements Sendable{
+public class Salary implements Sendable<Integer>{
     private String from;
     private String to;
     private int salary;
