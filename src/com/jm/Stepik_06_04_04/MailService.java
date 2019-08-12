@@ -5,13 +5,13 @@ import java.util.function.Consumer;
 
 public class MailService<T> implements Consumer<Sendable<T>> {
 
-    Map<String, List<T>> myMailBox;
+    Map<String, List<T>> myMailBox = new HashMap<>();
 
     Map<String, List<T>> getMailBox() {
         myMailBox = new HashMap<String, List<T>>(){
             @Override
             public List<T> get(Object key) {
-                return super.getOrDefault(key, new LinkedList<>());
+                return getOrDefault(key, new LinkedList<>());
             }
         };
         return myMailBox;
@@ -19,7 +19,7 @@ public class MailService<T> implements Consumer<Sendable<T>> {
 
     @Override
     public void accept(Sendable<T> t) {
-        List<T> list = myMailBox.getOrDefault(t.getTo(), new LinkedList<>());
+        List<T> list = myMailBox.getOrDefault(t.getTo(), new LinkedList<T>());
         list.add(t.getContent());
         myMailBox.put(t.getTo(), list);
     }
