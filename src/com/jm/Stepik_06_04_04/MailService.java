@@ -11,7 +11,11 @@ public class MailService<T> implements Consumer<Sendable<T>> {
         myMailBox = new HashMap<String, List<T>>(){
             @Override
             public List<T> get(Object key) {
-                return getOrDefault(key, new LinkedList<>());
+                if (myMailBox.containsKey(key)) {
+                    return myMailBox.get(key);
+                } else {
+                    return new LinkedList<>();
+                }
             }
         };
         return myMailBox;
@@ -19,8 +23,26 @@ public class MailService<T> implements Consumer<Sendable<T>> {
 
     @Override
     public void accept(Sendable<T> t) {
-        List<T> list = myMailBox.getOrDefault(t.getTo(), new LinkedList<T>());
-        list.add(t.getContent());
+//        if (myMailBox.containsKey(t.getTo())) {
+//            List<T> list1 = myMailBox.get(t.getTo());
+//            list1 = new LinkedList<>(list1);
+//            list1.add(t.getContent());
+//            myMailBox.put(t.getTo(), list1);
+//        } else {
+//            List<T> list2 = new LinkedList<>();
+//            list2.add(t.getContent());
+//            myMailBox.put(t.getTo(), list2);
+//        }
+//        ArrayList<T> aList = new ArrayList<>();
+//        List<T> list = myMailBox.getOrDefault(t.getTo(), new ArrayList<>());
+
+//        List<T> list3 = myMailBox.get(t.getTo());
+//        List<T> list4 = (List<T>) Arrays.asList(list3);
+//        myMailBox.put(t.getTo(), list4);
+
+        List<T> list = myMailBox.getOrDefault(t.getTo(), new LinkedList<>());
+        list = new LinkedList<>(Arrays.asList(t.getContent()));
         myMailBox.put(t.getTo(), list);
+//    }
     }
 }
