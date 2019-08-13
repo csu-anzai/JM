@@ -6,43 +6,35 @@ import java.util.function.Consumer;
 public class MailService<T> implements Consumer<Sendable<T>> {
 
     Map<String, List<T>> myMailBox = new HashMap<>();
+    List<T> myList = new ArrayList<>();
 
     Map<String, List<T>> getMailBox() {
-        myMailBox = new HashMap<String, List<T>>(){
+
+        Map<String, List<T>> box = new HashMap<String, List<T>>() {
             @Override
             public List<T> get(Object key) {
-                if (myMailBox.containsKey(key)) {
+                if (myMailBox.containsKey(key)){
                     return myMailBox.get(key);
                 } else {
-                    return new LinkedList<>();
+                    myMailBox.put((String) key, new ArrayList<>());
+                    return myMailBox.get(key);
                 }
             }
         };
-        return myMailBox;
+
+        return box;
     }
 
     @Override
     public void accept(Sendable<T> t) {
-//        if (myMailBox.containsKey(t.getTo())) {
-//            List<T> list1 = myMailBox.get(t.getTo());
-//            list1 = new LinkedList<>(list1);
-//            list1.add(t.getContent());
-//            myMailBox.put(t.getTo(), list1);
-//        } else {
-//            List<T> list2 = new LinkedList<>();
-//            list2.add(t.getContent());
-//            myMailBox.put(t.getTo(), list2);
-//        }
-//        ArrayList<T> aList = new ArrayList<>();
-//        List<T> list = myMailBox.getOrDefault(t.getTo(), new ArrayList<>());
-
-//        List<T> list3 = myMailBox.get(t.getTo());
-//        List<T> list4 = (List<T>) Arrays.asList(list3);
-//        myMailBox.put(t.getTo(), list4);
-
-        List<T> list = myMailBox.getOrDefault(t.getTo(), new LinkedList<>());
-        list = new LinkedList<>(Arrays.asList(t.getContent()));
-        myMailBox.put(t.getTo(), list);
-//    }
+        if (myMailBox.containsKey(t.getTo())){
+            myList = myMailBox.get(t.getTo());
+            myList.add(t.getContent());
+            myMailBox.put(t.getTo(), myList);
+        } else {
+            myList = new ArrayList<>();
+            myList.add(t.getContent());
+            myMailBox.put(t.getTo(), myList);
+        }
     }
 }
