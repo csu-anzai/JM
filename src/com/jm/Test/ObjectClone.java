@@ -1,6 +1,6 @@
 package com.jm.Test;
 
-public class Stepik_05_04_Clone {
+public class ObjectClone {
 
     public static void main(String[] args) throws CloneNotSupportedException {
 

@@ -2,7 +2,7 @@ package com.jm.Test;
 
 import java.util.*;
 
-public class Stepik_06_04_04_Mapa {
+public class Mapa {
     public static void main(String[] args) {
         Map<String, Integer> map = new HashMap<>();
 

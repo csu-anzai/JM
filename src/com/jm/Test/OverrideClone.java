@@ -1,6 +1,6 @@
 package com.jm.Test;
 
-public class Stepik_05_04_Override_Clone {
+public class OverrideClone {
 
     public static class Person {
         String name;

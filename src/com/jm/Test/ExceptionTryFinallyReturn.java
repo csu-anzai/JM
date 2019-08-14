@@ -1,6 +1,6 @@
 package com.jm.Test;
 
-public class Ex1 {
+public class ExceptionTryFinallyReturn {
     public static void main(String[] args) {
         System.out.println(exx());
     }

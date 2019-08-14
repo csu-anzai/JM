@@ -2,7 +2,7 @@ package com.jm.Test;
 
 import java.io.ByteArrayInputStream;
 
-public class Stepik_05_03_Read {
+public class MethodRead {
     public static void main(String[] args) {
         byte myByte = -1; // 11111111
 

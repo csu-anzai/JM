@@ -1,17 +1,17 @@
 package com.jm.Test;
 
-public class ComplNumber {
+public class OvverrideEqualsHashCode {
     private final double id;
     private final double d;
 
-    public ComplNumber(double id, double d){
+    public OvverrideEqualsHashCode(double id, double d){
         this.id = id;
         this.d = d;
     }
 
     public static void main(String[] args){
-        ComplNumber a = new ComplNumber(1, 1);
-        ComplNumber b = new ComplNumber(1, 1);
+        OvverrideEqualsHashCode a = new OvverrideEqualsHashCode(1, 1);
+        OvverrideEqualsHashCode b = new OvverrideEqualsHashCode(1, 1);
 
         System.out.println(a.equals(b));
         System.out.println(a.hashCode());
@@ -26,7 +26,7 @@ public class ComplNumber {
 
         if (this.getClass() != obj.getClass()) return false;
 
-        ComplNumber that = (ComplNumber) obj;
+        OvverrideEqualsHashCode that = (OvverrideEqualsHashCode) obj;
         if (this.id != that.id) return false;
         if (this.d > that.d && this.d < that.d ) return false;
 
