@@ -24,7 +24,7 @@ public class Decorator {
 
     static class QuotesDecorator implements PrinterInterface {
         PrinterInterface component;
-        QuotesDecorator(PrinterInterface component) {
+        QuotesDecorator(PrinterInterface component){
             this.component = component;
         }
 
