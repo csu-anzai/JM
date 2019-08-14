@@ -1,15 +1,13 @@
 package com.jm.Test;
 
-import java.io.PrintWriter;
-
 public class Decorator {
     public static void main(String[] args) {
-        PrinterInterface printerInterface = new Printer("Привет");
+        PrinterInterface printerInterface = new QuotesDecorator(new LeftBracketDecorator(new RightBracketDecorator(new Printer("Привет"))));
         printerInterface.print();
     }
 
     interface PrinterInterface{
-        public void print();
+        void print();
     }
 
     static class Printer implements PrinterInterface {
@@ -20,19 +18,50 @@ public class Decorator {
 
         @Override
         public void print() {
-            System.out.println(text);
+            System.out.print(text);
         }
     }
 
-    class MyDecorator implements PrinterInterface {
+    static class QuotesDecorator implements PrinterInterface {
         PrinterInterface component;
-        MyDecorator(PrinterInterface component){
+        QuotesDecorator(PrinterInterface component){
+            this.component = component;
+        }
+
+        @Override
+        public void print() {
+            System.out.print("\"");
+            component.print();
+            System.out.print("\"");
+
+        }
+    }
+
+    static class LeftBracketDecorator implements PrinterInterface {
+        PrinterInterface component;
+        LeftBracketDecorator(PrinterInterface component){
+            this.component = component;
+        }
+
+        @Override
+        public void print() {
+            System.out.print("[");
+            component.print();
+
+        }
+    }
+
+    static class RightBracketDecorator implements PrinterInterface {
+        PrinterInterface component;
+        RightBracketDecorator(PrinterInterface component){
             this.component = component;
         }
 
         @Override
         public void print() {
             component.print();
+            System.out.print("]");
+
         }
     }
 }
