@@ -6,13 +6,13 @@ public class Decorator {
         printerInterface.print();
     }
 
-    interface PrinterInterface{
+    interface PrinterInterface {
         void print();
     }
 
     static class Printer implements PrinterInterface {
         String text;
-        Printer (String text){
+        Printer (String text) {
             this.text = text;
         }
 
@@ -24,7 +24,7 @@ public class Decorator {
 
     static class QuotesDecorator implements PrinterInterface {
         PrinterInterface component;
-        QuotesDecorator(PrinterInterface component){
+        QuotesDecorator(PrinterInterface component) {
             this.component = component;
         }
 
