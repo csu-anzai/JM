@@ -42,7 +42,7 @@ public class Main {
         try {
             ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(data));
 
-            size = (int) ois.readInt();
+            size = ois.readInt();
 
             animals = new Animal[size];
             for (int i = 0; i < animals.length; i++){
