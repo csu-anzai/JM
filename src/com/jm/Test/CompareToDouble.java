@@ -9,11 +9,6 @@ public class CompareToDouble {
     BigDecimal bd1 = new BigDecimal(d1);
     BigDecimal bd2 = new BigDecimal(d2);
 
-//    public CompareToDouble(double d1, double d2){
-//        this.d1 = d1;
-//        this.d2 = d2;
-//    }
-
     public static void main(String[] args) {
         CompareToDouble a = new CompareToDouble();
         System.out.println(a.bd1);
